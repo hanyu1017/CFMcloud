@@ -1,6 +1,6 @@
 // pages/index.js
 import { useState, useEffect } from 'react'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import FactoryCard from '../components/FactoryCard'
 import AlertPanel from '../components/AlertPanel'
 import DataTable from '../components/DataTable'
@@ -20,19 +20,86 @@ export default function Dashboard() {
     try {
       setLoading(true)
       
-      const [factoriesRes, alertsRes, statsRes] = await Promise.all([
-        fetch('/api/factories'),
-        fetch('/api/alerts'),
-        fetch('/api/factories/stats')
-      ])
+      // 模擬數據
+      const mockFactories = [
+        {
+          factory_id: 1,
+          factory_name: '台北總廠',
+          location: '台北市信義區',
+          status: 'online',
+          carbon_emissions: 87.6,
+          process_emissions: 52.6,
+          energy_emissions: 35.0,
+          energy_consumption: 120.5,
+          efficiency_rate: 18.5,
+          carbon_reduction: -12.4
+        },
+        {
+          factory_id: 2,
+          factory_name: '台中廠',
+          location: '台中市西屯區',
+          status: 'online',
+          carbon_emissions: 65.3,
+          process_emissions: 35.9,
+          energy_emissions: 29.4,
+          energy_consumption: 95.2,
+          efficiency_rate: 21.0,
+          carbon_reduction: -15.8
+        },
+        {
+          factory_id: 3,
+          factory_name: '高雄廠',
+          location: '高雄市前鎮區',
+          status: 'online',
+          carbon_emissions: 56.8,
+          process_emissions: 31.2,
+          energy_emissions: 25.6,
+          energy_consumption: 78.9,
+          efficiency_rate: 14.2,
+          carbon_reduction: -8.7
+        }
+      ]
 
-      const factoriesData = await factoriesRes.json()
-      const alertsData = await alertsRes.json()
-      const statsData = await statsRes.json()
+      const mockAlerts = [
+        {
+          alert_id: 1,
+          factory_id: 3,
+          factory_name: '高雄廠',
+          alert_type: 'energy',
+          alert_level: 'high',
+          message: '空調系統異常耗電',
+          created_at: new Date().toISOString()
+        },
+        {
+          alert_id: 2,
+          factory_id: 1,
+          factory_name: '台北總廠',
+          alert_type: 'temperature',
+          alert_level: 'high',
+          message: '製程區域溫度過高',
+          created_at: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString()
+        },
+        {
+          alert_id: 3,
+          factory_id: 3,
+          factory_name: '高雄廠',
+          alert_type: 'maintenance',
+          alert_level: 'medium',
+          message: '設備維護即將到期',
+          created_at: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
+        }
+      ]
 
-      setFactories(factoriesData)
-      setAlerts(alertsData)
-      setStats(statsData)
+      const mockStats = {
+        total_factories: 3,
+        online_factories: 3,
+        total_carbon_emissions: 209.7,
+        avg_efficiency_rate: 17.9
+      }
+
+      setFactories(mockFactories)
+      setAlerts(mockAlerts)
+      setStats(mockStats)
     } catch (error) {
       console.error('獲取儀表板數據失敗:', error)
     } finally {
