@@ -121,7 +121,7 @@ body {
   color: var(--white);
   position: fixed;
   height: 100vh;
-  overflow-y: auto;
+  overflow: hidden;
   border-right: 1px solid var(--primary-700);
   z-index: 1000;
 }

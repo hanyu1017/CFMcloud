@@ -1,4 +1,5 @@
 // components/Sidebar.js
+import React from 'react';
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -17,20 +18,24 @@ export default function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="sidebar-logo">
-        <h2>廠區管理系統</h2>
+        <h2>工廠監控系統</h2>
+        <p>智能製造管理平台</p>
       </div>
       
       <nav className="sidebar-nav">
-        {menuItems.map(item => (
-          <Link
-            key={item.path}
-            href={item.path}
-            className={`nav-item ${router.pathname === item.path ? 'active' : ''}`}
-          >
-            <span className="nav-icon">{item.icon}</span>
-            {item.name}
-          </Link>
-        ))}
+        <div className="nav-section">
+          <div className="nav-section-title">主要功能</div>
+          {menuItems.map(item => (
+            <Link
+              key={item.path}
+              href={item.path}
+              className={`nav-item ${router.pathname === item.path ? 'active' : ''}`}
+            >
+              <span className="nav-icon">{item.icon}</span>
+              {item.name}
+            </Link>
+          ))}
+        </div>
       </nav>
     </aside>
   )
