@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>碳排放儀表板 - 首頁</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="css/main.css" rel="stylesheet"/>
+<link href="css/dashboard.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+</head>
+<body>
+<div class="loading-overlay">
+<div class="spinner"></div>
+</div>
+<div class="overlay"></div>
+<div class="side-menu">
+<div class="menu-header">
+<div class="menu-title">碳排放系統選單</div>
+<span class="close-btn"><i class="fas fa-times"></i></span>
+</div>
+<div class="user-profile">
+<div class="user-avatar">
+<i class="fas fa-user-circle"></i>
+</div>
+<div class="user-info">
+<div class="user-name">王大明</div>
+<div class="user-role">管理員</div>
+</div>
+</div>
+<ul>
+<li><a class="active" href="index.html"><i class="fas fa-home"></i>首頁</a></li>
+<li><a href="overview.html"><i class="fas fa-tachometer-alt"></i>整體概覽</a></li>
+<li><a href="factories.html"><i class="fas fa-industry"></i>廠區管理</a></li>
+<li><a href="energy-audit.html"><i class="fas fa-clipboard-check"></i>能源盤查</a></li>
+<li class="carbon-model-item"><a href="carbon-model.html"><i class="fas fa-brain"></i>碳排模型決策</a></li>
+<li><a href="#"><i class="fas fa-edit"></i>資料編輯</a></li>
+<li><a href="#"><i class="fas fa-sliders-h"></i>手動能源管理</a></li>
+<li><a href="#"><i class="fas fa-bullseye"></i>減碳目標管理</a></li>
+<li><a href="#"><i class="fas fa-chart-line"></i>碳排放報表</a></li>
+<li><a href="settings.html"><i class="fas fa-cog"></i>系統設定</a></li>
+<li><a href="#"><i class="fas fa-question-circle"></i>幫助中心</a></li>
+</ul>
+<div class="menu-footer">
+<a class="logout-btn" href="login.html"><i class="fas fa-sign-out-alt"></i> 登出</a>
+</div>
+</div>
+<header>
+<div class="menu-icon"><i class="fas fa-bars"></i></div>
+<div class="logo"><i class="fas fa-leaf"></i>碳排放儀表板</div>
+<div class="header-actions">
+<div class="user-info">
+<i class="fas fa-bell"></i>
+<span class="notification-badge">3</span>
+</div>
+<div class="user-profile-icon">
+<i class="fas fa-user-circle"></i>
+</div>
+</div>
+</header>
+<div class="main-wrapper">
+<div class="container">
+<div class="main-content">
+<div class="factory-info">
+<div class="factory-name">
+<i class="fas fa-industry"></i>台北總廠
+                    </div>
+<div class="factory-toggle">切換廠區 <i class="fas fa-chevron-down"></i></div>
+</div>
+<div class="time-selector">
+<button class="time-btn">1小時</button>
+<button class="time-btn active">3小時</button>
+<button class="time-btn">6小時</button>
+<button class="time-btn">12小時</button>
+<button class="time-btn">24小時</button>
+<button class="time-btn">7天</button>
+</div>
+<div class="card">
+<div class="card-title">
+<span>即時用電情況</span>
+<div class="trend-indicator trend-up">
+<i class="fas fa-arrow-up"></i> +5.2%
+                        </div>
+</div>
+<div class="card-value">2,845 kWh</div>
+<div class="card-subtitle">過去3小時內的總用電量</div>
+<div class="chart-container">
+<canvas id="electricityChart"></canvas>
+</div>
+<div class="status-indicator">
+<div class="status-item">
+<i class="fas fa-bolt status-warning"></i> 尖峰負載: 89%
+                        </div>
+<div class="status-item">
+<i class="fas fa-exclamation-triangle status-warning"></i> 異常用電: 2區域
+                        </div>
+</div>
+<div class="card-actions">
+<button class="action-btn"><i class="fas fa-download"></i> 匯出數據</button>
+<button class="action-btn"><i class="fas fa-bell"></i> 設置警報</button>
+</div>
+</div>
+<div class="card">
+<div class="card-title">
+<span>碳排放量</span>
+<div class="trend-indicator trend-up">
+<i class="fas fa-arrow-up"></i> +3.8%
+                        </div>
+</div>
+<div class="card-value">1,423 kg CO₂e</div>
+<div class="card-subtitle">過去3小時內的碳排放量</div>
+<div class="chart-container">
+<canvas id="carbonChart"></canvas>
+<div style="margin: 20px 0;">
+<label>選擇廠區：
+    <select id="factorySelect">
+<option value="FAC-001">台北總廠</option>
+<option value="FAC-002">台中工廠</option>
+<option value="FAC-003">高雄工廠</option>
+</select>
+</label>
+<label>開始時間：
+    <input id="startTime" type="datetime-local"/>
+</label>
+<label>結束時間：
+    <input id="endTime" type="datetime-local"/>
+</label>
+<button onclick="queryCarbonTotal()">查詢總碳排</button>
+</div>
+<canvas height="300" id="carbonRangeChart" width="600"></canvas>
+
+</div>
+<div class="card-actions">
+<button class="action-btn"><i class="fas fa-download"></i> 匯出數據</button>
+<button class="action-btn primary"><i class="fas fa-brain"></i> 模型模擬</button>
+</div>
+</div>
+<div class="section-header">
+<div class="page-title">關鍵指標</div>
+<a class="view-all" href="overview.html">查看全部</a>
+</div>
+<div class="data-grid">
+<div class="data-card">
+<div class="data-card-title">尖峰用電 (kW)</div>
+<div class="data-card-value">1,245</div>
+</div>
+<div class="data-card">
+<div class="data-card-title">用電效率 (%)</div>
+<div class="data-card-value">89</div>
+</div>
+<div class="data-card">
+<div class="data-card-title">碳排強度</div>
+<div class="data-card-value">0.52</div>
+</div>
+<div class="data-card">
+<div class="data-card-title">節能設備佔比 (%)</div>
+<div class="data-card-value">62</div>
+</div>
+</div>
+<div class="card">
+<div class="card-title">能源組成比例</div>
+<div class="chart-container">
+<canvas id="energyCompositionChart"></canvas>
+</div>
+</div>
+<div class="card">
+<div class="card-title">減碳目標進度</div>
+<div class="progress-container">
+<div class="progress-bar" style="width: 72%;"></div>
+</div>
+<div class="goal-info">
+<div>目前進度: 72%</div>
+<div>目標: 2025年減碳30%</div>
+</div>
+</div>
+<div class="section-header">
+<div class="page-title">最新警報</div>
+<a class="view-all" href="#">查看全部</a>
+</div>
+<div class="card">
+<ul class="alert-list">
+<li class="alert-item">
+<div class="alert-icon danger">
+<i class="fas fa-exclamation-circle"></i>
+</div>
+<div class="alert-content">
+<div class="alert-title">製程區異常用電超過警戒值</div>
+<div class="alert-time">今天 14:32</div>
+</div>
+<div class="alert-action">
+<i class="fas fa-chevron-right"></i>
+</div>
+</li>
+<li class="alert-item">
+<div class="alert-icon warning">
+<i class="fas fa-exclamation-triangle"></i>
+</div>
+<div class="alert-content">
+<div class="alert-title">辦公區耗能超出每日預算15%</div>
+<div class="alert-time">今天 11:25</div>
+</div>
+<div class="alert-action">
+<i class="fas fa-chevron-right"></i>
+</div>
+</li>
+<li class="alert-item">
+<div class="alert-icon warning">
+<i class="fas fa-exclamation-triangle"></i>
+</div>
+<div class="alert-content">
+<div class="alert-title">空調系統運作效率低於標準</div>
+<div class="alert-time">今天 09:58</div>
+</div>
+<div class="alert-action">
+<i class="fas fa-chevron-right"></i>
+</div>
+</li>
+</ul>
+</div>
+<div class="card model-suggestion">
+<div class="card-title">
+<span><i class="fas fa-lightbulb"></i> 模型決策建議</span>
+<a class="view-suggestion" href="carbon-model.html">查看詳情</a>
+</div>
+<div class="suggestion-content">
+<p>基於當前碳價 ($120/噸)，建議調整參數至：</p>
+<ul class="suggestion-list">
+<li><strong>Gf=$3,300</strong> (製造階段投資)</li>
+<li><strong>Gs=$2,200</strong> (零售階段投資)</li>
+<li><strong>價格=$88</strong></li>
+</ul>
+<p class="suggestion-result">可使總成本下降約 <strong>8.2%</strong></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bottom-nav">
+<a class="nav-item active" href="index.html">
+<i class="fas fa-home"></i>
+<span>首頁</span>
+</a>
+<a class="nav-item" href="factories.html">
+<i class="fas fa-industry"></i>
+<span>廠區</span>
+</a>
+<a class="nav-item" href="energy-audit.html">
+<i class="fas fa-clipboard-check"></i>
+<span>能源盤查</span>
+</a>
+<a class="nav-item" href="carbon-model.html">
+<i class="fas fa-brain"></i>
+<span>決策模型</span>
+</a>
+<a class="nav-item" href="settings.html">
+<i class="fas fa-cog"></i>
+<span>設定</span>
+</a>
+</div>
+<script src="js/main.js"></script>
+<script src="js/charts.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDe8NC0tf-2na8VQGOCKY0ODulXiC6cvHM",
+    authDomain: "cfmcloud.firebaseapp.com",
+    projectId: "cfmcloud",
+    storageBucket: "cfmcloud.firebasestorage.app",
+    messagingSenderId: "66921698133",
+    appId: "1:66921698133:web:0b258104026d800c15d5dc"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  async function fetchCarbonData() {
+    try {
+      const snapshot = await db.collection("manufacturing_events")
+        .where("factory_id", "==", "FAC-001")
+        .orderBy("timestamp", "desc")
+        .limit(24)
+        .get();
+
+      const labels = [];
+      const data = [];
+
+      snapshot.forEach(doc => {
+        const d = doc.data();
+        const ts = new Date(d.timestamp);
+        labels.unshift(`${ts.getHours()}:00`);
+        data.unshift(d.carbon_emission);
+      });
+
+      renderCarbonChart(labels, data);
+    } catch (error) {
+      console.error("讀取碳排放資料失敗：", error);
+    }
+  }
+
+  function renderCarbonChart(labels, data) {
+    const ctx = document.getElementById('carbonChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: '碳排放量 (kg CO₂e)',
+          data: data,
+          borderColor: '#e74c3c',
+          backgroundColor: 'rgba(231, 76, 60, 0.1)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          x: { title: { display: true, text: '時間' }},
+          y: { title: { display: true, text: 'kg CO₂e' }}
+        }
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", fetchCarbonData);
+</script>
+
+<script>
+  async function queryCarbonTotal() {
+    const factoryId = document.getElementById("factorySelect").value;
+    const start = new Date(document.getElementById("startTime").value);
+    const end = new Date(document.getElementById("endTime").value);
+
+    if (!start || !end || start >= end) {
+      alert("請選擇正確的開始與結束時間");
+      return;
+    }
+
+    const snapshot = await db.collection("manufacturing_events")
+      .where("factory_id", "==", factoryId)
+      .where("timestamp", ">=", start.toISOString())
+      .where("timestamp", "<=", end.toISOString())
+      .get();
+
+    const hourlyMap = new Map();
+
+    snapshot.forEach(doc => {
+      const d = doc.data();
+      const ts = new Date(d.timestamp);
+      const hourKey = ts.toISOString().substring(0, 13); // yyyy-MM-DDTHH
+      hourlyMap.set(hourKey, (hourlyMap.get(hourKey) || 0) + (d.carbon_emission || 0));
+    });
+
+    const labels = Array.from(hourlyMap.keys());
+    const data = Array.from(hourlyMap.values());
+
+    new Chart(document.getElementById("carbonRangeChart").getContext("2d"), {
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "碳排放量 (kg CO₂e)",
+          data: data,
+          backgroundColor: "rgba(52, 152, 219, 0.5)"
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true }
+        },
+        scales: {
+          x: { title: { display: true, text: "時間 (每小時)" }},
+          y: { title: { display: true, text: "碳排放量 kg CO₂e" }}
+        }
+      }
+    });
+  }
+</script>
+</body>
+</html>

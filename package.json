@@ -1,0 +1,23 @@
+{
+  "name": "cfmcloud",
+  "version": "1.0.0",
+  "main": "upload.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanyu1017/hanyurepo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanyu1017/hanyurepo/issues"
+  },
+  "homepage": "https://github.com/hanyu1017/hanyurepo#readme",
+  "description": "",
+  "dependencies": {
+    "firebase-admin": "^13.2.0"
+  }
+}

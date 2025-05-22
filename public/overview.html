@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>整體概覽 - 碳排放儀表板</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <div class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="side-menu">
+        <div class="menu-header">
+            <div class="menu-title">碳排放系統選單</div>
+            <span class="close-btn"><i class="fas fa-times"></i></span>
+        </div>
+        <div class="user-profile">
+            <div class="user-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="user-info">
+                <div class="user-name">王大明</div>
+                <div class="user-role">管理員</div>
+            </div>
+        </div>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i>首頁</a></li>
+            <li><a href="overview.html" class="active"><i class="fas fa-tachometer-alt"></i>整體概覽</a></li>
+            <li><a href="factories.html"><i class="fas fa-industry"></i>廠區管理</a></li>
+            <li><a href="energy-audit.html"><i class="fas fa-clipboard-check"></i>能源盤查</a></li>
+            <li class="carbon-model-item"><a href="carbon-model.html"><i class="fas fa-brain"></i>碳排模型決策</a></li>
+            <li><a href="#"><i class="fas fa-edit"></i>資料編輯</a></li>
+            <li><a href="#"><i class="fas fa-sliders-h"></i>手動能源管理</a></li>
+            <li><a href="#"><i class="fas fa-bullseye"></i>減碳目標管理</a></li>
+            <li><a href="#"><i class="fas fa-chart-line"></i>碳排放報表</a></li>
+            <li><a href="settings.html"><i class="fas fa-cog"></i>系統設定</a></li>
+            <li><a href="#"><i class="fas fa-question-circle"></i>幫助中心</a></li>
+        </ul>
+        <div class="menu-footer">
+            <a href="login.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> 登出</a>
+        </div>
+    </div>
+    
+    <header>
+        <div class="menu-icon"><i class="fas fa-bars"></i></div>
+        <div class="logo"><i class="fas fa-leaf"></i>碳排放儀表板</div>
+        <div class="header-actions">
+            <div class="user-info">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+            </div>
+            <div class="user-profile-icon">
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </div>
+    </header>
+    
+    <div class="main-wrapper">
+        <div class="container container-wide">
+            <div class="main-content">
+                <div class="page-header">
+                    <h1 class="page-title"><i class="fas fa-tachometer-alt"></i> 整體概覽</h1>
+                    <div class="header-actions">
+                        <div class="date-range-picker">
+                            <i class="fas fa-calendar"></i>
+                            <span>2025年4月1日 - 2025年4月20日</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <button class="btn btn-outline"><i class="fas fa-download"></i> 匯出報告</button>
+                    </div>
+                </div>
+                
+                <div class="overview-summary">
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="summary-info">
+                            <div class="summary-label">總用電量</div>
+                            <div class="summary-value">4,826,540 kWh</div>
+                            <div class="summary-trend trend-up">
+                                <i class="fas fa-arrow-up"></i> 4.8% 較上月
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="summary-info">
+                            <div class="summary-label">碳排放總量</div>
+                            <div class="summary-value">2,413,270 kg CO₂e</div>
+                            <div class="summary-trend trend-up">
+                                <i class="fas fa-arrow-up"></i> 3.6% 較上月
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="summary-info">
+                            <div class="summary-label">碳成本</div>
+                            <div class="summary-value">¥289,592</div>
+                            <div class="summary-trend trend-up">
+                                <i class="fas fa-arrow-up"></i> 5.2% 較上月
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="summary-info">
+                            <div class="summary-label">減碳進度</div>
+                            <div class="summary-value">72%</div>
+                            <div class="summary-trend trend-down">
+                                <i class="fas fa-arrow-down"></i> 1.5% 較上月
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="overview-grid">
+                    <div class="grid-item grid-item-wide">
+                        <div class="card">
+                            <div class="card-title">
+                                <span>各廠區碳排放趨勢</span>
+                                <div class="card-actions-small">
+                                    <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                                </div>
+                            </div>
+                            <div class="chart-container chart-container-lg">
+                                <canvas id="factoriesChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <div class="card">
+                            <div class="card-title">
+                                <span>碳排放來源分佈</span>
+                                <div class="card-actions-small">
+                                    <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="carbonSourcesChart"></canvas>
+                            </div>
+                            <div class="carbon-sources-list">
+                                <div class="source-item">
+                                    <div class="source-color" style="background-color: #3498db;"></div>
+                                    <div class="source-name">電力消耗</div>
+                                    <div class="source-value">65%</div>
+                                </div>
+                                <div class="source-item">
+                                    <div class="source-color" style="background-color: #e74c3c;"></div>
+                                    <div class="source-name">天然氣</div>
+                                    <div class="source-value">15%</div>
+                                </div>
+                                <div class="source-item">
+                                    <div class="source-color" style="background-color: #f39c12;"></div>
+                                    <div class="source-name">柴油</div>
+                                    <div class="source-value">12%</div>
+                                </div>
+                                <div class="source-item">
+                                    <div class="source-color" style="background-color: #2ecc71;"></div>
+                                    <div class="source-name">其他</div>
+                                    <div class="source-value">8%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <div class="card">
+                            <div class="card-title">
+                                <span>廠區碳排放比較</span>
+                                <div class="card-actions-small">
+                                    <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="factoryComparisonChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <div class="card">
+                            <div class="card-title">
+                                <span>廠區指標排名</span>
+                                <div class="card-actions-small">
+                                    <select class="select-slim">
+                                        <option>碳排放總量</option>
+                                        <option>用電效率</option>
+                                        <option>減碳比率</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <ul class="ranking-list">
+                                <li class="ranking-item">
+                                    <div class="ranking-number">1</div>
+                                    <div class="ranking-content">
+                                        <div class="ranking-title">台北總廠</div>
+                                        <div class="ranking-bar-container">
+                                            <div class="ranking-bar" style="width: 92%;"></div>
+                                            <span>1,242,680 kg CO₂e</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="ranking-item">
+                                    <div class="ranking-number">2</div>
+                                    <div class="ranking-content">
+                                        <div class="ranking-title">台中廠</div>
+                                        <div class="ranking-bar-container">
+                                            <div class="ranking-bar" style="width: 76%;"></div>
+                                            <span>865,420 kg CO₂e</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="ranking-item">
+                                    <div class="ranking-number">3</div>
+                                    <div class="ranking-content">
+                                        <div class="ranking-title">高雄廠</div>
+                                        <div class="ranking-bar-container">
+                                            <div class="ranking-bar" style="width: 53%;"></div>
+                                            <span>305,170 kg CO₂e</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <div class="card">
+                            <div class="card-title">
+                                <span>減碳目標進度</span>
+                                <div class="card-actions-small">
+                                    <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                                </div>
+                            </div>
+                            <div class="goals-container">
+                                <div class="goal-item">
+                                    <div class="goal-info">
+                                        <div class="goal-title">2025年減碳30%</div>
+                                        <div class="goal-percent">72%</div>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar" style="width: 72%;"></div>
+                                    </div>
+                                    <div class="goal-dates">
+                                        <div class="start-date">2023/1</div>
+                                        <div class="end-date">2025/12</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="goal-item">
+                                    <div class="goal-info">
+                                        <div class="goal-title">節能設備更新</div>
+                                        <div class="goal-percent">45%</div>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar" style="width: 45%;"></div>
+                                    </div>
+                                    <div class="goal-dates">
+                                        <div class="start-date">2024/3</div>
+                                        <div class="end-date">2026/6</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="goal-item">
+                                    <div class="goal-info">
+                                        <div class="goal-title">可再生能源導入</div>
+                                        <div class="goal-percent">28%</div>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar" style="width: 28%;"></div>
+                                    </div>
+                                    <div class="goal-dates">
+                                        <div class="start-date">2024/1</div>
+                                        <div class="end-date">2027/12</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <div class="card model-suggestion">
+                            <div class="card-title">
+                                <span><i class="fas fa-brain"></i> 模型決策建議</span>
+                                <a href="carbon-model.html" class="view-suggestion">查看詳情</a>
+                            </div>
+                            <div class="suggestion-content">
+                                <p>基於全公司整體碳排放數據分析，建議優先執行以下策略：</p>
+                                <ul class="suggestion-list">
+                                    <li><strong>台北總廠</strong>：優化空調系統可減少12%碳排放</li>
+                                    <li><strong>台中廠</strong>：製程設備升級可減少15%能耗</li>
+                                    <li><strong>整體</strong>：能源結構調整可降低碳成本8.6%</li>
+                                </ul>
+                                <button class="btn btn-primary model-btn"><i class="fas fa-brain"></i> 開始模擬</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-header">
+                    <div class="page-title">近期警報與事件</div>
+                    <a href="#" class="view-all">查看全部</a>
+                </div>
+                
+                <div class="card">
+                    <div class="events-timeline">
+                        <div class="event-item">
+                            <div class="event-date">
+                                <div class="event-day">20</div>
+                                <div class="event-month">4月</div>
+                            </div>
+                            <div class="event-line"></div>
+                            <div class="event-content">
+                                <div class="event-title">台北總廠製程區用電超標</div>
+                                <div class="event-desc">製程區域用電量超過閾值20%，可能導致月底碳排超標。</div>
+                                <div class="event-actions">
+                                    <button class="btn btn-sm btn-outline">詳情</button>
+                                    <button class="btn btn-sm btn-primary">處理</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="event-item">
+                            <div class="event-date">
+                                <div class="event-day">18</div>
+                                <div class="event-month">4月</div>
+                            </div>
+                            <div class="event-line"></div>
+                            <div class="event-content">
+                                <div class="event-title">台中廠碳排放目標達成</div>
+                                <div class="event-desc">台中廠已達成Q1碳減排目標，減排量達到計劃的103%。</div>
+                                <div class="event-actions">
+                                    <button class="btn btn-sm btn-outline">詳情</button>
+                                    <button class="btn btn-sm btn-success">查看報告</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="event-item">
+                            <div class="event-date">
+                                <div class="event-day">15</div>
+                                <div class="event-month">4月</div>
+                            </div>
+                            <div class="event-line"></div>
+                            <div class="event-content">
+                                <div class="event-title">系統更新：新增碳排模型預測功能</div>
+                                <div class="event-desc">系統已更新，新增基於AI的碳排放預測分析功能。</div>
+                                <div class="event-actions">
+                                    <button class="btn btn-sm btn-outline">詳情</button>
+                                    <button class="btn btn-sm btn-primary">設定</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>首頁</span>
+        </a>
+        <a href="factories.html" class="nav-item">
+            <i class="fas fa-industry"></i>
+            <span>廠區</span>
+        </a>
+        <a href="energy-audit.html" class="nav-item">
+            <i class="fas fa-clipboard-check"></i>
+            <span>能源盤查</span>
+        </a>
+        <a href="carbon-model.html" class="nav-item">
+            <i class="fas fa-brain"></i>
+            <span>決策模型</span>
+        </a>
+        <a href="settings.html" class="nav-item">
+            <i class="fas fa-cog"></i>
+            <span>設定</span>
+        </a>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/charts.js"></script>
+    <script>
+        // 初始化概覽頁面的圖表
+        document.addEventListener('DOMContentLoaded', function() {
+            // 各廠區碳排放趨勢圖表
+            const factoriesCtx = document.getElementById('factoriesChart').getContext('2d');
+            const factoriesChart = new Chart(factoriesCtx, {
+                type: 'line',
+                data: {
+                    labels: ['1月', '2月', '3月', '4月'],
+                    datasets: [
+                        {
+                            label: '台北總廠',
+                            data: [1203450, 1180320, 1198750, 1242680],
+                            borderColor: '#3498db',
+                            backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: '台中廠',
+                            data: [843210, 852680, 847520, 865420],
+                            borderColor: '#e74c3c',
+                            backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: '高雄廠',
+                            data: [298560, 301240, 295830, 305170],
+                            borderColor: '#2ecc71',
+                            backgroundColor: 'rgba(46, 204, 113, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.4,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: '碳排放量 (kg CO₂e)'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // 碳排放來源分佈圖表
+            const sourcesCtx = document.getElementById('carbonSourcesChart').getContext('2d');
+            const sourcesChart = new Chart(sourcesCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['電力消耗', '天然氣', '柴油', '其他'],
+                    datasets: [{
+                        data: [65, 15, 12, 8],
+                        backgroundColor: [
+                            '#3498db',
+                            '#e74c3c',
+                            '#f39c12',
+                            '#2ecc71'
+                        ],
+                        borderWidth: 0,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    cutout: '70%'
+                }
+            });
+            
+            // 廠區碳排放比較圖表
+            const comparisonCtx = document.getElementById('factoryComparisonChart').getContext('2d');
+            const comparisonChart = new Chart(comparisonCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['台北總廠', '台中廠', '高雄廠'],
+                    datasets: [
+                        {
+                            label: '本月碳排放量',
+                            data: [1242680, 865420, 305170],
+                            backgroundColor: '#3498db',
+                            barPercentage: 0.6,
+                        },
+                        {
+                            label: '上月碳排放量',
+                            data: [1198750, 847520, 295830],
+                            backgroundColor: '#95a5a6',
+                            barPercentage: 0.6,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '碳排放量 (kg CO₂e)'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

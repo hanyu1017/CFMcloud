@@ -1,0 +1,1572 @@
+{
+  "users/c5da5986-1132-4557-ae96-52c77765b384": {
+    "uid": "b176c53f-0bdb-430f-8990-4c94cffb2396",
+    "name": "Charlie",
+    "email": "user22@example.com",
+    "role": "一般使用者",
+    "company": "GreenTech Co.",
+    "department": "研發",
+    "title": "工程師",
+    "phone": "0999513256",
+    "created_at": "2025-03-25T08:11:12.959870",
+    "last_login": "2025-03-22T09:56:40.261325",
+    "preferences": {
+      "theme": "dark"
+    }
+  },
+  "users/c55928eb-7c38-48c1-a568-ff8b13ea2389": {
+    "uid": "f7743415-b973-4232-8787-e476bd18261f",
+    "name": "Bob",
+    "email": "user89@example.com",
+    "role": "管理員",
+    "company": "GreenTech Co.",
+    "department": "製造",
+    "title": "工程師",
+    "phone": "0987451270",
+    "created_at": "2025-03-31T17:08:31.682679",
+    "last_login": "2025-03-29T13:57:07.291532",
+    "preferences": {
+      "theme": "dark"
+    }
+  },
+  "users/ebd625b9-f55a-454a-963f-3a2ab82b8ca1": {
+    "uid": "9df42480-9b72-4e57-abb0-681d346ae5c8",
+    "name": "Charlie",
+    "email": "user99@example.com",
+    "role": "管理員",
+    "company": "GreenTech Co.",
+    "department": "研發",
+    "title": "工程師",
+    "phone": "0954167550",
+    "created_at": "2025-04-01T20:37:39.424690",
+    "last_login": "2025-04-06T13:34:43.789427",
+    "preferences": {
+      "theme": "dark"
+    }
+  },
+  "users/82767ced-b963-44ca-b63c-f241223a2fa1": {
+    "uid": "32392847-cf80-4d4c-95a5-7412f923cf29",
+    "name": "Bob",
+    "email": "user31@example.com",
+    "role": "管理員",
+    "company": "GreenTech Co.",
+    "department": "資訊",
+    "title": "工程師",
+    "phone": "0931873126",
+    "created_at": "2025-04-08T19:01:25.732514",
+    "last_login": "2025-04-07T07:50:19.612009",
+    "preferences": {
+      "theme": "dark"
+    }
+  },
+  "users/c10824e8-c90f-414d-a83f-7d7a72406e0e": {
+    "uid": "6822202c-8bf8-43d4-8ef8-03dc8d6c5486",
+    "name": "Alice",
+    "email": "user9@example.com",
+    "role": "管理員",
+    "company": "GreenTech Co.",
+    "department": "資訊",
+    "title": "工程師",
+    "phone": "0993845548",
+    "created_at": "2025-04-18T12:37:42.768391",
+    "last_login": "2025-04-16T13:16:46.605753",
+    "preferences": {
+      "theme": "dark"
+    }
+  },
+  "users/5195e0c0-19a0-40f5-ab04-aa5b67a1752d": {
+    "uid": "1758b604-6b50-4782-a1ad-3e1c001efe19",
+    "name": "Alice",
+    "email": "user25@example.com",
+    "role": "一般使用者",
+    "company": "GreenTech Co.",
+    "department": "資訊",
+    "title": "工程師",
+    "phone": "0947545534",
+    "created_at": "2025-03-29T21:48:14.839092",
+    "last_login": "2025-03-30T04:29:03.249564",
+    "preferences": {
+      "theme": "dark"
+    }
+  },
+  "users/474cf620-98a9-4969-b7d6-09240407deb9": {
+    "uid": "b672e31e-0347-4578-8537-c079c85132d4",
+    "name": "Bob",
+    "email": "user11@example.com",
+    "role": "管理員",
+    "company": "GreenTech Co.",
+    "department": "研發",
+    "title": "工程師",
+    "phone": "0973114784",
+    "created_at": "2025-04-18T00:22:56.771038",
+    "last_login": "2025-04-03T10:48:36.494523",
+    "preferences": {
+      "theme": "dark"
+    }
+  },
+  "users/f9273b3d-8a8c-4fdb-812c-0f109e64c0fa": {
+    "uid": "46442dfe-c873-49cb-bc8d-531d744ad46b",
+    "name": "Bob",
+    "email": "user18@example.com",
+    "role": "一般使用者",
+    "company": "GreenTech Co.",
+    "department": "研發",
+    "title": "工程師",
+    "phone": "0935288794",
+    "created_at": "2025-04-03T18:21:25.198506",
+    "last_login": "2025-04-06T17:55:07.107915",
+    "preferences": {
+      "theme": "dark"
+    }
+  },
+  "users/9c5308ec-f8bd-4590-b414-9867f26401e7": {
+    "uid": "672e03d1-6d5d-4072-bcb1-e34f88d12d99",
+    "name": "Charlie",
+    "email": "user70@example.com",
+    "role": "管理員",
+    "company": "GreenTech Co.",
+    "department": "製造",
+    "title": "工程師",
+    "phone": "0963563651",
+    "created_at": "2025-04-16T17:44:07.743739",
+    "last_login": "2025-04-12T17:32:48.759034",
+    "preferences": {
+      "theme": "dark"
+    }
+  },
+  "users/a73ab729-7562-49b7-abbd-b6111dad8520": {
+    "uid": "0d7fd73a-fe3f-4869-b3cf-03b2d3917ff9",
+    "name": "Alice",
+    "email": "user56@example.com",
+    "role": "管理員",
+    "company": "GreenTech Co.",
+    "department": "資訊",
+    "title": "工程師",
+    "phone": "0937411001",
+    "created_at": "2025-04-04T06:04:48.917864",
+    "last_login": "2025-04-06T09:33:20.562471",
+    "preferences": {
+      "theme": "dark"
+    }
+  },
+  "factories/7a678210-522a-4f1a-b7a1-002858996007": {
+    "factory_id": "FAC-423",
+    "name": "台北總廠",
+    "location": "台灣",
+    "address": "某某路100號",
+    "area": 5119,
+    "employee_count": 290,
+    "equipment_count": 56,
+    "status": "離線",
+    "created_at": "2025-04-09T23:37:20.770059",
+    "updated_at": "2025-03-28T18:02:48.687139"
+  },
+  "factories/85f8ae55-91b7-4023-9f7a-64a633abbbae": {
+    "factory_id": "FAC-648",
+    "name": "台中分廠",
+    "location": "台灣",
+    "address": "某某路100號",
+    "area": 3489,
+    "employee_count": 130,
+    "equipment_count": 48,
+    "status": "離線",
+    "created_at": "2025-03-30T01:25:13.315526",
+    "updated_at": "2025-04-12T04:02:32.887306"
+  },
+  "factories/a7d8ff6c-eb3e-4cc3-a49d-b06449e293e4": {
+    "factory_id": "FAC-913",
+    "name": "高雄分廠",
+    "location": "台灣",
+    "address": "某某路100號",
+    "area": 7657,
+    "employee_count": 342,
+    "equipment_count": 56,
+    "status": "警告",
+    "created_at": "2025-03-23T15:07:45.157229",
+    "updated_at": "2025-04-05T09:45:58.418629"
+  },
+  "factories/07be400a-98ac-437e-bd0f-6f2d88d0ae7d": {
+    "factory_id": "FAC-233",
+    "name": "台北總廠",
+    "location": "台灣",
+    "address": "某某路100號",
+    "area": 3846,
+    "employee_count": 325,
+    "equipment_count": 91,
+    "status": "警告",
+    "created_at": "2025-04-04T05:16:35.433699",
+    "updated_at": "2025-03-27T21:16:05.425822"
+  },
+  "factories/3a4cdfda-fef1-4a84-8d10-881bbb47ad52": {
+    "factory_id": "FAC-175",
+    "name": "台中分廠",
+    "location": "台灣",
+    "address": "某某路100號",
+    "area": 1718,
+    "employee_count": 484,
+    "equipment_count": 72,
+    "status": "線上",
+    "created_at": "2025-03-26T17:34:08.927705",
+    "updated_at": "2025-04-18T07:15:31.375682"
+  },
+  "factories/eea1fc76-70c3-4940-95a0-aa9d96096acf": {
+    "factory_id": "FAC-263",
+    "name": "台中分廠",
+    "location": "台灣",
+    "address": "某某路100號",
+    "area": 9027,
+    "employee_count": 359,
+    "equipment_count": 87,
+    "status": "線上",
+    "created_at": "2025-04-06T05:11:10.490911",
+    "updated_at": "2025-04-06T20:11:41.635938"
+  },
+  "factories/f9c2bd3b-9bcb-469a-b7a8-df223171fb3a": {
+    "factory_id": "FAC-376",
+    "name": "台中分廠",
+    "location": "台灣",
+    "address": "某某路100號",
+    "area": 4157,
+    "employee_count": 452,
+    "equipment_count": 38,
+    "status": "離線",
+    "created_at": "2025-04-19T11:16:30.732649",
+    "updated_at": "2025-03-30T12:46:11.525043"
+  },
+  "factories/e558d185-115a-4368-a5b6-796cc84bedb7": {
+    "factory_id": "FAC-727",
+    "name": "台北總廠",
+    "location": "台灣",
+    "address": "某某路100號",
+    "area": 4989,
+    "employee_count": 481,
+    "equipment_count": 100,
+    "status": "離線",
+    "created_at": "2025-04-15T19:54:41.031842",
+    "updated_at": "2025-03-22T10:57:54.759289"
+  },
+  "factories/e37ba28d-a885-4a11-96e3-22df1dcafd6e": {
+    "factory_id": "FAC-216",
+    "name": "高雄分廠",
+    "location": "台灣",
+    "address": "某某路100號",
+    "area": 9976,
+    "employee_count": 118,
+    "equipment_count": 75,
+    "status": "警告",
+    "created_at": "2025-04-15T21:10:22.882697",
+    "updated_at": "2025-03-24T09:51:24.716840"
+  },
+  "factories/a25fb06c-85e1-44ff-a43a-087ad2ba4e14": {
+    "factory_id": "FAC-125",
+    "name": "高雄分廠",
+    "location": "台灣",
+    "address": "某某路100號",
+    "area": 7538,
+    "employee_count": 350,
+    "equipment_count": 28,
+    "status": "線上",
+    "created_at": "2025-04-05T17:38:13.908437",
+    "updated_at": "2025-04-19T01:54:47.817786"
+  },
+  "energy_data/914ffd43-7d44-4e86-b706-fab488cd1351": {
+    "data_id": "05399db6-819a-4384-8dcd-d3ce4f7c6fd2",
+    "factory_id": "FAC-101",
+    "timestamp": "2025-03-22T14:08:17.063201",
+    "energy_type": "電力",
+    "usage_amount": 5215.906857985503,
+    "unit": "kWh",
+    "carbon_emission": 2618.39,
+    "carbon_intensity": 0.502,
+    "verified": true,
+    "verified_by": "admin_uid",
+    "verified_at": "2025-03-31T19:59:14.748039"
+  },
+  "energy_data/715bbfc7-cddb-459e-bb25-c07e779968ce": {
+    "data_id": "425d6b2f-7857-4e28-a21f-a4533d8bc150",
+    "factory_id": "FAC-101",
+    "timestamp": "2025-04-12T00:52:28.111170",
+    "energy_type": "電力",
+    "usage_amount": 9139.41830711358,
+    "unit": "kWh",
+    "carbon_emission": 4587.99,
+    "carbon_intensity": 0.502,
+    "verified": true,
+    "verified_by": "admin_uid",
+    "verified_at": "2025-04-04T23:00:24.006015"
+  },
+  "energy_data/60923727-b0f0-4c61-a9ad-49daa6777031": {
+    "data_id": "f7497b01-da1f-4467-84e0-0a20ffc8642c",
+    "factory_id": "FAC-101",
+    "timestamp": "2025-03-28T18:29:38.856319",
+    "energy_type": "電力",
+    "usage_amount": 8810.959949647804,
+    "unit": "kWh",
+    "carbon_emission": 4423.1,
+    "carbon_intensity": 0.502,
+    "verified": true,
+    "verified_by": "admin_uid",
+    "verified_at": "2025-03-22T19:50:34.804863"
+  },
+  "energy_data/3408487c-f987-437d-ae02-ab90fd1db441": {
+    "data_id": "9718b3df-69ca-479f-99da-dd35e6c720da",
+    "factory_id": "FAC-101",
+    "timestamp": "2025-03-31T12:30:30.077453",
+    "energy_type": "電力",
+    "usage_amount": 6537.579519058306,
+    "unit": "kWh",
+    "carbon_emission": 3281.86,
+    "carbon_intensity": 0.502,
+    "verified": true,
+    "verified_by": "admin_uid",
+    "verified_at": "2025-04-21T07:11:01.254072"
+  },
+  "energy_data/f085c055-a0b1-4a59-9e64-ebf03f1507ad": {
+    "data_id": "2d3783db-1b09-47d5-8275-e838a3986069",
+    "factory_id": "FAC-101",
+    "timestamp": "2025-04-06T11:55:01.734690",
+    "energy_type": "電力",
+    "usage_amount": 2737.975632517777,
+    "unit": "kWh",
+    "carbon_emission": 1374.46,
+    "carbon_intensity": 0.502,
+    "verified": true,
+    "verified_by": "admin_uid",
+    "verified_at": "2025-04-09T04:47:14.808238"
+  },
+  "energy_data/a92758be-3bd1-4bb6-8e2a-4f789b561df8": {
+    "data_id": "9d5c3e07-a2e3-481f-a9af-51bd2ac45a78",
+    "factory_id": "FAC-101",
+    "timestamp": "2025-04-09T11:40:12.921512",
+    "energy_type": "電力",
+    "usage_amount": 8789.24105795643,
+    "unit": "kWh",
+    "carbon_emission": 4412.2,
+    "carbon_intensity": 0.502,
+    "verified": true,
+    "verified_by": "admin_uid",
+    "verified_at": "2025-03-23T12:36:06.098154"
+  },
+  "energy_data/d77525a1-be40-4bc6-b140-52483d8b4886": {
+    "data_id": "9c18dd40-866d-4b8b-9b1e-bcdb52a31568",
+    "factory_id": "FAC-101",
+    "timestamp": "2025-04-09T07:01:49.060131",
+    "energy_type": "電力",
+    "usage_amount": 8306.967946335966,
+    "unit": "kWh",
+    "carbon_emission": 4170.1,
+    "carbon_intensity": 0.502,
+    "verified": true,
+    "verified_by": "admin_uid",
+    "verified_at": "2025-04-05T08:18:31.343951"
+  },
+  "energy_data/028a26c8-3b24-48bc-bc42-6e805b84290a": {
+    "data_id": "2286baf8-6e7f-4b94-9225-9100086f2e9d",
+    "factory_id": "FAC-101",
+    "timestamp": "2025-04-06T18:06:14.060975",
+    "energy_type": "電力",
+    "usage_amount": 714.4382344985045,
+    "unit": "kWh",
+    "carbon_emission": 358.65,
+    "carbon_intensity": 0.502,
+    "verified": true,
+    "verified_by": "admin_uid",
+    "verified_at": "2025-03-28T17:48:14.675596"
+  },
+  "energy_data/615ae6c7-6924-4ea0-ad3f-17fc0dd00b1c": {
+    "data_id": "d74d0507-e84b-41f1-b1f4-e906b74bdb27",
+    "factory_id": "FAC-101",
+    "timestamp": "2025-04-09T09:02:25.005938",
+    "energy_type": "電力",
+    "usage_amount": 4498.549108308605,
+    "unit": "kWh",
+    "carbon_emission": 2258.27,
+    "carbon_intensity": 0.502,
+    "verified": true,
+    "verified_by": "admin_uid",
+    "verified_at": "2025-04-20T02:51:47.332273"
+  },
+  "energy_data/fee15a12-078f-48c8-a164-d31430df4d0b": {
+    "data_id": "974fb0ec-38b1-4b4e-a95c-5b3715c3718f",
+    "factory_id": "FAC-101",
+    "timestamp": "2025-04-08T13:44:09.533628",
+    "energy_type": "電力",
+    "usage_amount": 2917.1722724139554,
+    "unit": "kWh",
+    "carbon_emission": 1464.42,
+    "carbon_intensity": 0.502,
+    "verified": true,
+    "verified_by": "admin_uid",
+    "verified_at": "2025-04-12T01:01:05.242480"
+  },
+  "equipment_data/b2ebdd07-0c0c-48a7-90e5-6aee6b65dc38": {
+    "equipment_id": "221a86d2-6c93-436c-8ebb-a1fe3c838ea5",
+    "factory_id": "FAC-101",
+    "name": "設備-40",
+    "type": "照明",
+    "energy_type": "電力",
+    "status": "正常",
+    "efficiency": 68.73583040520455,
+    "carbon_emission": 771.8788740043934,
+    "last_maintenance": "2025-04-14T02:03:31.098733",
+    "next_maintenance": "2025-05-02T07:30:02.524581"
+  },
+  "equipment_data/5442df85-572e-4937-b72a-3f1e39b50756": {
+    "equipment_id": "d8baefd7-13e0-4aa4-ae94-1d32635fef20",
+    "factory_id": "FAC-101",
+    "name": "設備-55",
+    "type": "辦公",
+    "energy_type": "電力",
+    "status": "異常",
+    "efficiency": 70.55143868810788,
+    "carbon_emission": 133.3302919835332,
+    "last_maintenance": "2025-04-11T12:51:43.121569",
+    "next_maintenance": "2025-04-26T20:41:43.236406"
+  },
+  "equipment_data/a5a989b7-ed59-44a2-a1f4-cc36e7c0ecda": {
+    "equipment_id": "5df76fcb-32e7-44b5-a29f-6b808a562d89",
+    "factory_id": "FAC-101",
+    "name": "設備-70",
+    "type": "辦公",
+    "energy_type": "電力",
+    "status": "離線",
+    "efficiency": 62.327818305878566,
+    "carbon_emission": 226.2560728040484,
+    "last_maintenance": "2025-03-22T14:18:39.866171",
+    "next_maintenance": "2025-05-06T07:54:19.485322"
+  },
+  "equipment_data/7b42e0da-358e-4d0c-97ae-d4094e1a7799": {
+    "equipment_id": "b32a0557-bc1f-4d2d-8652-e45a050584f0",
+    "factory_id": "FAC-101",
+    "name": "設備-87",
+    "type": "辦公",
+    "energy_type": "電力",
+    "status": "離線",
+    "efficiency": 66.8490664948901,
+    "carbon_emission": 571.8338552956371,
+    "last_maintenance": "2025-04-01T13:17:29.058349",
+    "next_maintenance": "2025-05-10T14:53:03.632756"
+  },
+  "equipment_data/a1fdb2ed-a4f8-4605-9c2d-1d6e1affc5ef": {
+    "equipment_id": "4681d8f1-3fc3-4f14-87bd-21ff65377fdf",
+    "factory_id": "FAC-101",
+    "name": "設備-22",
+    "type": "照明",
+    "energy_type": "電力",
+    "status": "正常",
+    "efficiency": 70.9375170233274,
+    "carbon_emission": 574.7480808347168,
+    "last_maintenance": "2025-04-08T19:54:36.921910",
+    "next_maintenance": "2025-05-13T13:48:33.919347"
+  },
+  "equipment_data/9d843b9f-befa-4a27-b297-51d6f633be48": {
+    "equipment_id": "97acaf0c-3c99-444e-9fdc-190f08f833cc",
+    "factory_id": "FAC-101",
+    "name": "設備-70",
+    "type": "製程",
+    "energy_type": "電力",
+    "status": "離線",
+    "efficiency": 64.09996018126279,
+    "carbon_emission": 754.8017350726622,
+    "last_maintenance": "2025-04-07T22:09:40.563795",
+    "next_maintenance": "2025-05-16T03:00:26.580777"
+  },
+  "equipment_data/13c1aa4f-15ad-47bc-8b8d-9fbfdd40bc28": {
+    "equipment_id": "67df8e36-408e-4c2e-945d-b5df34645e84",
+    "factory_id": "FAC-101",
+    "name": "設備-5",
+    "type": "辦公",
+    "energy_type": "電力",
+    "status": "離線",
+    "efficiency": 66.30916520864677,
+    "carbon_emission": 477.4145604116046,
+    "last_maintenance": "2025-04-01T14:31:51.274169",
+    "next_maintenance": "2025-05-08T20:17:21.777764"
+  },
+  "equipment_data/e8e5d613-0146-4f27-84f2-3512c51fb67f": {
+    "equipment_id": "9354d0e2-5a07-41e1-973a-b3fc11841e2a",
+    "factory_id": "FAC-101",
+    "name": "設備-73",
+    "type": "空調",
+    "energy_type": "電力",
+    "status": "正常",
+    "efficiency": 61.635455784878275,
+    "carbon_emission": 247.16453800359378,
+    "last_maintenance": "2025-04-18T08:57:32.922279",
+    "next_maintenance": "2025-05-10T23:46:43.446759"
+  },
+  "equipment_data/3aa7077d-f3d2-4c4e-80bc-11978b7ef899": {
+    "equipment_id": "abe1e885-3286-4149-b07e-724bd78ab30d",
+    "factory_id": "FAC-101",
+    "name": "設備-26",
+    "type": "辦公",
+    "energy_type": "電力",
+    "status": "異常",
+    "efficiency": 60.44158438415072,
+    "carbon_emission": 110.14477034761362,
+    "last_maintenance": "2025-04-19T16:07:53.014701",
+    "next_maintenance": "2025-05-03T21:12:45.290558"
+  },
+  "equipment_data/0973d546-cd4e-4082-a263-f1b698152aca": {
+    "equipment_id": "f7e99cf7-da48-4246-bc10-bf0094b70c1b",
+    "factory_id": "FAC-101",
+    "name": "設備-40",
+    "type": "照明",
+    "energy_type": "電力",
+    "status": "離線",
+    "efficiency": 84.203069347513,
+    "carbon_emission": 864.082276572989,
+    "last_maintenance": "2025-03-28T20:43:20.170833",
+    "next_maintenance": "2025-05-19T07:36:51.358587"
+  },
+  "carbon_strategies/9c70ad86-7ab5-45e3-88a8-55a4966a3da2": {
+    "strategy_id": "90f5c90c-b42c-4821-b15c-d73f2e585f2c",
+    "name": "減碳方案A",
+    "description": "高效率空調系統",
+    "created_by": "admin_uid",
+    "created_at": "2025-04-11T10:52:58.357861",
+    "updated_at": "2025-04-02T20:25:52.620366",
+    "parameters": {
+      "gf": 100000,
+      "gs": 50000,
+      "price": 150,
+      "cycle": 30,
+      "carbon_price": 100
+    },
+    "results": {
+      "total_cost": 350000,
+      "investment_cost": 150000,
+      "procurement_cost": 100000,
+      "carbon_cost": 100000,
+      "efficiency": {
+        "energy_saved": 15
+      }
+    },
+    "applied_to_factories": [
+      "FAC-101",
+      "FAC-102"
+    ]
+  },
+  "carbon_strategies/a48ceaa8-bd10-4e83-a684-80eb10a2159e": {
+    "strategy_id": "fe6db4e7-dc66-46a9-af99-64420d51933b",
+    "name": "減碳方案A",
+    "description": "高效率空調系統",
+    "created_by": "admin_uid",
+    "created_at": "2025-04-01T20:31:05.696035",
+    "updated_at": "2025-04-03T08:20:21.735441",
+    "parameters": {
+      "gf": 100000,
+      "gs": 50000,
+      "price": 150,
+      "cycle": 30,
+      "carbon_price": 100
+    },
+    "results": {
+      "total_cost": 350000,
+      "investment_cost": 150000,
+      "procurement_cost": 100000,
+      "carbon_cost": 100000,
+      "efficiency": {
+        "energy_saved": 15
+      }
+    },
+    "applied_to_factories": [
+      "FAC-101",
+      "FAC-102"
+    ]
+  },
+  "carbon_strategies/e245dc8e-fb9a-4866-bd96-0a4899cd2b28": {
+    "strategy_id": "b9a9876c-9075-4218-8841-dd03e81c87e0",
+    "name": "減碳方案A",
+    "description": "高效率空調系統",
+    "created_by": "admin_uid",
+    "created_at": "2025-04-01T04:58:32.715368",
+    "updated_at": "2025-03-25T23:26:27.651967",
+    "parameters": {
+      "gf": 100000,
+      "gs": 50000,
+      "price": 150,
+      "cycle": 30,
+      "carbon_price": 100
+    },
+    "results": {
+      "total_cost": 350000,
+      "investment_cost": 150000,
+      "procurement_cost": 100000,
+      "carbon_cost": 100000,
+      "efficiency": {
+        "energy_saved": 15
+      }
+    },
+    "applied_to_factories": [
+      "FAC-101",
+      "FAC-102"
+    ]
+  },
+  "carbon_strategies/35606fb4-a98c-4a89-a649-128b8c489201": {
+    "strategy_id": "61430327-e13d-44d7-803b-057e9ab8db80",
+    "name": "減碳方案A",
+    "description": "高效率空調系統",
+    "created_by": "admin_uid",
+    "created_at": "2025-04-10T22:11:51.243584",
+    "updated_at": "2025-04-14T02:33:44.989376",
+    "parameters": {
+      "gf": 100000,
+      "gs": 50000,
+      "price": 150,
+      "cycle": 30,
+      "carbon_price": 100
+    },
+    "results": {
+      "total_cost": 350000,
+      "investment_cost": 150000,
+      "procurement_cost": 100000,
+      "carbon_cost": 100000,
+      "efficiency": {
+        "energy_saved": 15
+      }
+    },
+    "applied_to_factories": [
+      "FAC-101",
+      "FAC-102"
+    ]
+  },
+  "carbon_strategies/8bc8b742-ea11-496c-9fe5-c421c82043c5": {
+    "strategy_id": "da3f19c5-6d42-4a6c-a083-77f7db1ae48e",
+    "name": "減碳方案A",
+    "description": "高效率空調系統",
+    "created_by": "admin_uid",
+    "created_at": "2025-04-21T02:05:39.640459",
+    "updated_at": "2025-03-31T16:08:17.573655",
+    "parameters": {
+      "gf": 100000,
+      "gs": 50000,
+      "price": 150,
+      "cycle": 30,
+      "carbon_price": 100
+    },
+    "results": {
+      "total_cost": 350000,
+      "investment_cost": 150000,
+      "procurement_cost": 100000,
+      "carbon_cost": 100000,
+      "efficiency": {
+        "energy_saved": 15
+      }
+    },
+    "applied_to_factories": [
+      "FAC-101",
+      "FAC-102"
+    ]
+  },
+  "carbon_strategies/84283b5d-90a5-49d7-a6a7-16da63c8a053": {
+    "strategy_id": "845bbae0-885d-4141-ba85-58db74d283dd",
+    "name": "減碳方案A",
+    "description": "高效率空調系統",
+    "created_by": "admin_uid",
+    "created_at": "2025-03-30T07:45:55.364117",
+    "updated_at": "2025-04-05T04:28:51.063842",
+    "parameters": {
+      "gf": 100000,
+      "gs": 50000,
+      "price": 150,
+      "cycle": 30,
+      "carbon_price": 100
+    },
+    "results": {
+      "total_cost": 350000,
+      "investment_cost": 150000,
+      "procurement_cost": 100000,
+      "carbon_cost": 100000,
+      "efficiency": {
+        "energy_saved": 15
+      }
+    },
+    "applied_to_factories": [
+      "FAC-101",
+      "FAC-102"
+    ]
+  },
+  "carbon_strategies/2e0f578b-ffe1-420b-bf8a-d363c64d5b75": {
+    "strategy_id": "da179ed9-c29f-4732-917b-a5516ac021d7",
+    "name": "減碳方案A",
+    "description": "高效率空調系統",
+    "created_by": "admin_uid",
+    "created_at": "2025-04-18T04:18:47.467837",
+    "updated_at": "2025-04-12T08:49:08.913014",
+    "parameters": {
+      "gf": 100000,
+      "gs": 50000,
+      "price": 150,
+      "cycle": 30,
+      "carbon_price": 100
+    },
+    "results": {
+      "total_cost": 350000,
+      "investment_cost": 150000,
+      "procurement_cost": 100000,
+      "carbon_cost": 100000,
+      "efficiency": {
+        "energy_saved": 15
+      }
+    },
+    "applied_to_factories": [
+      "FAC-101",
+      "FAC-102"
+    ]
+  },
+  "carbon_strategies/711ff39b-c6cc-4383-832a-5e32763d5b27": {
+    "strategy_id": "e528eb14-d9d7-41c4-a3a8-fb87d20b7e4d",
+    "name": "減碳方案A",
+    "description": "高效率空調系統",
+    "created_by": "admin_uid",
+    "created_at": "2025-04-08T12:21:47.742095",
+    "updated_at": "2025-03-25T19:52:36.036206",
+    "parameters": {
+      "gf": 100000,
+      "gs": 50000,
+      "price": 150,
+      "cycle": 30,
+      "carbon_price": 100
+    },
+    "results": {
+      "total_cost": 350000,
+      "investment_cost": 150000,
+      "procurement_cost": 100000,
+      "carbon_cost": 100000,
+      "efficiency": {
+        "energy_saved": 15
+      }
+    },
+    "applied_to_factories": [
+      "FAC-101",
+      "FAC-102"
+    ]
+  },
+  "carbon_strategies/b34632fc-1b01-4e18-bf32-e6bab3efe368": {
+    "strategy_id": "61cf4ff2-f59a-4997-a3f3-c2a79bc6ba11",
+    "name": "減碳方案A",
+    "description": "高效率空調系統",
+    "created_by": "admin_uid",
+    "created_at": "2025-04-16T22:52:22.160235",
+    "updated_at": "2025-04-19T01:54:58.844610",
+    "parameters": {
+      "gf": 100000,
+      "gs": 50000,
+      "price": 150,
+      "cycle": 30,
+      "carbon_price": 100
+    },
+    "results": {
+      "total_cost": 350000,
+      "investment_cost": 150000,
+      "procurement_cost": 100000,
+      "carbon_cost": 100000,
+      "efficiency": {
+        "energy_saved": 15
+      }
+    },
+    "applied_to_factories": [
+      "FAC-101",
+      "FAC-102"
+    ]
+  },
+  "carbon_strategies/f5c16b9f-30ec-4b27-a089-4b9410a70a4e": {
+    "strategy_id": "aadbd41f-8afe-47b1-8b54-1cf9226b61b7",
+    "name": "減碳方案A",
+    "description": "高效率空調系統",
+    "created_by": "admin_uid",
+    "created_at": "2025-04-19T18:59:48.813760",
+    "updated_at": "2025-03-28T16:49:37.529025",
+    "parameters": {
+      "gf": 100000,
+      "gs": 50000,
+      "price": 150,
+      "cycle": 30,
+      "carbon_price": 100
+    },
+    "results": {
+      "total_cost": 350000,
+      "investment_cost": 150000,
+      "procurement_cost": 100000,
+      "carbon_cost": 100000,
+      "efficiency": {
+        "energy_saved": 15
+      }
+    },
+    "applied_to_factories": [
+      "FAC-101",
+      "FAC-102"
+    ]
+  },
+  "alerts/7b2d78ca-d526-4252-abac-7ef5f83a656b": {
+    "alert_id": "1120916c-5307-482c-9ea0-57081fd6c9e4",
+    "factory_id": "FAC-101",
+    "equipment_id": "0d053097-c260-43e1-9a77-c8d276901e5d",
+    "type": "異常用電",
+    "severity": "危險",
+    "title": "用電異常",
+    "message": "設備耗電量異常增加",
+    "created_at": "2025-04-06T22:12:24.325696",
+    "is_read": false,
+    "is_resolved": false,
+    "resolved_by": "",
+    "resolved_at": ""
+  },
+  "alerts/3370b7aa-a57d-41fa-9a7a-f475baec755c": {
+    "alert_id": "d280abff-c0f6-4a87-833f-3e5e175d3d55",
+    "factory_id": "FAC-101",
+    "equipment_id": "60a37181-1781-48b4-adfd-942ef91bc242",
+    "type": "異常用電",
+    "severity": "危險",
+    "title": "用電異常",
+    "message": "設備耗電量異常增加",
+    "created_at": "2025-04-06T10:24:13.982818",
+    "is_read": false,
+    "is_resolved": false,
+    "resolved_by": "",
+    "resolved_at": ""
+  },
+  "alerts/9cb1c316-d764-4540-aa23-47349043205c": {
+    "alert_id": "50adb21b-ec56-471e-9d1b-9af2c9ced7f7",
+    "factory_id": "FAC-101",
+    "equipment_id": "8771775f-ddae-4e97-8a05-2db5b58989eb",
+    "type": "異常用電",
+    "severity": "警告",
+    "title": "用電異常",
+    "message": "設備耗電量異常增加",
+    "created_at": "2025-04-10T17:45:47.187559",
+    "is_read": false,
+    "is_resolved": false,
+    "resolved_by": "",
+    "resolved_at": ""
+  },
+  "alerts/d89b49bc-675e-43e4-8e76-e1123c450f30": {
+    "alert_id": "65247235-8973-45b0-ba5a-fbf707721941",
+    "factory_id": "FAC-101",
+    "equipment_id": "c3d58ef3-c00b-4504-8599-29b8322f8835",
+    "type": "異常用電",
+    "severity": "危險",
+    "title": "用電異常",
+    "message": "設備耗電量異常增加",
+    "created_at": "2025-04-10T01:05:22.254333",
+    "is_read": false,
+    "is_resolved": false,
+    "resolved_by": "",
+    "resolved_at": ""
+  },
+  "alerts/f9e38a72-e32a-410f-a774-a6850569359e": {
+    "alert_id": "96de9373-bd7c-410c-872a-1534e3654bae",
+    "factory_id": "FAC-101",
+    "equipment_id": "bd1d8b6d-8914-4304-918d-fcbc17340da3",
+    "type": "異常用電",
+    "severity": "警告",
+    "title": "用電異常",
+    "message": "設備耗電量異常增加",
+    "created_at": "2025-04-10T06:14:48.460743",
+    "is_read": false,
+    "is_resolved": false,
+    "resolved_by": "",
+    "resolved_at": ""
+  },
+  "alerts/b968596f-5e1c-4685-999f-b93b4918bee6": {
+    "alert_id": "af1e7b78-1d06-4119-8f1f-d4fe5ac53696",
+    "factory_id": "FAC-101",
+    "equipment_id": "7e45faf5-5ec7-4f72-8eca-eb3be4d4b7de",
+    "type": "異常用電",
+    "severity": "危險",
+    "title": "用電異常",
+    "message": "設備耗電量異常增加",
+    "created_at": "2025-03-28T03:14:31.423308",
+    "is_read": false,
+    "is_resolved": false,
+    "resolved_by": "",
+    "resolved_at": ""
+  },
+  "alerts/2043f4cd-d438-4b7f-b61a-4dca9aeeaaa0": {
+    "alert_id": "b6b75eff-e05f-43f3-8b2b-a4ed385c122a",
+    "factory_id": "FAC-101",
+    "equipment_id": "a9185676-13e1-447c-8da7-20da23d2c1a3",
+    "type": "異常用電",
+    "severity": "危險",
+    "title": "用電異常",
+    "message": "設備耗電量異常增加",
+    "created_at": "2025-03-26T10:49:32.765306",
+    "is_read": false,
+    "is_resolved": false,
+    "resolved_by": "",
+    "resolved_at": ""
+  },
+  "alerts/3cd168e9-a412-44ed-9aa0-1913a9311531": {
+    "alert_id": "ab967bfa-de9f-4250-9fb9-152885caf108",
+    "factory_id": "FAC-101",
+    "equipment_id": "008649d4-b416-4434-a234-6812950b15b5",
+    "type": "異常用電",
+    "severity": "警告",
+    "title": "用電異常",
+    "message": "設備耗電量異常增加",
+    "created_at": "2025-04-12T19:52:58.226854",
+    "is_read": false,
+    "is_resolved": false,
+    "resolved_by": "",
+    "resolved_at": ""
+  },
+  "alerts/fa53732c-34a6-4c4c-b022-dd6d4a8e542a": {
+    "alert_id": "1d036074-3e17-45ce-98ac-1fe92a5c6d2d",
+    "factory_id": "FAC-101",
+    "equipment_id": "ff110d19-130c-407c-bf82-dc9e82966e18",
+    "type": "異常用電",
+    "severity": "危險",
+    "title": "用電異常",
+    "message": "設備耗電量異常增加",
+    "created_at": "2025-03-22T12:27:17.385366",
+    "is_read": false,
+    "is_resolved": false,
+    "resolved_by": "",
+    "resolved_at": ""
+  },
+  "alerts/7a03f5de-0300-49f5-8ec4-faf7bfe094ac": {
+    "alert_id": "c84477f5-845e-4208-a1b8-d82289bde045",
+    "factory_id": "FAC-101",
+    "equipment_id": "c9be1dd8-b362-4dc3-a18e-cc3ddee1f6e2",
+    "type": "異常用電",
+    "severity": "危險",
+    "title": "用電異常",
+    "message": "設備耗電量異常增加",
+    "created_at": "2025-04-17T21:51:43.519548",
+    "is_read": false,
+    "is_resolved": false,
+    "resolved_by": "",
+    "resolved_at": ""
+  },
+  "carbon_goals/49538107-9b51-4b77-804b-cc2096333a1d": {
+    "goal_id": "399b3ffa-517e-43e3-b7be-afc11f746984",
+    "factory_id": "FAC-101",
+    "title": "年度減碳目標",
+    "description": "減少碳排放10%",
+    "start_date": "2025-03-21T17:25:20.593881",
+    "end_date": "2025-05-04T13:42:10.637529",
+    "target_value": 10,
+    "current_value": 8.612681130781251,
+    "progress_percentage": 51.394398518610664,
+    "created_by": "admin_uid",
+    "updated_at": "2025-04-17T12:05:35.638942"
+  },
+  "carbon_goals/0fc09006-56fa-4e95-a128-79d46d3af53c": {
+    "goal_id": "bc94ad3b-e9c3-4089-98cf-85cf3a83957d",
+    "factory_id": "FAC-101",
+    "title": "年度減碳目標",
+    "description": "減少碳排放10%",
+    "start_date": "2025-03-06T00:33:46.027554",
+    "end_date": "2025-05-01T22:18:52.615770",
+    "target_value": 10,
+    "current_value": 3.9726217718182033,
+    "progress_percentage": 34.09026399326189,
+    "created_by": "admin_uid",
+    "updated_at": "2025-04-12T21:09:43.273397"
+  },
+  "carbon_goals/41926b61-7360-4158-b884-c8510ed29146": {
+    "goal_id": "02c657d5-6534-4c5a-af47-9324db91f451",
+    "factory_id": "FAC-101",
+    "title": "年度減碳目標",
+    "description": "減少碳排放10%",
+    "start_date": "2025-03-15T10:36:37.531829",
+    "end_date": "2025-05-08T13:41:03.655698",
+    "target_value": 10,
+    "current_value": 2.930300049656658,
+    "progress_percentage": 17.353801927159207,
+    "created_by": "admin_uid",
+    "updated_at": "2025-03-26T04:49:24.501871"
+  },
+  "carbon_goals/ef870a5d-ce54-4fe2-9905-90fc36e37199": {
+    "goal_id": "dbafa237-118c-4b6c-b731-a8fa454e6eb6",
+    "factory_id": "FAC-101",
+    "title": "年度減碳目標",
+    "description": "減少碳排放10%",
+    "start_date": "2025-03-21T11:09:26.679315",
+    "end_date": "2025-04-27T18:41:08.571945",
+    "target_value": 10,
+    "current_value": 5.075093020410373,
+    "progress_percentage": 71.4043583820646,
+    "created_by": "admin_uid",
+    "updated_at": "2025-04-04T09:13:40.389676"
+  },
+  "carbon_goals/08b0050e-82f3-4df5-97df-87464e87697c": {
+    "goal_id": "c100b640-e22f-40b7-83ce-20720db06feb",
+    "factory_id": "FAC-101",
+    "title": "年度減碳目標",
+    "description": "減少碳排放10%",
+    "start_date": "2025-02-24T08:38:41.183126",
+    "end_date": "2025-05-01T00:15:05.655212",
+    "target_value": 10,
+    "current_value": 5.714944469657745,
+    "progress_percentage": 24.018430151389868,
+    "created_by": "admin_uid",
+    "updated_at": "2025-04-14T15:02:44.430049"
+  },
+  "carbon_goals/68d13439-c581-4e21-bb53-f34668858574": {
+    "goal_id": "30b24cc7-d2e3-4af2-88a6-298bdb55a1bf",
+    "factory_id": "FAC-101",
+    "title": "年度減碳目標",
+    "description": "減少碳排放10%",
+    "start_date": "2025-02-25T04:22:29.992821",
+    "end_date": "2025-05-01T23:47:12.142069",
+    "target_value": 10,
+    "current_value": 9.139318014882672,
+    "progress_percentage": 33.68370618766525,
+    "created_by": "admin_uid",
+    "updated_at": "2025-04-06T05:26:58.362608"
+  },
+  "carbon_goals/37a193ff-ae78-4b3f-834f-10513f85d724": {
+    "goal_id": "165fa85b-8368-453f-b40a-fef8966d4f17",
+    "factory_id": "FAC-101",
+    "title": "年度減碳目標",
+    "description": "減少碳排放10%",
+    "start_date": "2025-02-22T02:14:51.277653",
+    "end_date": "2025-05-14T21:19:29.999432",
+    "target_value": 10,
+    "current_value": 3.8792740253754268,
+    "progress_percentage": 96.89479154979229,
+    "created_by": "admin_uid",
+    "updated_at": "2025-04-08T13:07:36.312679"
+  },
+  "carbon_goals/450bd21a-4272-4146-9411-9a64de826d84": {
+    "goal_id": "c3bc2d1b-2245-4ff5-a3cd-e482fdc17911",
+    "factory_id": "FAC-101",
+    "title": "年度減碳目標",
+    "description": "減少碳排放10%",
+    "start_date": "2025-03-06T11:15:42.313583",
+    "end_date": "2025-04-28T15:51:34.413033",
+    "target_value": 10,
+    "current_value": 2.7480604554609203,
+    "progress_percentage": 82.12891021183836,
+    "created_by": "admin_uid",
+    "updated_at": "2025-04-06T00:51:41.464732"
+  },
+  "carbon_goals/97ddbee0-5775-4f00-b6ec-a65482b2e669": {
+    "goal_id": "c74cc844-0e67-4930-9a78-13316dc16f1f",
+    "factory_id": "FAC-101",
+    "title": "年度減碳目標",
+    "description": "減少碳排放10%",
+    "start_date": "2025-03-12T07:43:15.500614",
+    "end_date": "2025-04-27T11:36:29.607609",
+    "target_value": 10,
+    "current_value": 3.582707467385556,
+    "progress_percentage": 95.2115043693252,
+    "created_by": "admin_uid",
+    "updated_at": "2025-03-31T14:54:59.374212"
+  },
+  "carbon_goals/0f9ec472-2acc-4ec3-b046-4ea1181cb5fe": {
+    "goal_id": "7210baaa-8b0b-4029-8e8b-efbbae886d8a",
+    "factory_id": "FAC-101",
+    "title": "年度減碳目標",
+    "description": "減少碳排放10%",
+    "start_date": "2025-03-05T10:21:16.903031",
+    "end_date": "2025-04-23T04:24:33.442625",
+    "target_value": 10,
+    "current_value": 9.914618598632472,
+    "progress_percentage": 21.837996602936904,
+    "created_by": "admin_uid",
+    "updated_at": "2025-04-06T22:36:20.790122"
+  },
+  "energy_audits/c51c9e16-e858-4c1f-81c2-c86bd987b809": {
+    "audit_id": "be0f52a7-1a03-4566-a39c-7b49788f75b9",
+    "factory_id": "FAC-101",
+    "audit_date": "2025-04-09T22:12:28.918962",
+    "audit_type": "季度",
+    "auditor": "inspector_uid",
+    "total_energy_usage": 36128.97776387673,
+    "total_carbon_emission": 14526.418004896736,
+    "energy_composition": {
+      "電力": 70,
+      "天然氣": 20,
+      "柴油": 10
+    },
+    "equipment_distribution": {
+      "空調": 40,
+      "製程": 30,
+      "照明": 30
+    },
+    "recommendations": [
+      "更換高效燈具",
+      "安裝變頻馬達"
+    ],
+    "attachments": [],
+    "status": "已審核"
+  },
+  "energy_audits/b67a61d8-0df8-4296-baf4-574dc9171426": {
+    "audit_id": "61a4f30e-fbf8-4694-b906-369dd1fc6998",
+    "factory_id": "FAC-101",
+    "audit_date": "2025-04-07T17:36:41.076857",
+    "audit_type": "年度",
+    "auditor": "inspector_uid",
+    "total_energy_usage": 40488.194917756984,
+    "total_carbon_emission": 13963.901484303382,
+    "energy_composition": {
+      "電力": 70,
+      "天然氣": 20,
+      "柴油": 10
+    },
+    "equipment_distribution": {
+      "空調": 40,
+      "製程": 30,
+      "照明": 30
+    },
+    "recommendations": [
+      "更換高效燈具",
+      "安裝變頻馬達"
+    ],
+    "attachments": [],
+    "status": "已審核"
+  },
+  "energy_audits/3cc9ec4f-6aba-46b0-bc69-a056ccf4aafb": {
+    "audit_id": "79785174-a123-4353-85f4-1f07cf7b6a54",
+    "factory_id": "FAC-101",
+    "audit_date": "2025-03-25T04:32:30.093189",
+    "audit_type": "年度",
+    "auditor": "inspector_uid",
+    "total_energy_usage": 46671.56699097442,
+    "total_carbon_emission": 23892.267268760734,
+    "energy_composition": {
+      "電力": 70,
+      "天然氣": 20,
+      "柴油": 10
+    },
+    "equipment_distribution": {
+      "空調": 40,
+      "製程": 30,
+      "照明": 30
+    },
+    "recommendations": [
+      "更換高效燈具",
+      "安裝變頻馬達"
+    ],
+    "attachments": [],
+    "status": "已審核"
+  },
+  "energy_audits/297be59d-21cd-4c44-b96c-ecb7f2edfa10": {
+    "audit_id": "98bfa063-fb88-4435-beaf-e6536b99af63",
+    "factory_id": "FAC-101",
+    "audit_date": "2025-04-06T11:53:34.012172",
+    "audit_type": "季度",
+    "auditor": "inspector_uid",
+    "total_energy_usage": 13751.59040349884,
+    "total_carbon_emission": 4873.26450359773,
+    "energy_composition": {
+      "電力": 70,
+      "天然氣": 20,
+      "柴油": 10
+    },
+    "equipment_distribution": {
+      "空調": 40,
+      "製程": 30,
+      "照明": 30
+    },
+    "recommendations": [
+      "更換高效燈具",
+      "安裝變頻馬達"
+    ],
+    "attachments": [],
+    "status": "已審核"
+  },
+  "energy_audits/5eb6dd80-c8b2-44a1-9bbd-2deec3f76bff": {
+    "audit_id": "e0cf3840-403e-4457-9a6c-da7c483e52dd",
+    "factory_id": "FAC-101",
+    "audit_date": "2025-04-08T10:40:12.689356",
+    "audit_type": "季度",
+    "auditor": "inspector_uid",
+    "total_energy_usage": 49194.901798984,
+    "total_carbon_emission": 12031.238360517955,
+    "energy_composition": {
+      "電力": 70,
+      "天然氣": 20,
+      "柴油": 10
+    },
+    "equipment_distribution": {
+      "空調": 40,
+      "製程": 30,
+      "照明": 30
+    },
+    "recommendations": [
+      "更換高效燈具",
+      "安裝變頻馬達"
+    ],
+    "attachments": [],
+    "status": "草稿"
+  },
+  "energy_audits/35b78c55-6158-4743-876e-e643fd51ae1a": {
+    "audit_id": "4117d641-d249-4b5c-8a44-1f3924c0e29b",
+    "factory_id": "FAC-101",
+    "audit_date": "2025-04-15T21:37:41.647506",
+    "audit_type": "季度",
+    "auditor": "inspector_uid",
+    "total_energy_usage": 2711.272751921564,
+    "total_carbon_emission": 18509.447686118787,
+    "energy_composition": {
+      "電力": 70,
+      "天然氣": 20,
+      "柴油": 10
+    },
+    "equipment_distribution": {
+      "空調": 40,
+      "製程": 30,
+      "照明": 30
+    },
+    "recommendations": [
+      "更換高效燈具",
+      "安裝變頻馬達"
+    ],
+    "attachments": [],
+    "status": "草稿"
+  },
+  "energy_audits/b0619ed2-57b5-4d4a-907c-950be9737b7a": {
+    "audit_id": "1b033a8f-b03f-48c4-97b4-b18d435251f6",
+    "factory_id": "FAC-101",
+    "audit_date": "2025-04-16T10:49:56.660042",
+    "audit_type": "年度",
+    "auditor": "inspector_uid",
+    "total_energy_usage": 11641.842097123154,
+    "total_carbon_emission": 19668.285848779888,
+    "energy_composition": {
+      "電力": 70,
+      "天然氣": 20,
+      "柴油": 10
+    },
+    "equipment_distribution": {
+      "空調": 40,
+      "製程": 30,
+      "照明": 30
+    },
+    "recommendations": [
+      "更換高效燈具",
+      "安裝變頻馬達"
+    ],
+    "attachments": [],
+    "status": "已提交"
+  },
+  "energy_audits/5b2b870d-602a-471b-bb94-ea74aae24b07": {
+    "audit_id": "8499aa1e-7eff-4719-ad2e-9bc8479724c1",
+    "factory_id": "FAC-101",
+    "audit_date": "2025-04-05T09:41:20.367263",
+    "audit_type": "年度",
+    "auditor": "inspector_uid",
+    "total_energy_usage": 29625.728254221412,
+    "total_carbon_emission": 23155.302259836822,
+    "energy_composition": {
+      "電力": 70,
+      "天然氣": 20,
+      "柴油": 10
+    },
+    "equipment_distribution": {
+      "空調": 40,
+      "製程": 30,
+      "照明": 30
+    },
+    "recommendations": [
+      "更換高效燈具",
+      "安裝變頻馬達"
+    ],
+    "attachments": [],
+    "status": "已提交"
+  },
+  "energy_audits/a22bcbc3-d8b1-4d89-ae2d-b9c718469760": {
+    "audit_id": "f4afcafb-b763-48b1-ad13-5b94b8c7996a",
+    "factory_id": "FAC-101",
+    "audit_date": "2025-04-13T10:01:14.753748",
+    "audit_type": "月度",
+    "auditor": "inspector_uid",
+    "total_energy_usage": 47296.28305688833,
+    "total_carbon_emission": 2682.488870186384,
+    "energy_composition": {
+      "電力": 70,
+      "天然氣": 20,
+      "柴油": 10
+    },
+    "equipment_distribution": {
+      "空調": 40,
+      "製程": 30,
+      "照明": 30
+    },
+    "recommendations": [
+      "更換高效燈具",
+      "安裝變頻馬達"
+    ],
+    "attachments": [],
+    "status": "已審核"
+  },
+  "energy_audits/8958cf89-7a62-4c72-a2f1-835cd5fb0be7": {
+    "audit_id": "869e66cc-d708-49e5-a4c2-3d9dd93726ef",
+    "factory_id": "FAC-101",
+    "audit_date": "2025-04-15T04:20:40.996602",
+    "audit_type": "月度",
+    "auditor": "inspector_uid",
+    "total_energy_usage": 48877.93803986869,
+    "total_carbon_emission": 7805.143344771584,
+    "energy_composition": {
+      "電力": 70,
+      "天然氣": 20,
+      "柴油": 10
+    },
+    "equipment_distribution": {
+      "空調": 40,
+      "製程": 30,
+      "照明": 30
+    },
+    "recommendations": [
+      "更換高效燈具",
+      "安裝變頻馬達"
+    ],
+    "attachments": [],
+    "status": "已審核"
+  },
+  "system_settings/bd4c0f91-3a2c-40ed-8eed-6bf8ca007349": {
+    "setting_id": "4ecab7b1-6cdf-44bd-9811-3e3a99e54882",
+    "category": "排放係數",
+    "name": "台電2023係數",
+    "value": 0.502,
+    "description": "每 kWh 排放 0.502 kg CO₂e",
+    "updated_by": "admin_uid",
+    "updated_at": "2025-04-01T19:23:13.670604"
+  },
+  "system_settings/fbd8e7cc-c215-4aa3-b59d-0a597e837683": {
+    "setting_id": "9fdf08e1-150c-4e76-ac0a-74e9e0c2e6b4",
+    "category": "排放係數",
+    "name": "台電2023係數",
+    "value": 0.502,
+    "description": "每 kWh 排放 0.502 kg CO₂e",
+    "updated_by": "admin_uid",
+    "updated_at": "2025-04-17T21:56:05.576031"
+  },
+  "system_settings/55fb3c14-cc0f-47c0-99e5-5e60bea2df18": {
+    "setting_id": "41c8d337-6a2a-43c0-8abe-c4c0df5bddae",
+    "category": "排放係數",
+    "name": "台電2023係數",
+    "value": 0.502,
+    "description": "每 kWh 排放 0.502 kg CO₂e",
+    "updated_by": "admin_uid",
+    "updated_at": "2025-03-31T16:37:02.813146"
+  },
+  "system_settings/610fd9c5-5be4-4d4b-8b8a-9abf8c708993": {
+    "setting_id": "62188717-14e0-422a-9aad-150dc5544819",
+    "category": "排放係數",
+    "name": "台電2023係數",
+    "value": 0.502,
+    "description": "每 kWh 排放 0.502 kg CO₂e",
+    "updated_by": "admin_uid",
+    "updated_at": "2025-04-13T01:04:28.749116"
+  },
+  "system_settings/ba53c252-b09b-401c-99c8-3f9c6ee1f0f9": {
+    "setting_id": "cc006c6c-1150-46b4-844e-2d3565bf92a9",
+    "category": "排放係數",
+    "name": "台電2023係數",
+    "value": 0.502,
+    "description": "每 kWh 排放 0.502 kg CO₂e",
+    "updated_by": "admin_uid",
+    "updated_at": "2025-04-10T18:48:54.155412"
+  },
+  "system_settings/2ed144db-a868-4ba9-abaf-eedb7b14a186": {
+    "setting_id": "761acc10-29e7-4367-b813-bb8b870786cb",
+    "category": "排放係數",
+    "name": "台電2023係數",
+    "value": 0.502,
+    "description": "每 kWh 排放 0.502 kg CO₂e",
+    "updated_by": "admin_uid",
+    "updated_at": "2025-04-15T03:17:00.646654"
+  },
+  "system_settings/6f8fd126-311a-4233-a39f-aa4b0f71d1b2": {
+    "setting_id": "673fd7c1-8958-4669-bc06-c9ffaf809548",
+    "category": "排放係數",
+    "name": "台電2023係數",
+    "value": 0.502,
+    "description": "每 kWh 排放 0.502 kg CO₂e",
+    "updated_by": "admin_uid",
+    "updated_at": "2025-04-08T14:59:55.161180"
+  },
+  "system_settings/85c231b5-cc16-4876-9050-ce9234aeae6b": {
+    "setting_id": "72d29e8b-2fb6-4172-a43d-bff0360fbca3",
+    "category": "排放係數",
+    "name": "台電2023係數",
+    "value": 0.502,
+    "description": "每 kWh 排放 0.502 kg CO₂e",
+    "updated_by": "admin_uid",
+    "updated_at": "2025-03-28T04:49:27.423569"
+  },
+  "system_settings/fe584d41-63b6-410a-9937-9761d510142b": {
+    "setting_id": "77cf5e8a-e02f-4ab8-82dc-1323baa1ae34",
+    "category": "排放係數",
+    "name": "台電2023係數",
+    "value": 0.502,
+    "description": "每 kWh 排放 0.502 kg CO₂e",
+    "updated_by": "admin_uid",
+    "updated_at": "2025-04-20T14:45:30.991287"
+  },
+  "system_settings/8cb626c1-68bb-4a5f-bf76-c02f448a11bc": {
+    "setting_id": "dbd3d4b5-71f7-4656-b90a-45e67c8fb04f",
+    "category": "排放係數",
+    "name": "台電2023係數",
+    "value": 0.502,
+    "description": "每 kWh 排放 0.502 kg CO₂e",
+    "updated_by": "admin_uid",
+    "updated_at": "2025-04-13T16:23:14.928201"
+  },
+  "carbon_emission_factors/50caafd4-4a98-4aee-bf8f-b0378dccb84d": {
+    "factor_id": "5b36b49e-feea-4885-888a-b50fd5cd23ac",
+    "category": "能源",
+    "item": "台電電力",
+    "energy_type": "kWh",
+    "emission_factor": 0.502,
+    "unit": "kg CO₂e/kWh",
+    "source": "台灣環保署",
+    "region": "台灣",
+    "year": 2023,
+    "version": "v2023.1",
+    "is_active": true,
+    "notes": "含再生能源比重後之平均值",
+    "created_at": "2025-04-04T05:04:53.928945",
+    "updated_at": "2025-04-19T06:22:17.952246"
+  },
+  "carbon_emission_factors/022c4643-8eb9-4be2-b917-c5eda0c15e50": {
+    "factor_id": "f4b517f8-2280-49cf-a25b-13601041891f",
+    "category": "能源",
+    "item": "台電電力",
+    "energy_type": "kWh",
+    "emission_factor": 0.502,
+    "unit": "kg CO₂e/kWh",
+    "source": "台灣環保署",
+    "region": "台灣",
+    "year": 2023,
+    "version": "v2023.1",
+    "is_active": true,
+    "notes": "含再生能源比重後之平均值",
+    "created_at": "2025-04-11T11:46:15.523085",
+    "updated_at": "2025-03-30T17:54:49.260966"
+  },
+  "carbon_emission_factors/8d9eebaa-caff-4ae0-8774-5c89b8142888": {
+    "factor_id": "41d63bda-b5a1-4007-bec3-12f340751690",
+    "category": "能源",
+    "item": "台電電力",
+    "energy_type": "kWh",
+    "emission_factor": 0.502,
+    "unit": "kg CO₂e/kWh",
+    "source": "台灣環保署",
+    "region": "台灣",
+    "year": 2023,
+    "version": "v2023.1",
+    "is_active": true,
+    "notes": "含再生能源比重後之平均值",
+    "created_at": "2025-03-26T06:55:32.517601",
+    "updated_at": "2025-04-18T20:15:47.520073"
+  },
+  "carbon_emission_factors/a0697ed4-e8dd-439c-93b5-137b49f627f9": {
+    "factor_id": "f641b8f0-b313-4751-a378-93b74214922f",
+    "category": "能源",
+    "item": "台電電力",
+    "energy_type": "kWh",
+    "emission_factor": 0.502,
+    "unit": "kg CO₂e/kWh",
+    "source": "台灣環保署",
+    "region": "台灣",
+    "year": 2023,
+    "version": "v2023.1",
+    "is_active": true,
+    "notes": "含再生能源比重後之平均值",
+    "created_at": "2025-04-15T20:25:49.014675",
+    "updated_at": "2025-04-17T10:40:37.887766"
+  },
+  "carbon_emission_factors/66895e3f-4942-4d82-8d0c-15203d7cdbd7": {
+    "factor_id": "7730086d-0208-4dd1-91bb-f4aa0d86efef",
+    "category": "能源",
+    "item": "台電電力",
+    "energy_type": "kWh",
+    "emission_factor": 0.502,
+    "unit": "kg CO₂e/kWh",
+    "source": "台灣環保署",
+    "region": "台灣",
+    "year": 2023,
+    "version": "v2023.1",
+    "is_active": true,
+    "notes": "含再生能源比重後之平均值",
+    "created_at": "2025-04-06T05:15:33.257586",
+    "updated_at": "2025-04-01T08:46:01.291288"
+  },
+  "carbon_emission_factors/0bed9992-a119-483d-bc45-a0dd7664b4cb": {
+    "factor_id": "0b479ac2-83dc-4725-af23-ced5369c65aa",
+    "category": "能源",
+    "item": "台電電力",
+    "energy_type": "kWh",
+    "emission_factor": 0.502,
+    "unit": "kg CO₂e/kWh",
+    "source": "台灣環保署",
+    "region": "台灣",
+    "year": 2023,
+    "version": "v2023.1",
+    "is_active": true,
+    "notes": "含再生能源比重後之平均值",
+    "created_at": "2025-04-16T12:00:04.548104",
+    "updated_at": "2025-03-31T09:19:33.412188"
+  },
+  "carbon_emission_factors/9e9a77ae-61d5-4d44-9cf4-33cc0dc2cbc9": {
+    "factor_id": "6ed60741-2aac-4323-b375-2c2ef78919c6",
+    "category": "能源",
+    "item": "台電電力",
+    "energy_type": "kWh",
+    "emission_factor": 0.502,
+    "unit": "kg CO₂e/kWh",
+    "source": "台灣環保署",
+    "region": "台灣",
+    "year": 2023,
+    "version": "v2023.1",
+    "is_active": true,
+    "notes": "含再生能源比重後之平均值",
+    "created_at": "2025-04-20T12:19:35.484146",
+    "updated_at": "2025-03-27T09:14:46.898409"
+  },
+  "carbon_emission_factors/8114bdc9-8b5a-4646-9c99-e588106f15f0": {
+    "factor_id": "e115bb16-7bff-4d49-bc96-a3a73072ca6d",
+    "category": "能源",
+    "item": "台電電力",
+    "energy_type": "kWh",
+    "emission_factor": 0.502,
+    "unit": "kg CO₂e/kWh",
+    "source": "台灣環保署",
+    "region": "台灣",
+    "year": 2023,
+    "version": "v2023.1",
+    "is_active": true,
+    "notes": "含再生能源比重後之平均值",
+    "created_at": "2025-04-02T21:29:16.208536",
+    "updated_at": "2025-04-10T15:34:04.933027"
+  },
+  "carbon_emission_factors/7b24afaf-2183-4b10-8f2e-7511f1540583": {
+    "factor_id": "be7427a1-12eb-4f93-8d64-ba2a89884bfb",
+    "category": "能源",
+    "item": "台電電力",
+    "energy_type": "kWh",
+    "emission_factor": 0.502,
+    "unit": "kg CO₂e/kWh",
+    "source": "台灣環保署",
+    "region": "台灣",
+    "year": 2023,
+    "version": "v2023.1",
+    "is_active": true,
+    "notes": "含再生能源比重後之平均值",
+    "created_at": "2025-04-03T01:52:47.339815",
+    "updated_at": "2025-03-26T16:25:25.758195"
+  },
+  "carbon_emission_factors/407df3aa-13a3-4cac-8dc0-57fa50efcc61": {
+    "factor_id": "ae85463d-ea30-4e6f-b689-d358a1775daf",
+    "category": "能源",
+    "item": "台電電力",
+    "energy_type": "kWh",
+    "emission_factor": 0.502,
+    "unit": "kg CO₂e/kWh",
+    "source": "台灣環保署",
+    "region": "台灣",
+    "year": 2023,
+    "version": "v2023.1",
+    "is_active": true,
+    "notes": "含再生能源比重後之平均值",
+    "created_at": "2025-03-24T10:39:00.215003",
+    "updated_at": "2025-03-25T14:51:29.503435"
+  }
+}

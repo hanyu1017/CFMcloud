@@ -1,18 +1,177 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Telegram Mini App</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  </head>
-  <body>
-    <h1>Hello Telegram 👋</h1>
-    <button onclick="sendData()">傳送訊息到 Bot</button>
-
-    <script>
-      function sendData() {
-        Telegram.WebApp.sendData("你好！這是從 Mini App 傳出去的訊息！");
-      }
-    </script>
-  </body>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <title>碳排放儀表板｜模組切換版</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Microsoft JhengHei", sans-serif;
+      background-color: #f0f4f5;
+      color: #333;
+    }
+    header {
+      background-color: #e0f0ec;
+      padding: 1rem 1rem 1rem 3.5rem;
+      position: relative;
+    }
+    .menu-button {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      font-size: 1.2rem;
+      background-color: #066b59;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 8px;
+      cursor: pointer;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #066b59;
+    }
+    .top-section {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 1rem;
+      margin: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .top-card {
+      text-align: center;
+    }
+    .top-card h2 {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .top-card .value {
+      font-size: 1.8rem;
+      color: #0a8a67;
+    }
+    .section-title {
+      font-size: 1.2rem;
+      margin: 1rem;
+      color: #066b59;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .tab {
+      padding: 0.5rem 1rem;
+      background-color: #e6f1ef;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .tab.active {
+      background-color: #066b59;
+      color: white;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+    .card .usage {
+      font-size: 1.4rem;
+      color: #007acc;
+      margin-bottom: 0.3rem;
+    }
+    .card .unit {
+      font-size: 0.8rem;
+      color: #888;
+    }
+    .footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="menu-button" onclick="alert('此處可擴充為功能選單，例如頁面切換或使用者設定')">≡</button>
+    <h1>碳排放即時儀表板｜模組切換版</h1>
+  </header>
+  <div class="top-section">
+    <div class="top-card">
+      <h2>電源總用電</h2>
+      <div class="value">1,833 度</div>
+    </div>
+    <div class="top-card">
+      <h2>熱管理與監控</h2>
+      <div class="value">1,833 立方米</div>
+    </div>
+    <div class="top-card">
+      <h2>CO₂總排放</h2>
+      <div class="value">1,833 CO₂e/度</div>
+    </div>
+  </div>
+  <div class="section-title">選擇模組類別</div>
+  <div class="tabs">
+    <div class="tab active" onclick="showCategory('power')">電力系統</div>
+    <div class="tab" onclick="showCategory('cooling')">熱管理</div>
+    <div class="tab" onclick="showCategory('control')">整控系統</div>
+  </div>
+  <div class="grid" id="cardGrid"></div>
+  <div class="footer">最後更新：2023/03/06 10:30（模擬資料）</div>
+  <script>
+    const modules = {
+      power: [
+        { name: "電源供應器", usage: 69.2, unit: "度 / 48 kgCO₂e/ton" },
+        { name: "UPS 系統", usage: 69.2, unit: "度 / 48 kgCO₂e/ton" },
+        { name: "電源分配器", usage: 69.2, unit: "立方米 / 48 kgCO₂e/ton" }
+      ],
+      cooling: [
+        { name: "熱交換器", usage: 55.3, unit: "度 / 42 kgCO₂e/ton" },
+        { name: "冷氣壓縮系統", usage: 72.4, unit: "度 / 50 kgCO₂e/ton" }
+      ],
+      control: [
+        { name: "整控系統 A", usage: 69.2, unit: "度 / 48 kgCO₂e/ton" },
+        { name: "整控系統 B", usage: 66.6, unit: "度 / 47 kgCO₂e/ton" }
+      ]
+    };
+    function showCategory(category) {
+      document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+      event.target.classList.add("active");
+      const grid = document.getElementById("cardGrid");
+      grid.innerHTML = "";
+      modules[category].forEach(mod => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <h3>${mod.name}</h3>
+          <div class="usage">${mod.usage}</div>
+          <div class="unit">${mod.unit}</div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+    window.onload = () => showCategory('power');
+  </script>
+</body>
 </html>
