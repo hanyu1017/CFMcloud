@@ -10,3 +10,5 @@ const nextConfig = {
     DB_NAME: process.env.DB_NAME,
   },
 }
+
+module.exports = nextConfig
