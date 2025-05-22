@@ -1,23 +1,23 @@
 {
-  "name": "cfmcloud",
+  "name": "factory-dashboard",
   "version": "1.0.0",
-  "main": "upload.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hanyu1017/hanyurepo.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hanyu1017/hanyurepo/issues"
-  },
-  "homepage": "https://github.com/hanyu1017/hanyurepo#readme",
-  "description": "",
   "dependencies": {
-    "firebase-admin": "^13.2.0"
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "mssql": "^10.0.1",
+    "recharts": "^2.8.0",
+    "lucide-react": "^0.294.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0"
   }
 }
