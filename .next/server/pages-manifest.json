@@ -1,1 +1,8 @@
-{"/_app":"pages/_app.js","/_error":"pages/_error.js","/api/database/connections":"pages/api/database/connections.js","/api/factories":"pages/api/factories.js","/api/alerts":"pages/api/alerts.js","/api/factories/[id]":"pages/api/factories/[id].js","/factories":"pages/factories.html","/api/factories/stats":"pages/api/factories/stats.js","/":"pages/index.html","/_document":"pages/_document.js","/404":"pages/404.html"}
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js",
+  "/api/factories": "pages/api/factories.js",
+  "/factories": "pages/factories.js"
+}
