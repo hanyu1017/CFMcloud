@@ -1,5 +1,5 @@
 // pages/api/factories/index.js
-// 注意：API 路由文件不需要導入 React 組件
+
 
 export default async function handler(req, res) {
   try {
