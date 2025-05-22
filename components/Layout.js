@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Sidebar from './Sidebar'; // 新增這行
 
 const Layout = ({ children }) => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -8,33 +9,6 @@ const Layout = ({ children }) => {
     avatar: 'ZM' // 用戶名縮寫
   });
 
-  const menuItems = [
-    {
-      section: '主要功能',
-      items: [
-        { icon: '📊', label: '儀表板', href: '/', active: true },
-        { icon: '🏭', label: '生產管理', href: '/production' },
-        { icon: '⚙️', label: '設備監控', href: '/equipment' },
-        { icon: '⚠️', label: '警報中心', href: '/alerts' }
-      ]
-    },
-    {
-      section: '數據分析',
-      items: [
-        { icon: '📈', label: '報表分析', href: '/reports' },
-        { icon: '✅', label: '品質控制', href: '/quality' },
-        { icon: '📦', label: '庫存管理', href: '/inventory' }
-      ]
-    },
-    {
-      section: '系統設定',
-      items: [
-        { icon: '👥', label: '用戶管理', href: '/users' },
-        { icon: '🔧', label: '系統設定', href: '/settings' }
-      ]
-    }
-  ];
-
   return (
     <div style={{
       minHeight: '100vh',
@@ -42,156 +16,19 @@ const Layout = ({ children }) => {
       fontFamily: "'Microsoft JhengHei', 'PingFang TC', 'Noto Sans TC', system-ui, sans-serif"
     }}>
       {/* 側邊欄 */}
-      <div 
-        className="sidebar"
-        style={{
-          width: sidebarCollapsed ? '80px' : '280px',
-          transition: 'width 0.3s ease-in-out',
-          background: 'linear-gradient(180deg, var(--primary-900, #0f172a) 0%, var(--primary-800, #1e293b) 100%)',
-          color: 'white',
-          position: 'fixed',
-          height: '100vh',
-          overflowY: 'auto',
-          borderRight: '1px solid var(--primary-700, #334155)',
-          zIndex: 1000
-        }}
-      >
-        <div style={{ padding: '1.5rem 0' }}>
-          {/* Logo 區域 */}
-          <div style={{
-            textAlign: 'center',
-            marginBottom: '2rem',
-            padding: sidebarCollapsed ? '0 1rem' : '0 1.5rem'
-          }}>
-            <div style={{
-              width: '48px',
-              height: '48px',
-              background: 'linear-gradient(135deg, var(--accent-blue, #2563eb) 0%, var(--accent-indigo, #4f46e5) 100%)',
-              borderRadius: '12px',
-              margin: '0 auto',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: sidebarCollapsed ? 0 : '1rem'
-            }}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 7V17C3 18.1 3.9 19 5 19H19C20.1 19 21 18.1 21 17V7H3Z" fill="white" fillOpacity="0.9"/>
-                <path d="M21 5H3V7H21V5Z" fill="white"/>
-                <path d="M7 9H17V11H7V9Z" fill="rgba(37, 99, 235, 0.8)"/>
-                <path d="M7 13H13V15H7V13Z" fill="rgba(37, 99, 235, 0.6)"/>
-              </svg>
-            </div>
-            {!sidebarCollapsed && (
-              <>
-                <h2 style={{
-                  fontSize: '1.25rem',
-                  fontWeight: '700',
-                  color: 'white',
-                  letterSpacing: '-0.02em',
-                  marginBottom: '0.25rem'
-                }}>
-                  工廠監控系統
-                </h2>
-                <p style={{
-                  fontSize: '0.75rem',
-                  color: 'var(--primary-400, #94a3b8)'
-                }}>
-                  智能製造管理平台
-                </p>
-              </>
-            )}
-          </div>
-
-          {/* 導航選單 */}
-          <nav style={{ padding: '0 1rem' }}>
-            {menuItems.map((section, sectionIndex) => (
-              <div key={sectionIndex} style={{ marginBottom: '2rem' }}>
-                {!sidebarCollapsed && (
-                  <div style={{
-                    fontSize: '0.75rem',
-                    fontWeight: '600',
-                    color: 'var(--primary-400, #94a3b8)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                    marginBottom: '0.75rem',
-                    padding: '0 1rem'
-                  }}>
-                    {section.section}
-                  </div>
-                )}
-                
-                {section.items.map((item, index) => (
-                  <a
-                    key={index}
-                    href={item.href}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      padding: sidebarCollapsed ? '0.75rem' : '0.75rem 1rem',
-                      marginBottom: '0.25rem',
-                      borderRadius: '12px',
-                      cursor: 'pointer',
-                      transition: 'all 0.15s ease-in-out',
-                      textDecoration: 'none',
-                      color: item.active ? 'white' : 'var(--primary-300, #cbd5e1)',
-                      fontWeight: '500',
-                      position: 'relative',
-                      background: item.active ? 'var(--accent-blue, #2563eb)' : 'transparent',
-                      justifyContent: sidebarCollapsed ? 'center' : 'flex-start'
-                    }}
-                    onMouseEnter={(e) => {
-                      if (!item.active) {
-                        e.target.style.backgroundColor = 'var(--primary-700, #334155)';
-                        e.target.style.color = 'white';
-                        e.target.style.transform = 'translateX(2px)';
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!item.active) {
-                        e.target.style.backgroundColor = 'transparent';
-                        e.target.style.color = 'var(--primary-300, #cbd5e1)';
-                        e.target.style.transform = 'translateX(0)';
-                      }
-                    }}
-                  >
-                    <span style={{
-                      fontSize: '1.25rem',
-                      marginRight: sidebarCollapsed ? 0 : '0.75rem',
-                      flexShrink: 0
-                    }}>
-                      {item.icon}
-                    </span>
-                    {!sidebarCollapsed && (
-                      <span>{item.label}</span>
-                    )}
-                    {item.active && (
-                      <div style={{
-                        position: 'absolute',
-                        left: 0,
-                        top: '50%',
-                        transform: 'translateY(-50%)',
-                        width: '3px',
-                        height: '60%',
-                        backgroundColor: 'white',
-                        borderRadius: '0 2px 2px 0'
-                      }}></div>
-                    )}
-                  </a>
-                ))}
-              </div>
-            ))}
-          </nav>
-        </div>
-      </div>
+      <Sidebar />
 
       {/* 主內容區域 */}
-      <div style={{
-        marginLeft: sidebarCollapsed ? '80px' : '280px',
-        transition: 'margin-left 0.3s ease-in-out',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column'
-      }}>
+      <div
+        className="main-content"
+        style={{
+          marginLeft: '220px', // 側邊欄寬度
+          transition: 'margin-left 0.3s ease-in-out',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column'
+        }}
+      >
         {/* 頂部表頭 */}
         <header style={{
           height: '80px',
