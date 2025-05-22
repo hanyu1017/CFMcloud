@@ -1,0 +1,65 @@
+// pages/factories/index.js
+import { useState, useEffect } from 'react'
+import Layout from '../../components/Layout'
+import FactoryCard from '../../components/FactoryCard'
+
+export default function FactoriesPage() {
+  const [factories, setFactories] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [showForm, setShowForm] = useState(false)
+
+  useEffect(() => {
+    fetchFactories()
+  }, [])
+
+  const fetchFactories = async () => {
+    try {
+      const response = await fetch('/api/factories')
+      const data = await response.json()
+      setFactories(data)
+    } catch (error) {
+      console.error('獲取廠區數據失敗:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  if (loading) {
+    return (
+      <Layout>
+        <div className="loading">
+          <div className="spinner"></div>
+        </div>
+      </Layout>
+    )
+  }
+
+  return (
+    <Layout>
+      <div className="page-header">
+        <h1 className="page-title">廠區管理</h1>
+        <p className="page-subtitle">管理所有廠區的基本資訊與營運狀況</p>
+      </div>
+
+      <div className="card">
+        <div className="card-header">
+          <h2 className="card-title">廠區列表</h2>
+          <button 
+            className="btn btn-primary"
+            onClick={() => setShowForm(true)}
+          >
+            新增廠區
+          </button>
+        </div>
+
+        <div className="grid grid-cols-3" style={{ gap: '1.5rem' }}>
+          {factories.map(factory => (
+            <FactoryCard key={factory.factory_id} factory={factory} />
+          ))}
+        </div>
+      </div>
+
+      {/* 新增廠區表單 Modal 可以在這裡實作 */}
+    </Layout>
+  )
+}
