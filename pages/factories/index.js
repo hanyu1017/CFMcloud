@@ -1,6 +1,6 @@
 // pages/factories/index.js
 import { useState, useEffect } from 'react'
-import Layout from '../../components/Layout'
+import Layout from '../../components/layout'
 import FactoryCard from '../../components/FactoryCard'
 
 export default function FactoriesPage() {
