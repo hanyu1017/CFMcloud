@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router'; // 新增
+import { useRouter } from 'next/router';
 
 // 側邊欄組件
 const Sidebar = ({ isCollapsed, onToggle, currentPath }) => {
@@ -65,7 +65,8 @@ const Sidebar = ({ isCollapsed, onToggle, currentPath }) => {
     zIndex: 1000,
     borderRight: '1px solid #e5e7eb',
     overflow: 'hidden',
-    transform: (isMobile && isCollapsed) ? 'translateX(-100%)' : 'translateX(0)',
+    // 修正：只有手機且收合時才隱藏，否則都顯示
+    transform: isMobile && isCollapsed ? 'translateX(-100%)' : 'translateX(0)',
     boxShadow: '2px 0 12px rgba(0, 0, 0, 0.08)'
   };
 
@@ -520,7 +521,7 @@ const PageIndicator = ({ currentPath }) => {
 // 更新的 Layout 組件
 const Layout = ({ children, currentPath = '/dashboard' }) => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(undefined); // 預設 undefined
   const [darkMode, setDarkMode] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [showNotifications, setShowNotifications] = useState(false);
@@ -535,15 +536,14 @@ const Layout = ({ children, currentPath = '/dashboard' }) => {
     const checkMobile = () => {
       const mobile = window.innerWidth < 1024;
       setIsMobile(mobile);
-      if (mobile) {
+      if (mobile && !sidebarCollapsed) {
         setSidebarCollapsed(true);
       }
     };
-    
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  }, [sidebarCollapsed]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -626,6 +626,9 @@ const Layout = ({ children, currentPath = '/dashboard' }) => {
     transition: 'all 0.15s ease',
     color: darkMode ? '#d1d5db' : '#6b7280'
   };
+
+  // SSR/CSR hydration 修正：首次 client render 前不渲染內容
+  if (isMobile === undefined) return null;
 
   return (
     <div style={{
