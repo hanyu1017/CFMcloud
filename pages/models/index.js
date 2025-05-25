@@ -1,6 +1,6 @@
 // pages/models/index.js
 import { useState, useEffect } from 'react'
-import Layout from '../../components/layout'
+import Layout from '../../components/Layout'
 
 // 詳細模型參數常數定義
 const MODEL_CONSTANTS = {
