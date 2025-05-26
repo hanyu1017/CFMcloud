@@ -1015,3 +1015,33 @@ body {
     color: var(--white);
   }
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.status-badge {
+  @apply px-2 py-1 rounded-full text-xs font-medium;
+}
+
+.status-badge-online {
+  @apply bg-green-100 text-green-800;
+}
+
+.status-badge-offline {
+  @apply bg-red-100 text-red-800;
+}
+
+.progress-bar {
+  @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+}
+
+.progress-bar-fill {
+  @apply h-full transition-all duration-300;
+}
