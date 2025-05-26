@@ -916,8 +916,9 @@ body {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .fade-in {
@@ -1020,28 +1021,169 @@ body {
 @tailwind components;
 @tailwind utilities;
 
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+/* 基礎樣式 */
+@layer base {
+  :root {
+    --primary: #2563eb;
+    --success: #059669;
+    --warning: #eab308;
+    --danger: #dc2626;
+    --info: #3b82f6;
+  }
 }
 
-.status-badge {
-  @apply px-2 py-1 rounded-full text-xs font-medium;
+/* 共用元件樣式 */
+@layer components {
+  /* 頁面標題區 */
+  .page-header {
+    @apply mb-8;
+  }
+
+  .page-title {
+    @apply text-2xl font-bold text-gray-900;
+  }
+
+  .page-subtitle {
+    @apply mt-1 text-sm text-gray-500;
+  }
+
+  /* 卡片樣式 */
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200;
+  }
+
+  .card-header {
+    @apply p-6 border-b border-gray-200;
+  }
+
+  .card-title {
+    @apply text-lg font-semibold text-gray-900;
+  }
+
+  .card-subtitle {
+    @apply mt-1 text-sm text-gray-500;
+  }
+
+  /* 統計卡片 */
+  .stat-card {
+    @apply p-6 bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow;
+  }
+
+  .stat-icon {
+    @apply p-2 rounded-lg;
+  }
+
+  .stat-icon-primary {
+    @apply bg-blue-100 text-blue-600;
+  }
+
+  .stat-icon-success {
+    @apply bg-green-100 text-green-600;
+  }
+
+  .stat-icon-warning {
+    @apply bg-yellow-100 text-yellow-600;
+  }
+
+  .stat-icon-danger {
+    @apply bg-red-100 text-red-600;
+  }
+
+  /* 按鈕樣式 */
+  .btn {
+    @apply inline-flex items-center px-4 py-2 rounded-lg font-medium transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700;
+  }
+
+  .btn-outline {
+    @apply border border-gray-300 text-gray-700 hover:bg-gray-50;
+  }
+
+  /* 表格樣式 */
+  .table-container {
+    @apply overflow-x-auto;
+  }
+
+  .table {
+    @apply min-w-full divide-y divide-gray-200;
+  }
+
+  .table th {
+    @apply px-4 py-3 text-left text-sm font-semibold text-gray-600;
+  }
+
+  .table td {
+    @apply px-4 py-3 text-sm text-gray-900;
+  }
+
+  .table tbody {
+    @apply divide-y divide-gray-200;
+  }
+
+  /* 狀態標籤 */
+  .status-badge {
+    @apply px-2 py-1 text-xs font-medium rounded-full;
+  }
+
+  .status-badge-success {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .status-badge-warning {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+
+  .status-badge-danger {
+    @apply bg-red-100 text-red-800;
+  }
+
+  /* 圖表容器 */
+  .chart-container {
+    @apply p-6;
+  }
+
+  .chart-title {
+    @apply text-lg font-semibold mb-4;
+  }
+
+  /* 載入動畫 */
+  .spinner {
+    @apply w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin;
+  }
+
+  .loading-container {
+    @apply flex items-center justify-center min-h-screen;
+  }
+
+  /* 格線布局 */
+  .grid-stats {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+  }
+
+  .grid-charts {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-6;
+  }
 }
 
-.status-badge-online {
-  @apply bg-green-100 text-green-800;
+/* 動畫 */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.status-badge-offline {
-  @apply bg-red-100 text-red-800;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.progress-bar {
-  @apply h-2 bg-gray-200 rounded-full overflow-hidden;
-}
-
-.progress-bar-fill {
-  @apply h-full transition-all duration-300;
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
 }
