@@ -72,6 +72,11 @@ const Icons = {
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
       <path d="M18,8h-1V6c0-2.76-2.24-5-5-5S7,3.24,7,6v2H6c-1.1,0-2,0.9-2,2v10c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V10 C20,8.9,19.1,8,18,8z M12,17c-1.1,0-2-0.9-2-2s0.9-2,2-2s2,0.9,2,2S13.1,17,12,17z M15.1,8H8.9V6c0-1.71,1.39-3.1,3.1-3.1 s3.1,1.39,3.1,3.1V8z"/>
     </svg>
+  ),
+  CarbonAsset: () => (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17 8h3v12h-3v-12zM12 4h3v16h-3v-16zM7 12h3v8h-3v-8zM3 9h2v10h-2v-10z"/>
+    </svg>
   )
 };
 
@@ -106,6 +111,11 @@ const Sidebar = ({ isCollapsed, onToggle, currentPath, darkMode }) => {
         { icon: 'Orders', label: '工單管理', path: '/work-orders' },
         { icon: 'Maintenance', label: '設備維護', path: '/maintenance' },
         { icon: 'Staff', label: '人員調度', path: '/staff' },
+        { 
+          icon: 'CarbonAsset', 
+          label: '碳資產管理', 
+          path: '/carbon-assets' 
+        },
       ]
     },
     {
@@ -528,7 +538,7 @@ const NotificationDialog = ({ isOpen, onClose, darkMode }) => {
                   </p>
                   <p style={{
                     fontSize: '0.625rem',
-                    color: darkMode ? '#9ca3af' : '#9ca3af',
+                    color: darkMode ? '#9ca3af' : '#9ca3b8',
                     margin: 0
                   }}>
                     {notification.time}
