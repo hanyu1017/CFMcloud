@@ -999,21 +999,48 @@ body {
 ============================================================================= */
 
 @media (prefers-color-scheme: dark) {
+  /* Remove the card color overrides */
   :root {
     --gray-50: #0f172a;
     --gray-100: #1e293b;
     --gray-200: #334155;
-    --white: #1e293b;
     --primary-50: #0f172a;
   }
   
+  /* Keep cards white in dark mode */
   .card,
   .data-table,
   .stat-card,
   .factory-card {
-    background-color: var(--primary-800);
-    border-color: var(--primary-700);
-    color: var(--white);
+    background-color: var(--white, #ffffff);
+    border-color: var(--gray-200);
+    color: var(--gray-900);
+  }
+
+  /* Ensure card content remains readable */
+  .card-title,
+  .stat-value,
+  .factory-name {
+    color: var(--gray-900);
+  }
+
+  .card-subtitle,
+  .stat-label,
+  .factory-location {
+    color: var(--gray-600);
+  }
+
+  /* Keep table background white */
+  .table {
+    background-color: var(--white, #ffffff);
+  }
+
+  .table th {
+    color: var(--gray-600);
+  }
+
+  .table td {
+    color: var(--gray-900);
   }
 }
 
