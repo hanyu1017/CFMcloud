@@ -19,11 +19,6 @@ self.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/carbon-assets": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/carbon-assets.js"
-    ],
     "/dashboard": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
