@@ -3,8 +3,15 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
-  env: {
-    APP_URL: process.env.APP_URL,
+  experimental: {
+    esmExternals: true
+  },
+  webpack: (config, { dev, isServer }) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'react/jsx-runtime': require.resolve('react/jsx-runtime')
+    }
+    return config
   }
 }
 
