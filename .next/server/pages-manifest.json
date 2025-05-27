@@ -4,5 +4,5 @@
   "/_document": "pages/_document.js",
   "/dashboard": "pages/dashboard.js",
   "/carbon-assets": "pages/carbon-assets.js",
-  "/factories": "pages/factories.js"
+  "/models": "pages/models.js"
 }
