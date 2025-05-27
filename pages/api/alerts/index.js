@@ -1,45 +1,28 @@
-// pages/api/alerts/index.js
+import pool from '../../../lib/database';
+
 export default async function handler(req, res) {
   try {
     switch (req.method) {
       case 'GET':
         const limit = req.query.limit ? parseInt(req.query.limit) : 10
         
-        // 模擬警報數據
-        const alerts = [
-          {
-            alert_id: 1,
-            factory_id: 3,
-            factory_name: '高雄廠',
-            alert_type: 'energy',
-            alert_level: 'high',
-            message: '空調系統異常耗電',
-            is_resolved: false,
-            created_at: new Date().toISOString()
-          },
-          {
-            alert_id: 2,
-            factory_id: 1,
-            factory_name: '台北總廠',
-            alert_type: 'temperature',
-            alert_level: 'high',
-            message: '製程區域溫度過高',
-            is_resolved: false,
-            created_at: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString()
-          },
-          {
-            alert_id: 3,
-            factory_id: 3,
-            factory_name: '高雄廠',
-            alert_type: 'maintenance',
-            alert_level: 'medium',
-            message: '設備維護即將到期',
-            is_resolved: false,
-            created_at: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
-          }
-        ].slice(0, limit)
-        
-        res.status(200).json(alerts)
+        const result = await pool.query(`
+          SELECT 
+            a.alert_id,
+            a.type,
+            a.severity,
+            a.message,
+            a.status,
+            a.created_at,
+            f.factory_name,
+            f.location
+          FROM alerts a
+          LEFT JOIN factories f ON a.factory_id = f.factory_id
+          ORDER BY a.created_at DESC
+          LIMIT $1
+        `, [limit]);
+
+        res.status(200).json(result.rows);
         break
         
       case 'POST':
