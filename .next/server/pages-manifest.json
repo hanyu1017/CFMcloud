@@ -3,7 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/api/factories/stats": "pages/api/factories/stats.js",
-  "/api/factories": "pages/api/factories.js",
   "/factories": "pages/factories.js"
 }
