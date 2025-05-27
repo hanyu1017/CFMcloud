@@ -6,13 +6,7 @@ const nextConfig = {
   experimental: {
     esmExternals: true
   },
-  webpack: (config, { dev, isServer }) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      'react/jsx-runtime': require.resolve('react/jsx-runtime')
-    }
-    return config
-  }
+  
 }
 
 module.exports = nextConfig
