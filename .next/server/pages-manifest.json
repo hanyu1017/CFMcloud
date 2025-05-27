@@ -1,8 +1,1 @@
-{
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/dashboard": "pages/dashboard.js",
-  "/carbon-assets": "pages/carbon-assets.js",
-  "/models": "pages/models.js"
-}
+{"/_app":"pages/_app.js","/_error":"pages/_error.js","/api/alerts":"pages/api/alerts.js","/api/factories/[id]":"pages/api/factories/[id].js","/api/database/connections":"pages/api/database/connections.js","/api/factories":"pages/api/factories.js","/api/factories/stats":"pages/api/factories/stats.js","/api/login":"pages/api/login.js","/carbon-assets":"pages/carbon-assets.html","/factories":"pages/factories.html","/dashboard":"pages/dashboard.html","/models":"pages/models.html","/staff":"pages/staff.html","/":"pages/index.html","/_document":"pages/_document.js","/404":"pages/404.html"}
