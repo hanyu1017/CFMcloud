@@ -290,15 +290,9 @@ const Sidebar = ({ isCollapsed, onToggle, currentPath, darkMode }) => {
               margin: 0,
               color: darkMode ? '#ffffff' : '#1e293b'
             }}>
-              智慧工廠
+              能源及碳排放儀表板
             </h2>
-            <p style={{ 
-              fontSize: '0.625rem', 
-              color: darkMode ? '#9ca3af' : '#94a3b8', 
-              margin: 0 
-            }}>
-              監控系統
-            </p>
+           
           </div>
         </div>
         

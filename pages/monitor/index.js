@@ -102,24 +102,24 @@ const FactoryMonitoringDashboard = () => {
         minHeight: '100vh', 
         background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)', 
         color: '#1f2937',
-        padding: '2rem'
+        padding: '1rem' // Reduced from 2rem
       }}>
-        {/* 頂部標題欄 */}
+        {/* 頂部標題欄 - 更緊湊 */}
         <div style={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBottom: '2rem',
+          marginBottom: '1rem', // Reduced from 2rem
           background: '#ffffff',
-          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-          borderRadius: '1rem',
-          padding: '1.5rem',
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+          borderRadius: '0.75rem', // Reduced from 1rem
+          padding: '1rem', // Reduced from 1.5rem
           border: '1px solid #e5e7eb'
         }}>
           <div>
             <h1 style={{ 
-              fontSize: '2.5rem', 
-              fontWeight: '700', 
+              fontSize: '1.75rem', // Reduced from 2.5rem
+              fontWeight: '700',
               background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -127,13 +127,13 @@ const FactoryMonitoringDashboard = () => {
             }}>
               即時監控
             </h1>
-            <p style={{ color: '#6b7280', marginTop: '0.5rem', fontSize: '1.1rem' }}>
+            <p style={{ color: '#6b7280', marginTop: '0.25rem', fontSize: '0.9rem' }}>
               實時監控工廠生產與綠色能源狀況
             </p>
           </div>
           <div style={{ textAlign: 'right' }}>
             <div style={{ 
-              fontSize: '1.5rem', 
+              fontSize: '1.25rem', // Reduced from 1.5rem
               fontWeight: '600',
               background: 'linear-gradient(135deg, #10b981 0%, #2563eb 100%)',
               WebkitBackgroundClip: 'text',
@@ -141,18 +141,18 @@ const FactoryMonitoringDashboard = () => {
             }}>
               {currentTime.toLocaleTimeString()}
             </div>
-            <div style={{ color: '#6b7280', fontSize: '0.9rem' }}>
+            <div style={{ color: '#6b7280', fontSize: '0.8rem' }}>
               {currentTime.toLocaleDateString()}
             </div>
           </div>
         </div>
 
-        {/* 工廠監控區塊 */}
-        <div style={{ marginBottom: '3rem' }}>
+        {/* 工廠監控區塊 - 更緊湊 */}
+        <div style={{ marginBottom: '1.5rem' }}> {/* Reduced from 3rem */}
           <h2 style={{ 
-            fontSize: '2rem', 
+            fontSize: '1.5rem', // Reduced from 2rem
             fontWeight: '600', 
-            marginBottom: '1.5rem',
+            marginBottom: '1rem', // Reduced from 1.5rem
             color: '#2563eb',
             display: 'flex',
             alignItems: 'center'
@@ -160,12 +160,12 @@ const FactoryMonitoringDashboard = () => {
             🏭 工廠生產監控
           </h2>
 
-          {/* 關鍵指標卡片 */}
+          {/* 關鍵指標卡片 - 更緊湊的網格 */}
           <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
-            gap: '1.5rem',
-            marginBottom: '2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', // Reduced from 250px
+            gap: '0.75rem', // Reduced from 1.5rem
+            marginBottom: '1rem' // Reduced from 2rem
           }}>
             {[
               { 
@@ -200,8 +200,8 @@ const FactoryMonitoringDashboard = () => {
               <div key={index} style={{
                 background: '#ffffff',
                 boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-                borderRadius: '1rem',
-                padding: '2rem',
+                borderRadius: '0.75rem', // Reduced from 1rem
+                padding: '1rem', // Reduced from 2rem
                 border: '1px solid #e5e7eb',
                 position: 'relative',
                 overflow: 'hidden'
@@ -216,12 +216,12 @@ const FactoryMonitoringDashboard = () => {
                   background: `linear-gradient(90deg, ${metric.color}, transparent)`
                 }} />
                 
-                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
-                  <span style={{ fontSize: '2rem', marginRight: '1rem' }}>{metric.icon}</span>
+                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem' }}>
+                  <span style={{ fontSize: '2rem', marginRight: '0.75rem' }}>{metric.icon}</span>
                   <div>
-                    <h3 style={{ margin: 0, color: '#1f2937', fontSize: '1rem' }}>{metric.title}</h3>
+                    <h3 style={{ margin: 0, color: '#1f2937', fontSize: '0.9rem' }}>{metric.title}</h3>
                     <div style={{ 
-                      fontSize: '2.5rem', 
+                      fontSize: '2rem', 
                       fontWeight: '700', 
                       color: metric.color,
                       lineHeight: 1
@@ -232,31 +232,35 @@ const FactoryMonitoringDashboard = () => {
                 </div>
                 <div style={{ 
                   color: '#6b7280', 
-                  fontSize: '0.9rem',
+                  fontSize: '0.8rem',
                   display: 'flex',
                   alignItems: 'center'
                 }}>
-                  <span style={{ color: metric.color, marginRight: '0.5rem' }}>▲</span>
+                  <span style={{ color: metric.color, marginRight: '0.25rem' }}>▲</span>
                   {metric.trend}
                 </div>
               </div>
             ))}
           </div>
 
-          {/* 圖表區域 */}
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '2rem' }}>
+          {/* 圖表區域 - 更緊湊 */}
+          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '1rem' }}> {/* Reduced gap */}
             {/* 生產效率趨勢圖 */}
             <div style={{
               background: '#ffffff',
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-              borderRadius: '1rem',
-              padding: '2rem',
+              borderRadius: '0.75rem', // Reduced from 1rem
+              padding: '1rem', // Reduced from 2rem
               border: '1px solid #e5e7eb'
             }}>
-              <h3 style={{ color: '#1f2937', marginBottom: '1.5rem', fontSize: '1.3rem' }}>
+              <h3 style={{ 
+                color: '#1f2937', 
+                marginBottom: '1rem', 
+                fontSize: '1.1rem' // Reduced from 1.3rem
+              }}>
                 📈 生產效率趨勢
               </h3>
-              <ResponsiveContainer width="100%" height={300}>
+              <ResponsiveContainer width="100%" height={250}> {/* Reduced from 300 */}
                 <AreaChart data={productionHistory}>
                   <defs>
                     <linearGradient id="efficiencyGradient" x1="0" y1="0" x2="0" y2="1">
@@ -299,8 +303,8 @@ const FactoryMonitoringDashboard = () => {
             <div style={{
               background: '#ffffff',
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-              borderRadius: '1rem',
-              padding: '2rem',
+              borderRadius: '0.75rem', // Reduced from 1rem
+              padding: '1rem', // Reduced from 2rem
               border: '1px solid #e5e7eb'
             }}>
               <h3 style={{ color: '#1f2937', marginBottom: '1.5rem', fontSize: '1.3rem' }}>
@@ -346,12 +350,12 @@ const FactoryMonitoringDashboard = () => {
           </div>
         </div>
 
-        {/* 綠電設備監控區塊 */}
+        {/* 綠電設備監控區塊 - 更緊湊 */}
         <div>
           <h2 style={{ 
-            fontSize: '2rem', 
+            fontSize: '1.5rem', // Reduced from 2rem
             fontWeight: '600', 
-            marginBottom: '1.5rem',
+            marginBottom: '1rem', // Reduced from 1.5rem
             color: '#10b981',
             display: 'flex',
             alignItems: 'center'
@@ -359,12 +363,12 @@ const FactoryMonitoringDashboard = () => {
             🔋 綠色能源監控
           </h2>
 
-          {/* 能源指標卡片 */}
+          {/* 能源指標卡片 - 更緊湊的網格 */}
           <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
-            gap: '1.5rem',
-            marginBottom: '2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', // Reduced from 250px
+            gap: '0.75rem', // Reduced from 1.5rem
+            marginBottom: '1rem' // Reduced from 2rem
           }}>
             {[
               { 
@@ -399,8 +403,8 @@ const FactoryMonitoringDashboard = () => {
               <div key={index} style={{
                 background: '#ffffff',
                 boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-                borderRadius: '1rem',
-                padding: '2rem',
+                borderRadius: '0.75rem', // Reduced from 1rem
+                padding: '1rem', // Reduced from 2rem
                 border: '1px solid #e5e7eb',
                 position: 'relative',
                 overflow: 'hidden'
@@ -416,12 +420,12 @@ const FactoryMonitoringDashboard = () => {
                   transition: 'width 0.5s ease'
                 }} />
                 
-                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
-                  <span style={{ fontSize: '2rem', marginRight: '1rem' }}>{metric.icon}</span>
+                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem' }}>
+                  <span style={{ fontSize: '2rem', marginRight: '0.75rem' }}>{metric.icon}</span>
                   <div>
-                    <h3 style={{ margin: 0, color: '#1f2937', fontSize: '1rem' }}>{metric.title}</h3>
+                    <h3 style={{ margin: 0, color: '#1f2937', fontSize: '0.9rem' }}>{metric.title}</h3>
                     <div style={{ 
-                      fontSize: '2.5rem', 
+                      fontSize: '2rem', 
                       fontWeight: '700', 
                       color: metric.color,
                       lineHeight: 1
@@ -432,7 +436,7 @@ const FactoryMonitoringDashboard = () => {
                 </div>
                 <div style={{ 
                   color: '#6b7280', 
-                  fontSize: '0.9rem'
+                  fontSize: '0.8rem'
                 }}>
                   容量使用率: {metric.percentage}%
                 </div>
@@ -440,20 +444,24 @@ const FactoryMonitoringDashboard = () => {
             ))}
           </div>
 
-          {/* 綠電圖表區域 */}
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: '2rem' }}>
+          {/* 綠電圖表區域 - 更緊湊 */}
+          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: '1rem' }}> {/* Reduced gap */}
             {/* 能源產生與消耗趨勢 */}
             <div style={{
               background: '#ffffff',
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-              borderRadius: '1rem',
-              padding: '2rem',
+              borderRadius: '0.75rem', // Reduced from 1rem
+              padding: '1rem', // Reduced from 2rem
               border: '1px solid #e5e7eb'
             }}>
-              <h3 style={{ color: '#1f2937', marginBottom: '1.5rem', fontSize: '1.3rem' }}>
+              <h3 style={{ 
+                color: '#1f2937', 
+                marginBottom: '1.5rem', 
+                fontSize: '1.3rem' 
+              }}>
                 ⚡ 能源產消趨勢
               </h3>
-              <ResponsiveContainer width="100%" height={300}>
+              <ResponsiveContainer width="100%" height={250}>
                 <AreaChart data={energyHistory}>
                   <defs>
                     <linearGradient id="solarGradient" x1="0" y1="0" x2="0" y2="1">
@@ -508,14 +516,18 @@ const FactoryMonitoringDashboard = () => {
             <div style={{
               background: '#ffffff',
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-              borderRadius: '1rem',
-              padding: '2rem',
+              borderRadius: '0.75rem', // Reduced from 1rem
+              padding: '1rem', // Reduced from 2rem
               border: '1px solid #e5e7eb'
             }}>
-              <h3 style={{ color: '#1f2937', marginBottom: '1.5rem', fontSize: '1.3rem' }}>
+              <h3 style={{ 
+                color: '#1f2937', 
+                marginBottom: '1.5rem', 
+                fontSize: '1.3rem' 
+              }}>
                 🥧 能源分布
               </h3>
-              <ResponsiveContainer width="100%" height={300}>
+              <ResponsiveContainer width="100%" height={250}>
                 <PieChart>
                   <Pie
                     data={energyDistribution}
@@ -539,11 +551,15 @@ const FactoryMonitoringDashboard = () => {
             <div style={{
               background: '#ffffff',
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-              borderRadius: '1rem',
-              padding: '2rem',
+              borderRadius: '0.75rem', // Reduced from 1rem
+              padding: '1rem', // Reduced from 2rem
               border: '1px solid #e5e7eb'
             }}>
-              <h3 style={{ color: '#1f2937', marginBottom: '1.5rem', fontSize: '1.3rem' }}>
+              <h3 style={{ 
+                color: '#1f2937', 
+                marginBottom: '1.5rem', 
+                fontSize: '1.3rem' 
+              }}>
                 🔋 電池狀態
               </h3>
               <div>
