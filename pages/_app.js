@@ -1,5 +1,5 @@
 // pages/_app.js
-require('../styles/globals.css');
+import '../styles/globals.css'; // CSS 保持 import
 const React = require('react');
 
 function App({ Component, pageProps }) {
