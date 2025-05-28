@@ -1,9 +1,19 @@
 // pages/_app.js
-import '../styles/globals.css'; // CSS 保持 import
-const React = require('react');
+import '../styles/globals.css'; // Import global styles
+import React, { useEffect, useState } from 'react';
 
 function App({ Component, pageProps }) {
-  return React.createElement(Component, pageProps);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null; // Prevent rendering until the DOM is ready
+  }
+
+  return <Component {...pageProps} />;
 }
 
-module.exports = App;
+export default App;
