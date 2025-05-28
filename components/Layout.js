@@ -601,10 +601,7 @@ const PageIndicator = ({ currentPath, darkMode }) => {
       alignItems: 'center',
       gap: '0.375rem'
     }}>
-      <span>目前頁面:</span>
-      <span style={{ color: darkMode ? '#60a5fa' : '#2563eb', fontWeight: '600' }}>
-        {getPageTitle(currentPath)}
-      </span>
+      
     </div>
   );
 };
