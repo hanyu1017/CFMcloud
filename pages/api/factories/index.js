@@ -1,5 +1,6 @@
 // pages/api/factories/index.js
-import pool from "../../../lib/database";
+
+import pool from "../../../lib/database.js"; // 明確添加 .js 擴展名
 
 export default async function handler(req, res) {
   switch (req.method) {
