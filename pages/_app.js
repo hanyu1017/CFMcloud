@@ -1,9 +1,9 @@
 // pages/_app.js
-import '../styles/globals.css'; // CSS 保持 import
-const React = require('react');
+import '../styles/globals.css';
+import React from 'react';
 
 function App({ Component, pageProps }) {
-  return React.createElement(Component, pageProps);
+  return <Component {...pageProps} />;
 }
 
-module.exports = App;
+export default App;
