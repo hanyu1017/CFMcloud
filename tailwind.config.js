@@ -1,15 +1,13 @@
 module.exports = {
-  darkMode: 'class', // This ensures dark mode only applies when 'dark' class is present
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
-      backgroundColor: {
-        'default': '#f9fafb', // gray-50
-        'card': '#ffffff',    // white
-      }
+      fontFamily: {
+        'chinese': ['Microsoft JhengHei', 'PingFang TC', 'Noto Sans TC', 'system-ui', 'sans-serif'],
+      },
     },
   },
   plugins: [],
