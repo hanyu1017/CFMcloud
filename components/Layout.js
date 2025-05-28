@@ -111,10 +111,7 @@ const Sidebar = ({ isCollapsed, onToggle, currentPath, darkMode }) => {
         { icon: 'Orders', label: '工單管理', path: '/work-orders' },
         { icon: 'Maintenance', label: '設備維護', path: '/maintenance' },
         { icon: 'Staff', label: '人員調度', path: '/staff' },
-        { 
-          icon: 'CarbonAsset', 
-          label: '碳資產管理', 
-          path: '/carbon-assets' 
+        { icon: 'CarbonAsset', label: '碳資產管理', path: '/carbon-assets' 
         },
       ]
     },
@@ -133,6 +130,7 @@ const Sidebar = ({ isCollapsed, onToggle, currentPath, darkMode }) => {
         { icon: 'Settings', label: '系統設定', path: '/settings' },
         { icon: 'Users', label: '用戶管理', path: '/users' },
         { icon: 'Permissions', label: '權限管理', path: '/permissions' },
+        { icon: 'Monitor', label: 'n8n 服務', path: '/n8n' }, // 新增 n8n 的連結
       ]
     }
   ];
