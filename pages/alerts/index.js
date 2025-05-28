@@ -187,24 +187,24 @@ const AlertCenterDashboard = () => {
         minHeight: '100vh', 
         background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)', 
         color: '#1f2937',
-        padding: '2rem'
+        padding: '1rem' // 減少整體padding從2rem到1rem
       }}>
-        {/* 頂部標題欄 */}
+        {/* 頂部標題欄 - 更緊湊 */}
         <div style={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBottom: '2rem',
+          marginBottom: '1rem', // 減少margin從2rem到1rem
           background: '#ffffff',
-          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-          borderRadius: '1rem',
-          padding: '1.5rem',
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+          borderRadius: '0.75rem', // 減少圓角
+          padding: '1rem', // 減少padding
           border: '1px solid #e5e7eb'
         }}>
           <div>
             <h1 style={{ 
-              fontSize: '2.5rem', 
-              fontWeight: '700', 
+              fontSize: '2rem', // 減小字體
+              fontWeight: '700',
               background: 'linear-gradient(135deg, #ef4444 0%, #f59e0b 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -212,7 +212,7 @@ const AlertCenterDashboard = () => {
             }}>
               🚨 警報中心
             </h1>
-            <p style={{ color: '#6b7280', marginTop: '0.5rem', fontSize: '1.1rem' }}>
+            <p style={{ color: '#6b7280', marginTop: '0.25rem', fontSize: '1rem' }}>
               即時監控與管理工廠警報狀況
             </p>
           </div>
@@ -246,12 +246,12 @@ const AlertCenterDashboard = () => {
           </div>
         </div>
 
-        {/* 警報統計卡片 */}
+        {/* 警報統計卡片 - 更緊湊的網格 */}
         <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-          gap: '1.5rem',
-          marginBottom: '2rem'
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', // 減少最小寬度
+          gap: '0.75rem', // 減少間距
+          marginBottom: '1rem'
         }}>
           {[
             { title: '總警報數', value: alertStats.total, icon: '📋', color: '#6b7280', desc: '所有等級' },
@@ -263,8 +263,8 @@ const AlertCenterDashboard = () => {
             <div key={index} style={{
               background: '#ffffff',
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-              borderRadius: '1rem',
-              padding: '2rem',
+              borderRadius: '0.75rem', // 減少圓角
+              padding: '1rem', // 減少padding
               border: '1px solid #e5e7eb',
               position: 'relative',
               overflow: 'hidden',
@@ -311,20 +311,29 @@ const AlertCenterDashboard = () => {
           ))}
         </div>
 
-        {/* 圖表區域 */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '2rem', marginBottom: '2rem' }}>
+        {/* 圖表區域 - 更緊湊的布局 */}
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', // 減少最小寬度
+          gap: '0.75rem', // 減少間距
+          marginBottom: '1rem'
+        }}>
           {/* 警報趨勢圖 */}
           <div style={{
             background: '#ffffff',
             boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-            borderRadius: '1rem',
-            padding: '2rem',
+            borderRadius: '0.75rem', // 減少圓角
+            padding: '1rem', // 減少padding
             border: '1px solid #e5e7eb'
           }}>
-            <h3 style={{ color: '#1f2937', marginBottom: '1.5rem', fontSize: '1.3rem' }}>
+            <h3 style={{ 
+              color: '#1f2937', 
+              marginBottom: '1rem', // 減少margin
+              fontSize: '1.1rem' // 減小字體
+            }}>
               📈 警報趨勢分析
             </h3>
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={250}> {/* 減少圖表高度 */}
               <ComposedChart data={alertTrends}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(107, 114, 128, 0.3)" />
                 <XAxis dataKey="date" stroke="#6b7280" />
@@ -378,11 +387,15 @@ const AlertCenterDashboard = () => {
           <div style={{
             background: '#ffffff',
             boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-            borderRadius: '1rem',
-            padding: '2rem',
+            borderRadius: '0.75rem', // 減少圓角
+            padding: '1rem', // 減少padding
             border: '1px solid #e5e7eb'
           }}>
-            <h3 style={{ color: '#1f2937', marginBottom: '1.5rem', fontSize: '1.3rem' }}>
+            <h3 style={{ 
+              color: '#1f2937', 
+              marginBottom: '1.5rem', 
+              fontSize: '1.3rem' 
+            }}>
               🥧 警報分類分布
             </h3>
             <ResponsiveContainer width="100%" height={300}>
@@ -410,11 +423,15 @@ const AlertCenterDashboard = () => {
           <div style={{
             background: '#ffffff',
             boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-            borderRadius: '1rem',
-            padding: '2rem',
+            borderRadius: '0.75rem', // 減少圓角
+            padding: '1rem', // 減少padding
             border: '1px solid #e5e7eb'
           }}>
-            <h3 style={{ color: '#1f2937', marginBottom: '1.5rem', fontSize: '1.3rem' }}>
+            <h3 style={{ 
+              color: '#1f2937', 
+              marginBottom: '1.5rem', 
+              fontSize: '1.3rem' 
+            }}>
               🏭 廠區警報統計
             </h3>
             <ResponsiveContainer width="100%" height={300}>
@@ -441,17 +458,17 @@ const AlertCenterDashboard = () => {
           </div>
         </div>
 
-        {/* 警報列表區域 */}
+        {/* 警報列表區域 - 更緊湊的設計 */}
         <div style={{
           background: '#ffffff',
-          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-          borderRadius: '1rem',
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+          borderRadius: '0.75rem',
           border: '1px solid #e5e7eb',
           overflow: 'hidden'
         }}>
-          {/* 篩選器 */}
+          {/* 篩選器部分更新 */}
           <div style={{
-            padding: '1.5rem',
+            padding: '0.75rem 1rem', // 減少padding
             borderBottom: '1px solid #e5e7eb',
             background: '#f9fafb'
           }}>
@@ -512,8 +529,8 @@ const AlertCenterDashboard = () => {
             </div>
           </div>
 
-          {/* 警報列表 */}
-          <div style={{ maxHeight: '600px', overflowY: 'auto' }}>
+          {/* 警報列表更新 */}
+          <div style={{ maxHeight: '500px', overflowY: 'auto' }}> {/* 減少最大高度 */}
             {filteredAlerts.length === 0 ? (
               <div style={{ 
                 padding: '3rem', 
@@ -525,7 +542,7 @@ const AlertCenterDashboard = () => {
             ) : (
               filteredAlerts.map((alert, index) => (
                 <div key={alert.id} style={{
-                  padding: '1.5rem',
+                  padding: '0.75rem 1rem', // 減少padding
                   borderBottom: index < filteredAlerts.length - 1 ? '1px solid #e5e7eb' : 'none',
                   transition: 'background-color 0.2s ease',
                   position: 'relative'
