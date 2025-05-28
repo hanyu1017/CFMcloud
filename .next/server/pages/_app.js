@@ -1,3 +1,4 @@
+"use strict";
 /*
  * ATTENTION: An "eval-source-map" devtool has been used.
  * This devtool is neither made for production nor for readable output files.
@@ -16,20 +17,9 @@ exports.modules = {
 /*!***********************!*\
   !*** ./pages/_app.js ***!
   \***********************/
-/***/ ((module, exports, __webpack_require__) => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-eval("// pages/_app.js\n\nObject.defineProperty(exports, \"__esModule\", ({\n    value: true\n}));\n__webpack_require__(/*! ../styles/globals.css */ \"./styles/globals.css\");\nconst React = __webpack_require__(/*! react */ \"react\");\nfunction App({ Component, pageProps }) {\n    return React.createElement(Component, pageProps);\n}\nmodule.exports = App;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9fYXBwLmpzIiwibWFwcGluZ3MiOiJBQUFBLGdCQUFnQjs7Ozs7b0JBQ1Q7QUFDUCxNQUFNQSxRQUFRQyxtQkFBT0EsQ0FBQztBQUV0QixTQUFTQyxJQUFJLEVBQUVDLFNBQVMsRUFBRUMsU0FBUyxFQUFFO0lBQ25DLE9BQU9KLE1BQU1LLGFBQWEsQ0FBQ0YsV0FBV0M7QUFDeEM7QUFFQUUsT0FBT0MsT0FBTyxHQUFHTCIsInNvdXJjZXMiOlsid2VicGFjazovL2ZhY3RvcnktZGFzaGJvYXJkLy4vcGFnZXMvX2FwcC5qcz9lMGFkIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIHBhZ2VzL19hcHAuanNcclxuaW1wb3J0ICcuLi9zdHlsZXMvZ2xvYmFscy5jc3MnOyAvLyBDU1Mg5L+d5oyBIGltcG9ydFxyXG5jb25zdCBSZWFjdCA9IHJlcXVpcmUoJ3JlYWN0Jyk7XHJcblxyXG5mdW5jdGlvbiBBcHAoeyBDb21wb25lbnQsIHBhZ2VQcm9wcyB9KSB7XHJcbiAgcmV0dXJuIFJlYWN0LmNyZWF0ZUVsZW1lbnQoQ29tcG9uZW50LCBwYWdlUHJvcHMpO1xyXG59XHJcblxyXG5tb2R1bGUuZXhwb3J0cyA9IEFwcDsiXSwibmFtZXMiOlsiUmVhY3QiLCJyZXF1aXJlIiwiQXBwIiwiQ29tcG9uZW50IiwicGFnZVByb3BzIiwiY3JlYXRlRWxlbWVudCIsIm1vZHVsZSIsImV4cG9ydHMiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./pages/_app.js\n");
-
-/***/ }),
-
-/***/ "./styles/globals.css":
-/*!****************************!*\
-  !*** ./styles/globals.css ***!
-  \****************************/
-/***/ (() => {
-
-
+eval("// pages/_app.js\n\nconst React = __webpack_require__(/*! react */ \"react\");\nconst { useEffect } = React;\nfunction App({ Component, pageProps }) {\n    // 添加基本樣式\n    useEffect(()=>{\n        if (false) {}\n    }, []);\n    return React.createElement(Component, pageProps);\n}\nmodule.exports = App;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9fYXBwLmpzIiwibWFwcGluZ3MiOiJBQUFBLGdCQUFnQjs7QUFDaEIsTUFBTUEsUUFBUUMsbUJBQU9BLENBQUM7QUFDdEIsTUFBTSxFQUFFQyxTQUFTLEVBQUUsR0FBR0Y7QUFFdEIsU0FBU0csSUFBSSxFQUFFQyxTQUFTLEVBQUVDLFNBQVMsRUFBRTtJQUNuQyxTQUFTO0lBQ1RILFVBQVU7UUFDUixJQUFJLEtBQWtCLEVBQWEsRUFxQmxDO0lBQ0gsR0FBRyxFQUFFO0lBRUwsT0FBT0YsTUFBTVEsYUFBYSxDQUFDSixXQUFXQztBQUN4QztBQUVBTyxPQUFPQyxPQUFPLEdBQUdWIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vZmFjdG9yeS1kYXNoYm9hcmQvLi9wYWdlcy9fYXBwLmpzP2UwYWQiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gcGFnZXMvX2FwcC5qc1xyXG5jb25zdCBSZWFjdCA9IHJlcXVpcmUoJ3JlYWN0Jyk7XHJcbmNvbnN0IHsgdXNlRWZmZWN0IH0gPSBSZWFjdDtcclxuXHJcbmZ1bmN0aW9uIEFwcCh7IENvbXBvbmVudCwgcGFnZVByb3BzIH0pIHtcclxuICAvLyDmt7vliqDln7rmnKzmqKPlvI9cclxuICB1c2VFZmZlY3QoKCkgPT4ge1xyXG4gICAgaWYgKHR5cGVvZiB3aW5kb3cgIT09ICd1bmRlZmluZWQnKSB7XHJcbiAgICAgIGNvbnN0IHN0eWxlID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc3R5bGUnKTtcclxuICAgICAgc3R5bGUudGV4dENvbnRlbnQgPSBgXHJcbiAgICAgICAgKiwgKjo6YmVmb3JlLCAqOjphZnRlciB7XHJcbiAgICAgICAgICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG4gICAgICAgIH1cclxuICAgICAgICBcclxuICAgICAgICBodG1sLCBib2R5IHtcclxuICAgICAgICAgIG1hcmdpbjogMDtcclxuICAgICAgICAgIHBhZGRpbmc6IDA7XHJcbiAgICAgICAgICBmb250LWZhbWlseTogJ01pY3Jvc29mdCBKaGVuZ0hlaScsICdQaW5nRmFuZyBUQycsIHN5c3RlbS11aSwgc2Fucy1zZXJpZjtcclxuICAgICAgICAgIGxpbmUtaGVpZ2h0OiAxLjY7XHJcbiAgICAgICAgICBjb2xvcjogIzFmMjkzNztcclxuICAgICAgICB9XHJcbiAgICAgICAgXHJcbiAgICAgICAgYnV0dG9uIHtcclxuICAgICAgICAgIGZvbnQtZmFtaWx5OiBpbmhlcml0O1xyXG4gICAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgICAgIH1cclxuICAgICAgYDtcclxuICAgICAgZG9jdW1lbnQuaGVhZC5hcHBlbmRDaGlsZChzdHlsZSk7XHJcbiAgICB9XHJcbiAgfSwgW10pO1xyXG5cclxuICByZXR1cm4gUmVhY3QuY3JlYXRlRWxlbWVudChDb21wb25lbnQsIHBhZ2VQcm9wcyk7XHJcbn1cclxuXHJcbm1vZHVsZS5leHBvcnRzID0gQXBwOyJdLCJuYW1lcyI6WyJSZWFjdCIsInJlcXVpcmUiLCJ1c2VFZmZlY3QiLCJBcHAiLCJDb21wb25lbnQiLCJwYWdlUHJvcHMiLCJzdHlsZSIsImRvY3VtZW50IiwiY3JlYXRlRWxlbWVudCIsInRleHRDb250ZW50IiwiaGVhZCIsImFwcGVuZENoaWxkIiwibW9kdWxlIiwiZXhwb3J0cyJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./pages/_app.js\n");
 
 /***/ }),
 
@@ -39,7 +29,6 @@ eval("// pages/_app.js\n\nObject.defineProperty(exports, \"__esModule\", ({\n   
   \************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("react");
 
 /***/ })
