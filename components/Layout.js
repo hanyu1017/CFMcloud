@@ -386,6 +386,7 @@ const Sidebar = ({ isCollapsed, onToggle, currentPath, darkMode }) => {
 
 // 通知對話框組件 - 簡約設計
 const NotificationDialog = ({ isOpen, onClose, darkMode }) => {
+  const router = useRouter(); // Add this at the top of the component
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -433,6 +434,11 @@ const NotificationDialog = ({ isOpen, onClose, darkMode }) => {
     zIndex: 50,
     maxHeight: isMobile ? '70vh' : '320px',
     overflow: 'hidden'
+  };
+
+  const handleViewAllNotifications = () => {
+    router.push('/alerts');
+    onClose();
   };
 
   return (
@@ -553,15 +559,27 @@ const NotificationDialog = ({ isOpen, onClose, darkMode }) => {
           textAlign: 'center',
           backgroundColor: darkMode ? '#374151' : '#f8fafc'
         }}>
-          <button style={{
-            fontSize: '0.6875rem',
-            color: '#2563eb',
-            backgroundColor: 'transparent',
-            border: 'none',
-            cursor: 'pointer',
-            fontWeight: '500',
-            padding: '0.25rem'
-          }}>
+          <button 
+            onClick={handleViewAllNotifications}
+            style={{
+              fontSize: '0.6875rem',
+              color: '#2563eb',
+              backgroundColor: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+              fontWeight: '500',
+              padding: '0.25rem',
+              transition: 'all 0.2s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.color = '#1d4ed8';
+              e.target.style.transform = 'translateY(-1px)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.color = '#2563eb';
+              e.target.style.transform = 'translateY(0)';
+            }}
+          >
             查看全部通知
           </button>
         </div>
