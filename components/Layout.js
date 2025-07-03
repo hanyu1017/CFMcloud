@@ -1,914 +1,485 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'; // 新增
 
-// 簡潔的 SVG 圖標組件
+// 簡潔圖標組件
 const Icons = {
   Dashboard: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
       <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
     </svg>
   ),
   Monitor: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20 3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h3l-1 1v1h12v-1l-1-1h3c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H4V5h16v11z"/>
     </svg>
   ),
   Factory: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M22 21H2v-2h1V9l7 3v7h4v-7l7-3v10h1v2zM6 10.47L12 8l6 2.47V19h-5v-7H7v7H6V10.47z"/>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 2.69L18.31 11H17v7H7v-7H5.69L12 5.69z"/>
     </svg>
   ),
-  Alert: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+  AlertTriangle: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
       <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
     </svg>
   ),
-  Orders: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zm2.5-9H18V0h-2v2H8V0H6v2H4.5C3.67 2 3 2.67 3 3.5v17C3 21.33 3.67 22 4.5 22h15c.83 0 1.5-.67 1.5-1.5v-17C21 2.67 20.33 2 19.5 2z"/>
+  FileText: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
     </svg>
   ),
-  Maintenance: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+  Tool: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
       <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
     </svg>
   ),
-  Staff: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 7H16.5c-.8 0-1.54.5-1.85 1.26l-1.92 5.63c-.24.7.28 1.46 1.05 1.46H15v8h1v-2.5c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5V22h1zM12.5 11.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5S11 9.17 11 10s.67 1.5 1.5 1.5zM5.5 6c1.11 0 2-.89 2-2s-.89-2-2-2-2 .89-2 2 .89 2 2 2zm2 16v-7H9l-1.5-3.2c-.28-.65-.9-1.08-1.62-1.08S4.8 11.15 4.5 11.8L3 15h1.5v7h1v-2.5c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5V22h1z"/>
+  UserCheck: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
     </svg>
   ),
-  Reports: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+  CarbonAsset: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17 8h3v12h-3v-12zM12 4h3v16h-3v-16zM7 12h3v8h-3v-8zM3 9h2v10h-2v-10z"/>
     </svg>
   ),
-  Efficiency: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+  BarChart: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/>
+    </svg>
+  ),
+  TrendingUp: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
       <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
     </svg>
   ),
-  Costs: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+  DollarSign: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z"/>
     </svg>
   ),
-  Models: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+  Brain: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M21,9V7A2,2 0 0,0 19,5A2,2 0 0,0 17,7H16A2,2 0 0,0 14,5A2,2 0 0,0 12,7A2,2 0 0,0 10,5A2,2 0 0,0 8,7H7A2,2 0 0,0 5,5A2,2 0 0,0 3,7V9A2,2 0 0,0 1,11A2,2 0 0,0 3,13V15A2,2 0 0,0 5,17H7A2,2 0 0,0 9,19A2,2 0 0,0 11,17H13A2,2 0 0,0 15,19A2,2 0 0,0 17,17H19A2,2 0 0,0 21,15V13A2,2 0 0,0 23,11A2,2 0 0,0 21,9Z"/>
     </svg>
   ),
   Settings: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
       <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
     </svg>
   ),
   Users: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
       <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
     </svg>
   ),
-  Permissions: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+  Shield: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
       <path d="M18,8h-1V6c0-2.76-2.24-5-5-5S7,3.24,7,6v2H6c-1.1,0-2,0.9-2,2v10c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V10 C20,8.9,19.1,8,18,8z M12,17c-1.1,0-2-0.9-2-2s0.9-2,2-2s2,0.9,2,2S13.1,17,12,17z M15.1,8H8.9V6c0-1.71,1.39-3.1,3.1-3.1 s3.1,1.39,3.1,3.1V8z"/>
     </svg>
   ),
-  CarbonAsset: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M17 8h3v12h-3v-12zM12 4h3v16h-3v-16zM7 12h3v8h-3v-8zM3 9h2v10h-2v-10z"/>
+  Workflow: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M3 3h6v6H3zm8 0h6v6h-6zM3 11h6v6H3zm10 0h6v6h-6z"/>
+    </svg>
+  ),
+  Menu: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+    </svg>
+  ),
+  ChevronLeft: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    </svg>
+  ),
+  ChevronRight: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+    </svg>
+  ),
+  Bell: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+    </svg>
+  ),
+  Sun: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+    </svg>
+  ),
+  Moon: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.06 7 9.54 0 4.48-2.94 8.27-7 9.54.95.3 1.95.46 3 .46 5.52 0 10-4.48 10-10S14.52 2 9 2z"/>
+    </svg>
+  ),
+  Home: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+    </svg>
+  ),
+  Close: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
     </svg>
   )
 };
 
-// 側邊欄組件 - 現代化簡約設計
-const Sidebar = ({ isCollapsed, onToggle, currentPath, darkMode }) => {
-  const [isMobile, setIsMobile] = useState(false);
+// 導航配置
+const navigationItems = [
+  {
+    category: '監控總覽',
+    items: [
+      { name: '儀表板', href: '/dashboard', icon: Icons.Dashboard },
+      { name: '即時監控', href: '/monitor', icon: Icons.Monitor, badge: '實時' },
+      { name: '工廠狀態', href: '/factories', icon: Icons.Factory, badge: '3' }
+    ]
+  },
+  {
+    category: '營運管理',
+    items: [
+      { name: '警報中心', href: '/alerts', icon: Icons.AlertTriangle, badge: '2' },
+      { name: '工單管理', href: '/work-orders', icon: Icons.FileText },
+      { name: '設備維護', href: '/maintenance', icon: Icons.Tool },
+      { name: '人員調度', href: '/staff', icon: Icons.UserCheck }
+    ]
+  },
+  {
+    category: '碳資產管理',
+    items: [
+      { name: '碳資產管理', href: '/carbon-assets', icon: Icons.CarbonAsset }
+    ]
+  },
+  {
+    category: '數據分析',
+    items: [
+      { name: '生產報表', href: '/reports', icon: Icons.BarChart },
+      { name: '效率分析', href: '/efficiency-analysis', icon: Icons.TrendingUp },
+      { name: '成本分析', href: '/cost-analysis', icon: Icons.DollarSign },
+      { name: '決策模型', href: '/models', icon: Icons.Brain }
+    ]
+  },
+  {
+    category: '系統管理',
+    items: [
+      { name: '系統設定', href: '/settings', icon: Icons.Settings },
+      { name: '用戶管理', href: '/users', icon: Icons.Users },
+      { name: '權限管理', href: '/permissions', icon: Icons.Shield },
+      { name: 'n8n 服務', href: '/n8n', icon: Icons.Workflow }
+    ]
+  }
+];
+
+// 主要 Layout 組件 - 基於原始代碼的精確修正
+const Layout = ({ children, currentPath = '/dashboard', onNavigate }) => {
   const router = useRouter();
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  const menuItems = [
-    {
-      category: '監控總覽',
-      items: [
-        { icon: 'Dashboard', label: '儀表板', path: '/dashboard' },
-        { icon: 'Monitor', label: '即時監控', path: '/monitor' },
-        { icon: 'Factory', label: '工廠狀態', path: '/factories' },
-      ]
-    },
-    {
-      category: '營運管理',
-      items: [
-        { icon: 'Alert', label: '警報中心', path: '/alerts' },
-        { icon: 'Orders', label: '工單管理', path: '/work-orders' },
-        { icon: 'Maintenance', label: '設備維護', path: '/maintenance' },
-        { icon: 'Staff', label: '人員調度', path: '/staff' },
-        { icon: 'CarbonAsset', label: '碳資產管理', path: '/carbon-assets' 
-        },
-      ]
-    },
-    {
-      category: '數據分析',
-      items: [
-        { icon: 'Reports', label: '生產報表', path: '/reports' },
-        { icon: 'Efficiency', label: '效率分析', path: '/efficiency' },
-        { icon: 'Costs', label: '成本分析', path: '/costs' },
-        { icon: 'Models', label: '決策模型', path: '/models' },
-      ]
-    },
-    {
-      category: '系統管理',
-      items: [
-        { icon: 'Settings', label: '系統設定', path: '/settings' },
-        { icon: 'Users', label: '用戶管理', path: '/users' },
-        { icon: 'Permissions', label: '權限管理', path: '/permissions' },
-        { icon: 'Monitor', label: 'n8n 服務', path: '/n8n' }, // 新增 n8n 的連結
-      ]
-    }
-  ];
-
-  const sidebarStyle = {
-    position: 'fixed',
-    left: 0,
-    top: 0,
-    height: '100vh',
-    width: isCollapsed || isMobile ? (isMobile ? '240px' : '50px') : '180px',
-    background: darkMode 
-      ? 'linear-gradient(180deg, #111827 0%, #1f2937 100%)' 
-      : 'linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)',
-    color: darkMode ? '#ffffff' : '#1e293b',
-    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-    zIndex: 1000,
-    borderRight: `1px solid ${darkMode ? '#374151' : '#e2e8f0'}`,
-    overflow: 'hidden',
-    transform: isMobile 
-      ? (isCollapsed ? 'translateX(-100%)' : 'translateX(0)') 
-      : 'translateX(0)',
-    boxShadow: darkMode 
-      ? '4px 0 24px rgba(0, 0, 0, 0.3)' 
-      : '4px 0 24px rgba(0, 0, 0, 0.06)'
-  };
-
-  const headerStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: (isCollapsed && !isMobile) ? 'center' : 'space-between',
-    padding: (isCollapsed && !isMobile) ? '0.75rem 0' : '0.75rem 0.875rem',
-    borderBottom: `1px solid ${darkMode ? '#374151' : '#e2e8f0'}`,
-    minHeight: '48px',
-    background: darkMode 
-      ? 'linear-gradient(135deg, #1f2937 0%, #374151 100%)' 
-      : 'linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)'
-  };
-
-  const logoContainerStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    opacity: (isCollapsed && !isMobile) ? 0 : 1,
-    transition: 'opacity 0.3s ease'
-  };
-
-  const toggleButtonStyle = {
-    width: '28px',
-    height: '28px',
-    border: 'none',
-    borderRadius: '4px',
-    background: darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    transition: 'all 0.2s ease',
-    color: darkMode ? '#d1d5db' : '#64748b',
-    position: (isCollapsed && !isMobile) ? 'absolute' : 'static',
-    top: (isCollapsed && !isMobile) ? '10px' : 'auto',
-    left: (isCollapsed && !isMobile) ? '50%' : 'auto',
-    transform: (isCollapsed && !isMobile) ? 'translateX(-50%)' : 'none'
-  };
-
-  const navStyle = {
-    padding: (isCollapsed && !isMobile) ? '0.5rem 0.25rem' : '0.625rem 0.25rem',
-    height: 'calc(100vh - 48px)',
-    overflowY: 'auto',
-    overflowX: 'hidden'
-  };
-
-  const categoryStyle = {
-    marginBottom: (isCollapsed && !isMobile) ? '0' : '0.875rem'
-  };
-
-  const categoryTitleStyle = {
-    fontSize: '0.625rem',
-    fontWeight: '600',
-    color: darkMode ? '#9ca3af' : '#94a3b8',
-    textTransform: 'uppercase',
-    letterSpacing: '0.05em',
-    marginBottom: (isCollapsed && !isMobile) ? '0' : '0.375rem',
-    padding: (isCollapsed && !isMobile) ? '0' : '0 0.625rem',
-    opacity: (isCollapsed && !isMobile) ? 0 : 1,
-    transition: 'all 0.3s ease',
-    height: (isCollapsed && !isMobile) ? '0' : 'auto',
-    overflow: 'hidden'
-  };
-
-  const menuItemStyle = (isActive) => ({
-    display: 'flex',
-    alignItems: 'center',
-    padding: (isCollapsed && !isMobile) ? '0.375rem' : '0.5rem 0.625rem',
-    marginBottom: '0.125rem',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
-    textDecoration: 'none',
-    color: isActive 
-      ? (darkMode ? '#ffffff' : '#ffffff') 
-      : (darkMode ? '#d1d5db' : '#64748b'),
-    fontWeight: isActive ? '600' : '500',
-    fontSize: '0.8125rem',
-    background: isActive 
-      ? 'linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)' 
-      : 'transparent',
-    justifyContent: (isCollapsed && !isMobile) ? 'center' : 'flex-start',
-    minHeight: '32px',
-    position: 'relative',
-    boxShadow: isActive ? '0 2px 8px rgba(37, 99, 235, 0.25)' : 'none'
-  });
-
-  const iconStyle = {
-    marginRight: (isCollapsed && !isMobile) ? 0 : '0.625rem',
-    flexShrink: 0,
-    transition: 'all 0.2s ease'
-  };
-
-  const labelStyle = {
-    opacity: (isCollapsed && !isMobile) ? 0 : 1,
-    transition: 'opacity 0.3s ease',
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    fontWeight: 'inherit'
-  };
-
-  const handleNavClick = (path) => {
-    if (isMobile) {
-      onToggle();
-    }
-    router.push(path);
-  };
-
-  const isCurrentPath = (itemPath) => {
-    if (currentPath === itemPath) return true;
-    if (currentPath && itemPath && currentPath.includes(itemPath) && itemPath !== '/') return true;
-    return false;
-  };
-
-  return (
-    <div style={sidebarStyle}>
-      <div style={headerStyle}>
-        <div style={logoContainerStyle}>
-          <div style={{ 
-            fontSize: '1.125rem', 
-            marginRight: '0.5rem',
-            background: 'linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text'
-          }}>
-            🏭
-          </div>
-          <div>
-            <h2 style={{ 
-              fontSize: '0.8125rem', 
-              fontWeight: '700', 
-              margin: 0,
-              color: darkMode ? '#ffffff' : '#1e293b'
-            }}>
-              能源及碳排放儀表板
-            </h2>
-           
-          </div>
-        </div>
-        
-        <button
-          onClick={onToggle}
-          style={toggleButtonStyle}
-          onMouseEnter={(e) => {
-            e.target.style.backgroundColor = darkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.08)';
-            e.target.style.transform = (isCollapsed && !isMobile) ? 'translateX(-50%) scale(1.05)' : 'scale(1.05)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.backgroundColor = darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)';
-            e.target.style.transform = (isCollapsed && !isMobile) ? 'translateX(-50%)' : 'none';
-          }}
-        >
-          <svg width="12" height="12" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"/>
-          </svg>
-        </button>
-      </div>
-
-      <nav style={navStyle}>
-        {menuItems.map((category, categoryIndex) => (
-          <div key={categoryIndex} style={categoryStyle}>
-            <div style={categoryTitleStyle}>
-              {category.category}
-            </div>
-            {category.items.map((item, itemIndex) => {
-              const isActive = isCurrentPath(item.path);
-              const IconComponent = Icons[item.icon];
-              return (
-                <div
-                  key={itemIndex}
-                  style={menuItemStyle(isActive)}
-                  onClick={() => handleNavClick(item.path)}
-                  onMouseEnter={(e) => {
-                    if (!isActive) {
-                      e.target.style.backgroundColor = darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.04)';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isActive) {
-                      e.target.style.backgroundColor = 'transparent';
-                    }
-                  }}
-                >
-                  <div style={iconStyle}>
-                    <IconComponent />
-                  </div>
-                  <span style={labelStyle}>{item.label}</span>
-                  
-                  {isActive && !(isCollapsed && !isMobile) && (
-                    <div style={{
-                      position: 'absolute',
-                      left: 0,
-                      top: '50%',
-                      transform: 'translateY(-50%)',
-                      width: '3px',
-                      height: '16px',
-                      backgroundColor: '#ffffff',
-                      borderRadius: '0 2px 2px 0'
-                    }}></div>
-                  )}
-                  
-                  {isActive && (isCollapsed && !isMobile) && (
-                    <div style={{
-                      position: 'absolute',
-                      right: '4px',
-                      top: '4px',
-                      width: '4px',
-                      height: '4px',
-                      backgroundColor: '#ffffff',
-                      borderRadius: '50%'
-                    }}></div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        ))}
-      </nav>
-    </div>
-  );
-};
-
-// 通知對話框組件 - 簡約設計
-const NotificationDialog = ({ isOpen, onClose, darkMode }) => {
-  const router = useRouter(); // Add this at the top of the component
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  const notifications = [
-    { id: 1, type: 'warning', title: '設備警報', message: '台北工廠 A區生產線溫度異常', time: '5分鐘前' },
-    { id: 2, type: 'info', title: '系統更新', message: '系統將於今晚11點進行維護更新', time: '1小時前' },
-    { id: 3, type: 'success', title: '報表完成', message: '月度生產效率報表已生成完成', time: '2小時前' },
-    { id: 4, type: 'error', title: '連線異常', message: '高雄工廠數據連線中斷', time: '3小時前' }
-  ];
-
-  if (!isOpen) return null;
-
-  const getTypeColor = (type) => {
-    const colors = {
-      warning: '#f59e0b',
-      info: '#2563eb',
-      success: '#059669',
-      error: '#dc2626'
-    };
-    return colors[type] || '#6b7280';
-  };
-
-  const dialogStyle = {
-    position: 'fixed',
-    top: isMobile ? '48px' : '52px',
-    right: isMobile ? '8px' : '16px',
-    left: isMobile ? '8px' : 'auto',
-    width: isMobile ? 'auto' : '320px',
-    maxWidth: isMobile ? 'calc(100vw - 16px)' : '320px',
-    backgroundColor: darkMode ? '#1f2937' : '#ffffff',
-    borderRadius: '6px',
-    boxShadow: darkMode 
-      ? '0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2)' 
-      : '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-    border: `1px solid ${darkMode ? '#374151' : '#e5e7eb'}`,
-    zIndex: 50,
-    maxHeight: isMobile ? '70vh' : '320px',
-    overflow: 'hidden'
-  };
-
-  const handleViewAllNotifications = () => {
-    router.push('/alerts');
-    onClose();
-  };
-
-  return (
-    <>
-      <div 
-        className="fixed inset-0 bg-black bg-opacity-20 z-40"
-        onClick={onClose}
-        style={{ backdropFilter: 'blur(2px)' }}
-      />
-      <div style={dialogStyle}>
-        <div style={{ 
-          padding: '0.75rem 0.875rem', 
-          borderBottom: `1px solid ${darkMode ? '#374151' : '#e5e7eb'}`,
-          backgroundColor: darkMode ? '#374151' : '#f8fafc'
-        }}>
-          <div className="flex items-center justify-between">
-            <h3 style={{ 
-              fontSize: '0.8125rem',
-              fontWeight: '600', 
-              color: darkMode ? '#ffffff' : '#1f2937',
-              margin: 0
-            }}>
-              通知中心
-            </h3>
-            <button 
-              onClick={onClose}
-              style={{
-                color: darkMode ? '#9ca3af' : '#6b7280',
-                backgroundColor: 'transparent',
-                border: 'none',
-                cursor: 'pointer',
-                padding: '0.25rem',
-                borderRadius: '4px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = darkMode ? 'rgba(255, 255, 255, 0.1)' : '#f3f4f6';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-              }}
-            >
-              <svg style={{ width: '16px', height: '16px' }} fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-        
-        <div style={{ 
-          overflowY: 'auto', 
-          maxHeight: isMobile ? 'calc(70vh - 80px)' : '220px'
-        }}>
-          {notifications.map((notification, index) => (
-            <div 
-              key={notification.id} 
-              style={{
-                padding: '0.75rem 0.875rem',
-                borderBottom: index < notifications.length - 1 ? `1px solid ${darkMode ? '#374151' : '#f3f4f6'}` : 'none',
-                cursor: 'pointer',
-                transition: 'background-color 0.15s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = darkMode ? 'rgba(255, 255, 255, 0.05)' : '#f9fafb';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-              }}
-            >
-              <div className="flex items-start space-x-3">
-                <div 
-                  style={{
-                    width: '6px',
-                    height: '6px',
-                    borderRadius: '50%',
-                    backgroundColor: getTypeColor(notification.type),
-                    marginTop: '6px',
-                    flexShrink: 0
-                  }}
-                />
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <h4 style={{
-                    fontSize: '0.75rem',
-                    fontWeight: '600',
-                    color: darkMode ? '#ffffff' : '#1f2937',
-                    margin: '0 0 0.25rem 0',
-                    lineHeight: '1.4'
-                  }}>
-                    {notification.title}
-                  </h4>
-                  <p style={{
-                    fontSize: '0.6875rem',
-                    color: darkMode ? '#d1d5db' : '#6b7280',
-                    margin: '0 0 0.375rem 0',
-                    lineHeight: '1.4',
-                    wordBreak: 'break-word'
-                  }}>
-                    {notification.message}
-                  </p>
-                  <p style={{
-                    fontSize: '0.625rem',
-                    color: darkMode ? '#9ca3af' : '#9ca3b8',
-                    margin: 0
-                  }}>
-                    {notification.time}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        
-        <div style={{ 
-          padding: '0.625rem', 
-          borderTop: `1px solid ${darkMode ? '#374151' : '#e5e7eb'}`, 
-          textAlign: 'center',
-          backgroundColor: darkMode ? '#374151' : '#f8fafc'
-        }}>
-          <button 
-            onClick={handleViewAllNotifications}
-            style={{
-              fontSize: '0.6875rem',
-              color: '#2563eb',
-              backgroundColor: 'transparent',
-              border: 'none',
-              cursor: 'pointer',
-              fontWeight: '500',
-              padding: '0.25rem',
-              transition: 'all 0.2s ease'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.color = '#1d4ed8';
-              e.target.style.transform = 'translateY(-1px)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.color = '#2563eb';
-              e.target.style.transform = 'translateY(0)';
-            }}
-          >
-            查看全部通知
-          </button>
-        </div>
-      </div>
-    </>
-  );
-};
-
-// 頁面標題組件
-const PageIndicator = ({ currentPath, darkMode }) => {
-  const getPageTitle = (path) => {
-    const pathMap = {
-      '/dashboard': '儀表板',
-      '/monitor': '即時監控',
-      '/factories': '工廠狀態',
-      '/alerts': '警報中心',
-      '/work-orders': '工單管理',
-      '/maintenance': '設備維護',
-      '/staff': '人員調度',
-      '/reports': '生產報表',
-      '/efficiency': '效率分析',
-      '/costs': '成本分析',
-      '/models': '決策模型',
-      '/settings': '系統設定',
-      '/users': '用戶管理',
-      '/permissions': '權限管理'
-    };
-    return pathMap[path] || '首頁';
-  };
-
-  return (
-    <div style={{
-      fontSize: '0.75rem',
-      color: darkMode ? '#9ca3af' : '#64748b',
-      fontWeight: '500',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '0.375rem'
-    }}>
-      
-    </div>
-  );
-};
-
-// 主要 Layout 組件 - 現代化簡約版
-const Layout = ({ children, currentPath = '/dashboard' }) => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [isMobile, setIsMobile] = useState(undefined);
   const [darkMode, setDarkMode] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [showMobileSidebar, setShowMobileSidebar] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [showNotifications, setShowNotifications] = useState(false);
-  const [realCurrentPath, setRealCurrentPath] = useState(currentPath);
   const [currentUser] = useState({
     name: '張經理',
     role: '系統管理員',
     avatar: 'ZM'
   });
 
+  // 補上這個函數
+  const handleSidebarToggle = () => {
+    if (isMobile) {
+      setShowMobileSidebar((prev) => !prev);
+    } else {
+      setSidebarCollapsed((prev) => !prev);
+    }
+  };
+
+  // 檢測移動設備 - 修正：移除防抖，直接更新
   useEffect(() => {
     const checkMobile = () => {
       const mobile = window.innerWidth < 1024;
       setIsMobile(mobile);
       if (mobile) {
-        setSidebarCollapsed(true);
+        setShowMobileSidebar(false);
       }
     };
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // 時間更新
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
+    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
 
-  useEffect(() => {
-    const handlePathChange = () => {
-      setRealCurrentPath(window.location.pathname);
+  // 路徑同步 - 修正：確保即時更新
+  // useEffect(() => {
+  //   setActivePath(currentPath);
+  // }, [currentPath]);
+
+  // 導航處理函數
+  const handleNavigate = (path) => {
+    if (isMobile) setShowMobileSidebar(false);
+    if (onNavigate && typeof onNavigate === 'function') {
+      onNavigate(path);
+    }
+    if (router.pathname !== path) {
+      router.push(path);
+    }
+  };
+
+  // 取得當前頁面資訊
+  const getCurrentPageInfo = (path) => {
+    for (const section of navigationItems) {
+      for (const item of section.items) {
+        if (item.href === path) {
+          return {
+            ...item,
+            category: section.category
+          };
+        }
+      }
+    }
+    return {
+      name: '儀表板',
+      category: '監控總覽',
+      icon: Icons.Dashboard
     };
-
-    window.addEventListener('popstate', handlePathChange);
-    return () => window.removeEventListener('popstate', handlePathChange);
-  }, []);
-
-  useEffect(() => {
-    setRealCurrentPath(window.location.pathname || currentPath);
-  }, [currentPath]);
-
-  const formatTime = (date) => {
-    return date.toLocaleString('zh-TW', {
-      month: 'numeric',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    });
   };
 
-  const mainContentStyle = {
-    marginLeft: isMobile ? 0 : (sidebarCollapsed ? '50px' : '180px'),
-    transition: 'margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    backgroundColor: darkMode ? '#111827' : '#f8fafc'
-  };
+  // 用 router.pathname 取得當前頁面
+  const currentPage = getCurrentPageInfo(router.pathname);
 
-  const headerStyle = {
-    height: '48px',
-    background: darkMode 
-      ? 'linear-gradient(135deg, #1f2937 0%, #374151 100%)' 
-      : 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
-    borderBottom: `1px solid ${darkMode ? '#374151' : '#e2e8f0'}`,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: isMobile ? '0 0.75rem' : '0 1rem',
-    position: 'sticky',
-    top: 0,
-    zIndex: 999,
-    boxShadow: darkMode 
-      ? '0 1px 3px rgba(0, 0, 0, 0.2)' 
-      : '0 1px 3px rgba(0, 0, 0, 0.04)'
-  };
-
-  const actionButtonStyle = {
-    width: isMobile ? '36px' : '32px',
-    height: isMobile ? '36px' : '32px',
-    border: 'none',
-    borderRadius: '4px',
-    background: darkMode ? 'rgba(255, 255, 255, 0.1)' : '#f1f5f9',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'relative',
-    transition: 'all 0.15s ease',
-    color: darkMode ? '#d1d5db' : '#64748b'
-  };
-
-  if (isMobile === undefined) return null;
+  const sidebarWidth = isMobile ? 0 : (sidebarCollapsed ? 60 : 240);
 
   return (
     <div style={{
+      fontFamily: "'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', sans-serif",
+      backgroundColor: darkMode ? '#111827' : '#f9fafb',
       minHeight: '100vh',
-      backgroundColor: darkMode ? '#111827' : '#f8fafc',
-      fontFamily: "'Microsoft JhengHei', 'PingFang TC', 'Noto Sans TC', system-ui, sans-serif"
+      display: 'flex'
     }}>
-      <Sidebar 
-        isCollapsed={sidebarCollapsed}
-        onToggle={() => setSidebarCollapsed(!sidebarCollapsed)}
-        currentPath={realCurrentPath}
-        darkMode={darkMode}
-      />
-
-      <div style={mainContentStyle}>
-        <header style={headerStyle}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '0.5rem' : '0.75rem' }}>
-            {/* 手機版選單按鈕 */}
-            {isMobile && (
-              <button
-                onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-                style={{
-                  width: '36px',
-                  height: '36px',
-                  border: 'none',
-                  borderRadius: '4px',
-                  background: darkMode ? 'rgba(255, 255, 255, 0.1)' : '#f1f5f9',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  transition: 'all 0.15s ease',
-                  color: darkMode ? '#d1d5db' : '#64748b'
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = darkMode ? 'rgba(255, 255, 255, 0.15)' : '#e2e8f0';
-                  e.target.style.transform = 'scale(1.05)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = darkMode ? 'rgba(255, 255, 255, 0.1)' : '#f1f5f9';
-                  e.target.style.transform = 'scale(1)';
-                }}
-              >
-                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"/>
-                </svg>
-              </button>
-            )}
-            
-            {!isMobile && <PageIndicator currentPath={realCurrentPath} darkMode={darkMode} />}
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '0.5rem' : '0.625rem' }}>
-            {/* 時間顯示 */}
-            <div style={{ 
-              fontSize: '0.75rem', 
-              color: darkMode ? '#d1d5db' : '#475569',
-              fontWeight: '500'
-            }}>
-              {formatTime(currentTime)}
-            </div>
-
-            {/* 暗黑模式切換 */}
-            <button 
-              style={actionButtonStyle}
-              onClick={() => setDarkMode(!darkMode)}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = darkMode ? 'rgba(255, 255, 255, 0.15)' : '#e2e8f0';
-                e.target.style.transform = 'scale(1.05)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = darkMode ? 'rgba(255, 255, 255, 0.1)' : '#f1f5f9';
-                e.target.style.transform = 'scale(1)';
-              }}
-            >
-              {darkMode ? (
-                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
-                </svg>
-              ) : (
-                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
-                </svg>
-              )}
-            </button>
-
-            {/* 通知按鈕 */}
-            <button 
-              style={actionButtonStyle}
-              onClick={() => setShowNotifications(!showNotifications)}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = darkMode ? 'rgba(255, 255, 255, 0.15)' : '#e2e8f0';
-                e.target.style.transform = 'scale(1.05)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = darkMode ? 'rgba(255, 255, 255, 0.1)' : '#f1f5f9';
-                e.target.style.transform = 'scale(1)';
-              }}
-            >
-              <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
-              </svg>
-              <div style={{
-                position: 'absolute',
-                top: '4px',
-                right: '4px',
-                width: '6px',
-                height: '6px',
-                background: '#dc2626',
-                borderRadius: '50%',
-                border: `1px solid ${darkMode ? '#1f2937' : '#ffffff'}`
-              }}></div>
-            </button>
-
-            {/* 用戶資訊 */}
-            <div style={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: '0.5rem' 
-            }}>
-              {!isMobile && (
-                <div style={{ textAlign: 'right' }}>
-                  <div style={{
-                    fontSize: '0.75rem',
-                    fontWeight: '600',
-                    color: darkMode ? '#ffffff' : '#1e293b'
-                  }}>
-                    {currentUser.name}
-                  </div>
-                  <div style={{
-                    fontSize: '0.625rem',
-                    color: darkMode ? '#9ca3af' : '#64748b'
-                  }}>
-                    {currentUser.role}
-                  </div>
-                </div>
-              )}
-              
-              <div style={{
-                width: isMobile ? '36px' : '32px',
-                height: isMobile ? '36px' : '32px',
+      {/* 側邊欄 */}
+      <div
+        style={{
+          position: 'fixed',
+          left: isMobile ? (showMobileSidebar ? '0' : '-280px') : '0',
+          top: 0,
+          bottom: 0,
+          width: isMobile ? '280px' : (sidebarCollapsed ? '60px' : '240px'),
+          backgroundColor: darkMode ? '#1f2937' : '#ffffff',
+          borderRight: `1px solid ${darkMode ? '#374151' : '#e5e7eb'}`,
+          transition: isMobile 
+            ? 'left 0.3s ease-in-out' 
+            : 'width 0.3s ease-in-out',
+          zIndex: isMobile ? 1100 : 1000,
+          display: 'flex',
+          flexDirection: 'column',
+          boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1)'
+        }}
+      >
+        {/* Logo區域 */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: (sidebarCollapsed && !isMobile) ? 'center' : 'space-between',
+            padding: '16px',
+            borderBottom: `1px solid ${darkMode ? '#374151' : '#e5e7eb'}`,
+            minHeight: '64px'
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              opacity: (sidebarCollapsed && !isMobile) ? 0 : 1,
+              transition: 'opacity 0.3s ease'
+            }}
+          >
+            <div
+              style={{
+                width: '32px',
+                height: '32px',
                 borderRadius: '6px',
-                background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+                backgroundColor: '#3b82f6',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: 'white',
                 fontWeight: '600',
-                fontSize: '0.75rem',
-                cursor: 'pointer',
-                transition: 'transform 0.15s ease'
+                fontSize: '14px',
+                marginRight: '12px'
               }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = 'scale(1.05)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = 'scale(1)';
-              }}
+            >
+              SM
+            </div>
+            <div>
+              <div
+                style={{
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  color: darkMode ? '#f9fafb' : '#111827'
+                }}
               >
-                {currentUser.avatar}
+                智慧管理
+              </div>
+              <div
+                style={{
+                  fontSize: '12px',
+                  color: darkMode ? '#9ca3af' : '#6b7280'
+                }}
+              >
+                Smart Platform
               </div>
             </div>
           </div>
-        </header>
+          
+          <button
+            style={{
+              width: '32px',
+              height: '32px',
+              border: 'none',
+              borderRadius: '6px',
+              backgroundColor: darkMode ? '#374151' : '#f3f4f6',
+              color: darkMode ? '#d1d5db' : '#6b7280',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'all 0.2s ease',
+              position: (sidebarCollapsed && !isMobile) ? 'absolute' : 'static',
+              top: (sidebarCollapsed && !isMobile) ? '16px' : 'auto',
+              left: (sidebarCollapsed && !isMobile) ? '50%' : 'auto',
+              transform: (sidebarCollapsed && !isMobile) ? 'translateX(-50%)' : 'none'
+            }}
+            onClick={handleSidebarToggle}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = darkMode ? '#4b5563' : '#e5e7eb';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = darkMode ? '#374151' : '#f3f4f6';
+            }}
+          >
+            {isMobile ? <Icons.Close /> : (sidebarCollapsed ? <Icons.ChevronRight /> : <Icons.ChevronLeft />)}
+          </button>
+        </div>
 
-        {isMobile && (
-          <div style={{
-            padding: '0.5rem 0.75rem',
-            background: darkMode ? '#1f2937' : '#ffffff',
-            borderBottom: `1px solid ${darkMode ? '#374151' : '#e5e7eb'}`
-          }}>
-            <PageIndicator currentPath={realCurrentPath} darkMode={darkMode} />
-          </div>
-        )}
-
-        <main style={{
-          flex: 1,
-          padding: isMobile ? '0.75rem' : '1rem',
-          backgroundColor: darkMode ? '#111827' : '#f8fafc'
-        }}>
-          {children}
-        </main>
+        {/* 導航區域 */}
+        <nav
+          style={{
+            flex: 1,
+            padding: '16px 12px',
+            overflowY: 'auto'
+          }}
+        >
+          {navigationItems.map((section, sectionIndex) => (
+            <div key={sectionIndex} style={{ marginBottom: '24px' }}>
+              {!(sidebarCollapsed && !isMobile) && (
+                <div
+                  style={{
+                    fontSize: '11px',
+                    fontWeight: '600',
+                    color: darkMode ? '#9ca3af' : '#6b7280',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em',
+                    marginBottom: '8px',
+                    padding: '0 8px'
+                  }}
+                >
+                  {section.category}
+                </div>
+              )}
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                {section.items.map((item) => {
+                  // 這裡直接用 router.pathname 判斷 active
+                  const isActive = router.pathname === item.href;
+                  return (
+                    <button
+                      key={item.href}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        padding: (sidebarCollapsed && !isMobile) ? '10px' : '10px 12px',
+                        borderRadius: '6px',
+                        border: 'none',
+                        backgroundColor: isActive ? '#3b82f6' : 'transparent',
+                        color: isActive 
+                          ? '#ffffff' 
+                          : (darkMode ? '#d1d5db' : '#374151'),
+                        fontWeight: isActive ? '500' : '400',
+                        fontSize: '14px',
+                        cursor: 'pointer',
+                        transition: 'all 0.2s ease',
+                        justifyContent: (sidebarCollapsed && !isMobile) ? 'center' : 'flex-start',
+                        width: '100%',
+                        textAlign: 'left'
+                      }}
+                      onClick={() => handleNavigate(item.href)}
+                      onMouseEnter={(e) => {
+                        if (!isActive) {
+                          e.currentTarget.style.backgroundColor = darkMode ? '#374151' : '#f3f4f6';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!isActive) {
+                          e.currentTarget.style.backgroundColor = 'transparent';
+                        }
+                      }}
+                      title={sidebarCollapsed && !isMobile ? item.name : ''}
+                    >
+                      <div
+                        style={{
+                          marginRight: (sidebarCollapsed && !isMobile) ? 0 : '8px',
+                          display: 'flex',
+                          alignItems: 'center'
+                        }}
+                      >
+                        <item.icon />
+                      </div>
+                      
+                      {!(sidebarCollapsed && !isMobile) && (
+                        <div
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            width: '100%'
+                          }}
+                        >
+                          <span>{item.name}</span>
+                          {item.badge && (
+                            <span
+                              style={{
+                                background: isActive ? 'rgba(255, 255, 255, 0.2)' : (darkMode ? '#4b5563' : '#e5e7eb'),
+                                color: isActive ? 'white' : (darkMode ? '#d1d5db' : '#6b7280'),
+                                fontSize: '10px',
+                                fontWeight: '500',
+                                padding: '2px 6px',
+                                borderRadius: '4px',
+                                minWidth: '16px',
+                                textAlign: 'center'
+                              }}
+                            >
+                              {item.badge}
+                            </span>
+                          )}
+                        </div>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </nav>
       </div>
 
-      <NotificationDialog 
-        isOpen={showNotifications}
-        onClose={() => setShowNotifications(false)}
-        darkMode={darkMode}
-      />
-
-      {/* 手機版遮罩 - 只有當側邊欄展開時才顯示 */}
-      {isMobile && !sidebarCollapsed && (
+      {/* 手機版遮罩 */}
+      {isMobile && showMobileSidebar && (
         <div
           style={{
             position: 'fixed',
@@ -916,13 +487,275 @@ const Layout = ({ children, currentPath = '/dashboard' }) => {
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'rgba(0, 0, 0, 0.4)',
-            zIndex: 999,
-            backdropFilter: 'blur(2px)'
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            zIndex: 1050
           }}
-          onClick={() => setSidebarCollapsed(true)}
+          onClick={() => setShowMobileSidebar(false)}
         />
       )}
+
+      {/* 主內容區域 - 修正：確保正確的 marginLeft */}
+      <div
+        style={{
+          flex: 1,
+          marginLeft: `${sidebarWidth}px`,
+          transition: 'margin-left 0.3s ease-in-out',
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100vh'
+        }}
+      >
+        {/* 頂部欄 - 修正：確保頁面信息即時更新 */}
+        <header
+          style={{
+            height: '64px',
+            backgroundColor: darkMode ? '#1f2937' : '#ffffff',
+            borderBottom: `1px solid ${darkMode ? '#374151' : '#e5e7eb'}`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: isMobile ? '0 16px' : '0 24px',
+            position: 'sticky',
+            top: 0,
+            zIndex: 999
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flex: 1 }}>
+            {/* 手機版菜單按鈕 */}
+            {isMobile && (
+              <button
+                style={{
+                  width: '36px',
+                  height: '36px',
+                  border: 'none',
+                  borderRadius: '6px',
+                  backgroundColor: darkMode ? '#374151' : '#f3f4f6',
+                  color: darkMode ? '#d1d5db' : '#6b7280',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.2s ease'
+                }}
+                onClick={handleSidebarToggle}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = darkMode ? '#4b5563' : '#e5e7eb';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = darkMode ? '#374151' : '#f3f4f6';
+                }}
+              >
+                <Icons.Menu />
+              </button>
+            )}
+
+            <div>
+              <div
+                style={{
+                  fontSize: isMobile ? '18px' : '20px',
+                  fontWeight: '600',
+                  color: darkMode ? '#f9fafb' : '#111827',
+                  margin: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}
+              >
+                <currentPage.icon />
+                {currentPage.name}
+              </div>
+              {!isMobile && (
+                <div style={{ marginTop: '4px' }}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      fontSize: '14px',
+                      color: darkMode ? '#9ca3af' : '#6b7280'
+                    }}
+                  >
+                    <span
+                      style={{
+                        cursor: 'pointer',
+                        padding: '2px 6px',
+                        borderRadius: '4px',
+                        transition: 'background-color 0.2s ease'
+                      }}
+                      onClick={() => handleNavigate('/dashboard')}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = darkMode ? '#374151' : '#f3f4f6';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                      }}
+                    >
+                      首頁
+                    </span>
+                    
+                    <Icons.ChevronRight />
+                    
+                    <span>{currentPage.category}</span>
+                    
+                    <Icons.ChevronRight />
+                    
+                    <span
+                      style={{
+                        color: darkMode ? '#f9fafb' : '#111827',
+                        fontWeight: '500'
+                      }}
+                    >
+                      {currentPage.name}
+                    </span>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            {!isMobile && (
+              <div
+                style={{
+                  fontSize: '12px',
+                  color: darkMode ? '#9ca3af' : '#6b7280',
+                  padding: '6px 10px',
+                  backgroundColor: darkMode ? '#374151' : '#f3f4f6',
+                  borderRadius: '6px',
+                  fontWeight: '500'
+                }}
+              >
+                {currentTime.toLocaleString('zh-TW', {
+                  month: 'numeric',
+                  day: 'numeric',
+                  hour: '2-digit',
+                  minute: '2-digit',
+                  second: '2-digit'
+                })}
+              </div>
+            )}
+
+            <button
+              style={{
+                width: '36px',
+                height: '36px',
+                border: 'none',
+                borderRadius: '6px',
+                backgroundColor: darkMode ? '#374151' : '#f3f4f6',
+                color: darkMode ? '#d1d5db' : '#6b7280',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'all 0.2s ease'
+              }}
+              onClick={() => setDarkMode(!darkMode)}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = darkMode ? '#4b5563' : '#e5e7eb';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = darkMode ? '#374151' : '#f3f4f6';
+              }}
+            >
+              {darkMode ? <Icons.Sun /> : <Icons.Moon />}
+            </button>
+
+            <button
+              style={{
+                width: '36px',
+                height: '36px',
+                border: 'none',
+                borderRadius: '6px',
+                backgroundColor: darkMode ? '#374151' : '#f3f4f6',
+                color: darkMode ? '#d1d5db' : '#6b7280',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = darkMode ? '#4b5563' : '#e5e7eb';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = darkMode ? '#374151' : '#f3f4f6';
+              }}
+            >
+              <Icons.Bell />
+            </button>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '6px' : '10px' }}>
+              {!isMobile && (
+                <div style={{ textAlign: 'right' }}>
+                  <div
+                    style={{
+                      fontSize: '14px',
+                      fontWeight: '500',
+                      color: darkMode ? '#f9fafb' : '#111827'
+                    }}
+                  >
+                    {currentUser.name}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: '12px',
+                      color: darkMode ? '#9ca3af' : '#6b7280'
+                    }}
+                  >
+                    {currentUser.role}
+                  </div>
+                </div>
+              )}
+              
+              <div
+                style={{
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '6px',
+                  backgroundColor: '#3b82f6',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'white',
+                  fontWeight: '500',
+                  fontSize: '14px',
+                  cursor: 'pointer'
+                }}
+              >
+                {currentUser.avatar}
+              </div>
+            </div>
+          </div>
+        </header>
+
+        {/* 主內容 */}
+        <main
+          style={{
+            flex: 1,
+            padding: isMobile ? '16px' : '24px',
+            backgroundColor: darkMode ? '#111827' : '#f9fafb'
+          }}
+        >
+          {/* 調試信息 */}
+          <div
+            style={{
+              position: 'fixed',
+              bottom: '10px',
+              right: '10px',
+              background: 'rgba(0,0,0,0.8)',
+              color: 'white',
+              padding: '8px 12px',
+              borderRadius: '6px',
+              fontSize: '12px',
+              zIndex: 9999
+            }}
+          >
+            當前: {router.pathname} | 側邊欄: {sidebarWidth}px
+          </div>
+          
+          {children}
+        </main>
+      </div>
     </div>
   );
 };
