@@ -314,7 +314,7 @@ const Layout = ({ children, currentPath = '/dashboard', onNavigate }) => {
                 marginRight: '12px'
               }}
             >
-              SM
+              CFM
             </div>
             <div>
               <div
@@ -324,7 +324,7 @@ const Layout = ({ children, currentPath = '/dashboard', onNavigate }) => {
                   color: darkMode ? '#f9fafb' : '#111827'
                 }}
               >
-                智慧管理
+                智慧存貨管理系統
               </div>
               <div
                 style={{
@@ -332,7 +332,7 @@ const Layout = ({ children, currentPath = '/dashboard', onNavigate }) => {
                   color: darkMode ? '#9ca3af' : '#6b7280'
                 }}
               >
-                Smart Platform
+                Smart Inventory Platform
               </div>
             </div>
           </div>
