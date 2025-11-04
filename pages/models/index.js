@@ -188,40 +188,59 @@ export default function ModelsPage() {
 
   return (
     <Layout>
-      <div className="page-header">
-        <h1 className="page-title">決策模型優化系統</h1>
-        <p className="page-subtitle">調整決策變數，即時查看對總利潤的影響</p>
-      </div>
+      <div style={{
+        padding: '20px',
+        minHeight: '100vh',
+        background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
+      }}>
+        <div style={{
+          background: 'white',
+          padding: '16px 20px',
+          borderRadius: '12px',
+          boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
+          border: '1px solid #e2e8f0',
+          marginBottom: '16px'
+        }}>
+          <h1 style={{ margin: 0, fontSize: '20px', fontWeight: '700', color: '#1e293b' }}>決策模型優化系統</h1>
+          <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: '#64748b' }}>調整決策變數，即時查看對總利潤的影響</p>
+        </div>
 
-      {/* 結果展示區 */}
-      <div className="card" style={{ marginBottom: '2rem', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
-        <div className="card-body" style={{ padding: '2rem' }}>
-          <h2 style={{ color: 'white', fontSize: '1.25rem', fontWeight: '600', marginBottom: '1.5rem', textAlign: 'center' }}>
+        {/* 結果展示區 */}
+        <div style={{
+          background: 'white',
+          padding: '16px',
+          borderRadius: '12px',
+          boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
+          border: '1px solid #e2e8f0',
+          marginBottom: '16px'
+        }}>
+          <h2 style={{ margin: '0 0 12px 0', fontSize: '16px', fontWeight: '600', color: '#1e293b' }}>
             模型計算結果
           </h2>
 
-          <div className="grid grid-cols-5" style={{ gap: '1.5rem' }}>
+          <div className="grid grid-cols-5" style={{ gap: '12px' }}>
             {/* 總利潤 - 突出顯示 */}
             <div style={{
               gridColumn: 'span 5',
-              backgroundColor: 'rgba(255, 255, 255, 0.95)',
-              borderRadius: '1rem',
-              padding: '2rem',
+              backgroundColor: '#f8fafc',
+              borderRadius: '8px',
+              padding: '16px',
               textAlign: 'center',
-              boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+              border: '2px solid #e2e8f0',
             }}>
-              <div style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '0.5rem', fontWeight: '500' }}>
+              <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '4px', fontWeight: '500' }}>
                 總利潤 (Total Profit)
               </div>
               <div style={{
-                fontSize: '3rem',
+                fontSize: '32px',
                 fontWeight: 'bold',
                 color: results.totalProfit >= 0 ? '#10b981' : '#ef4444',
-                marginBottom: '0.5rem',
+                marginBottom: '4px',
+                lineHeight: '1',
               }}>
                 ${results.totalProfit.toLocaleString()}
               </div>
-              <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>
+              <div style={{ fontSize: '12px', color: '#64748b' }}>
                 收入 ${results.totalRevenue.toLocaleString()} - 成本 ${results.totalCost.toLocaleString()}
               </div>
             </div>
@@ -260,48 +279,56 @@ export default function ModelsPage() {
           </div>
 
           {/* 成本明細 */}
-          <div className="grid grid-cols-2" style={{ gap: '1rem', marginTop: '1.5rem' }}>
+          <div className="grid grid-cols-2" style={{ gap: '12px', marginTop: '12px' }}>
             <div style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              borderRadius: '0.75rem',
-              padding: '1rem',
+              backgroundColor: '#f8fafc',
+              borderRadius: '8px',
+              padding: '12px',
+              border: '1px solid #e2e8f0',
             }}>
-              <div style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '0.5rem' }}>
+              <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '4px' }}>
                 製造商成本
               </div>
-              <div style={{ fontSize: '1.5rem', fontWeight: '600', color: '#3b82f6' }}>
+              <div style={{ fontSize: '18px', fontWeight: '600', color: '#3b82f6' }}>
                 ${results.manufacturerCost.toLocaleString()}
               </div>
             </div>
             <div style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              borderRadius: '0.75rem',
-              padding: '1rem',
+              backgroundColor: '#f8fafc',
+              borderRadius: '8px',
+              padding: '12px',
+              border: '1px solid #e2e8f0',
             }}>
-              <div style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '0.5rem' }}>
+              <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '4px' }}>
                 零售商成本
               </div>
-              <div style={{ fontSize: '1.5rem', fontWeight: '600', color: '#10b981' }}>
+              <div style={{ fontSize: '18px', fontWeight: '600', color: '#10b981' }}>
                 ${results.retailerCost.toLocaleString()}
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* 決策變數調整區 */}
-      <div className="card" style={{ marginBottom: '1.5rem' }}>
-        <div className="card-header">
-          <h3 className="card-title">決策變數調整</h3>
-          <button
-            className="btn btn-secondary btn-sm"
-            onClick={resetToDefault}
-          >
-            重置預設值
-          </button>
-        </div>
-        <div className="card-body" style={{ padding: '2rem' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        {/* 決策變數調整區 */}
+        <div style={{
+          background: 'white',
+          padding: '16px',
+          borderRadius: '12px',
+          boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
+          border: '1px solid #e2e8f0',
+          marginBottom: '16px'
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+            <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '600', color: '#1e293b' }}>決策變數調整</h3>
+            <button
+              className="btn btn-secondary btn-sm"
+              onClick={resetToDefault}
+              style={{ fontSize: '12px', padding: '4px 12px' }}
+            >
+              重置預設值
+            </button>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <SliderControl
               label="G - 減碳設備與技術的投資金額"
               value={decisionVars.G}
@@ -346,13 +373,17 @@ export default function ModelsPage() {
         </div>
       </div>
 
-      {/* 其他參數調整區 */}
-      <div className="card">
-        <div className="card-header">
-          <h3 className="card-title">其他參數調整</h3>
-          <p className="card-subtitle">調整其他影響因素</p>
-        </div>
-        <div className="card-body" style={{ padding: '2rem' }}>
+        {/* 其他參數調整區 */}
+        <div style={{
+          background: 'white',
+          padding: '16px',
+          borderRadius: '12px',
+          boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
+          border: '1px solid #e2e8f0',
+          marginBottom: '16px'
+        }}>
+          <h3 style={{ margin: '0 0 4px 0', fontSize: '16px', fontWeight: '600', color: '#1e293b' }}>其他參數調整</h3>
+          <p style={{ margin: '0 0 12px 0', fontSize: '12px', color: '#64748b' }}>調整其他影響因素</p>
           <SliderControl
             label="CRM投資 - 客戶關係管理投資金額"
             value={otherParams.crm}
@@ -364,15 +395,17 @@ export default function ModelsPage() {
             color="#8b5cf6"
           />
         </div>
-      </div>
 
-      {/* 決策建議 */}
-      <div className="card" style={{ marginTop: '1.5rem' }}>
-        <div className="card-header">
-          <h3 className="card-title">智能決策建議</h3>
-        </div>
-        <div className="card-body">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        {/* 決策建議 */}
+        <div style={{
+          background: 'white',
+          padding: '16px',
+          borderRadius: '12px',
+          boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
+          border: '1px solid #e2e8f0'
+        }}>
+          <h3 style={{ margin: '0 0 12px 0', fontSize: '16px', fontWeight: '600', color: '#1e293b' }}>智能決策建議</h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {results.totalProfit < 0 && (
               <AlertCard
                 type="error"
@@ -412,24 +445,28 @@ export default function ModelsPage() {
 function ResultCard({ title, value, subtitle, color }) {
   return (
     <div style={{
-      backgroundColor: 'rgba(255, 255, 255, 0.95)',
-      borderRadius: '0.75rem',
-      padding: '1.5rem',
+      backgroundColor: '#f8fafc',
+      borderRadius: '8px',
+      padding: '12px',
       textAlign: 'center',
-      borderTop: `4px solid ${color}`,
+      borderTop: `3px solid ${color}`,
+      border: '1px solid #e2e8f0',
+      borderTopWidth: '3px',
+      borderTopColor: color,
     }}>
-      <div style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '0.75rem', fontWeight: '500' }}>
+      <div style={{ fontSize: '11px', color: '#64748b', marginBottom: '6px', fontWeight: '500' }}>
         {title}
       </div>
       <div style={{
-        fontSize: '1.75rem',
+        fontSize: '20px',
         fontWeight: 'bold',
         color: '#1f2937',
-        marginBottom: '0.5rem',
+        marginBottom: '4px',
+        lineHeight: '1',
       }}>
         {value}
       </div>
-      <div style={{ fontSize: '0.75rem', color: '#9ca3af', lineHeight: '1.3' }}>
+      <div style={{ fontSize: '11px', color: '#94a3b8', lineHeight: '1.3' }}>
         {subtitle}
       </div>
     </div>
@@ -446,23 +483,23 @@ function SliderControl({ label, value, displayValue, onChange, min, max, step, c
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: '1rem'
+        marginBottom: '8px'
       }}>
         <label style={{
-          fontSize: '1rem',
-          fontWeight: '600',
+          fontSize: '13px',
+          fontWeight: '500',
           color: '#374151'
         }}>
           {label}
         </label>
         <div style={{
-          fontSize: '1.25rem',
-          fontWeight: '700',
+          fontSize: '14px',
+          fontWeight: '600',
           color: color,
           backgroundColor: `${color}15`,
-          padding: '0.5rem 1rem',
-          borderRadius: '0.5rem',
-          minWidth: '120px',
+          padding: '4px 12px',
+          borderRadius: '6px',
+          minWidth: '100px',
           textAlign: 'center',
         }}>
           {displayValue}
@@ -479,8 +516,8 @@ function SliderControl({ label, value, displayValue, onChange, min, max, step, c
           onChange={(e) => onChange(e.target.value)}
           style={{
             width: '100%',
-            height: '0.75rem',
-            borderRadius: '0.5rem',
+            height: '8px',
+            borderRadius: '4px',
             background: `linear-gradient(to right, ${color} 0%, ${color} ${percentage}%, #e5e7eb ${percentage}%, #e5e7eb 100%)`,
             outline: 'none',
             appearance: 'none',
@@ -493,9 +530,9 @@ function SliderControl({ label, value, displayValue, onChange, min, max, step, c
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
-        fontSize: '0.875rem',
-        color: '#6b7280',
-        marginTop: '0.5rem',
+        fontSize: '11px',
+        color: '#94a3b8',
+        marginTop: '4px',
         fontWeight: '500',
       }}>
         <span>{min}</span>
@@ -505,31 +542,31 @@ function SliderControl({ label, value, displayValue, onChange, min, max, step, c
       <style jsx>{`
         .custom-slider::-webkit-slider-thumb {
           appearance: none;
-          width: 1.5rem;
-          height: 1.5rem;
+          width: 18px;
+          height: 18px;
           border-radius: 50%;
           background: ${color};
           cursor: pointer;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
           transition: all 0.2s ease;
         }
         .custom-slider::-webkit-slider-thumb:hover {
-          transform: scale(1.2);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+          transform: scale(1.15);
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
         }
         .custom-slider::-moz-range-thumb {
-          width: 1.5rem;
-          height: 1.5rem;
+          width: 18px;
+          height: 18px;
           border-radius: 50%;
           background: ${color};
           cursor: pointer;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
           border: none;
           transition: all 0.2s ease;
         }
         .custom-slider::-moz-range-thumb:hover {
-          transform: scale(1.2);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+          transform: scale(1.15);
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
         }
       `}</style>
     </div>
@@ -574,15 +611,15 @@ function AlertCard({ type, title, message }) {
   return (
     <div style={{
       backgroundColor: style.bg,
-      border: `2px solid ${style.border}`,
-      borderRadius: '0.75rem',
-      padding: '1.25rem',
+      border: `1.5px solid ${style.border}`,
+      borderRadius: '8px',
+      padding: '12px',
       display: 'flex',
-      gap: '1rem',
+      gap: '10px',
       alignItems: 'flex-start',
     }}>
       <div style={{
-        fontSize: '1.5rem',
+        fontSize: '16px',
         fontWeight: 'bold',
         color: style.titleColor,
       }}>
@@ -592,15 +629,15 @@ function AlertCard({ type, title, message }) {
         <h4 style={{
           fontWeight: '600',
           color: style.titleColor,
-          marginBottom: '0.5rem',
-          fontSize: '1rem',
+          marginBottom: '4px',
+          fontSize: '13px',
         }}>
           {title}
         </h4>
         <p style={{
-          fontSize: '0.875rem',
+          fontSize: '12px',
           color: style.messageColor,
-          lineHeight: '1.5',
+          lineHeight: '1.4',
           margin: 0,
         }}>
           {message}
